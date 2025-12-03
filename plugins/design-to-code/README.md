@@ -5,7 +5,7 @@ Claude Code plugin that extracts design systems from references and generates pr
 ## Features
 
 - Extract content structure from URLs
-- Extract design tokens from reference images (Dribbble, screenshots)
+- Extract design tokens from reference images (screenshots, mockups)
 - Generate optimized prompts for Replit, v0, Lovable, Figma
 - Build React 19 + Tailwind v4 components directly with Claude Code
 - Auto-loaded skill to avoid generic "AI slop" aesthetics
