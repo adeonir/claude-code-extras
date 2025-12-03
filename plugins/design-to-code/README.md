@@ -14,7 +14,7 @@ Claude Code plugin that extracts design systems from references and generates pr
 
 ```bash
 # Add marketplace (if not already added)
-/plugin marketplace add adeonir/plugins
+/plugin marketplace add adeonir/claude-code-stuff
 
 # Install plugin
 /plugin install design-to-code

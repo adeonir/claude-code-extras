@@ -33,7 +33,7 @@ Complete plugins with bundled agents, commands, and skills.
 Add this marketplace to Claude Code:
 
 ```bash
-/plugin marketplace add adeonir/plugins
+/plugin marketplace add adeonir/claude-code-stuff
 ```
 
 ### Available Plugins
@@ -53,7 +53,7 @@ Add this marketplace to Claude Code:
 
 ```bash
 # Add marketplace
-/plugin marketplace add adeonir/plugins
+/plugin marketplace add adeonir/claude-code-stuff
 
 # List available plugins
 /plugin marketplace list
@@ -62,7 +62,7 @@ Add this marketplace to Claude Code:
 /plugin install design-to-code
 
 # Update marketplace
-/plugin marketplace update adeonir/plugins
+/plugin marketplace update adeonir/claude-code-stuff
 ```
 
 ## Contributing
