@@ -1,0 +1,16 @@
+{
+  "name": "adeonir/plugins",
+  "owner": {
+    "name": "Adeonir Kohl",
+    "url": "https://github.com/adeonir"
+  },
+  "plugins": [
+    {
+      "name": "design-to-code",
+      "source": "./plugins/design-to-code",
+      "description": "Extract design from references and generate prompts for AI design tools or build React 19 + Tailwind v4 components",
+      "version": "1.0.0",
+      "keywords": ["design", "frontend", "react", "tailwind"]
+    }
+  ]
+}
