@@ -44,13 +44,40 @@ Generate PR details and create the Pull Request directly via `gh` cli.
    gh pr create --title "type: description" --body "..."
    ```
 
-## Format and Guidelines
+## PR Types
 
-See `templates/pr-guidelines.md` for:
-- PR types
-- Title and body format
-- Guidelines
-- Examples
+| Type | Use when |
+|------|----------|
+| `feat` | Adding new functionality |
+| `fix` | Fixing a bug |
+| `refactor` | Restructuring code without changing behavior |
+| `chore` | Maintenance tasks, dependencies, configs |
+| `docs` | Documentation changes |
+| `test` | Adding or updating tests |
+
+## Format
+
+**Title:** `type: concise description` or `type(scope): concise description`
+
+**Body:**
+```markdown
+Brief summary of what this PR does (2-3 sentences max).
+
+## Changes
+- Key change 1
+- Key change 2
+- Key change 3
+```
+
+## Guidelines
+
+- Analyze commits and diff, not conversation context
+- Title and description should reflect the current implementation state
+- Be specific about functionality, not generic
+- Focus on WHAT is being done, not HOW
+- Use imperative mood: "add", "fix", "implement"
+- Keep changes list to 3-5 key items
+- Do not include risk assessment, testing instructions, or technical flow sections
 
 ## Task
 

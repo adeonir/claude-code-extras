@@ -53,13 +53,36 @@ Create a commit with a well-formatted message based on the actual file changes.
    - Check authorship: `git log -1 --format='%an %ae'`
    - If safe, amend the commit with modified files (one retry only)
 
-## Format and Guidelines
+## Commit Types
 
-See `templates/commit-guidelines.md` for:
-- Commit types
-- Message format
-- Guidelines
-- Examples
+| Type | Use when |
+|------|----------|
+| `feat` | Adding new functionality |
+| `fix` | Fixing a bug |
+| `refactor` | Restructuring code without changing behavior |
+| `chore` | Maintenance tasks, dependencies, configs |
+| `docs` | Documentation changes |
+| `test` | Adding or updating tests |
+
+## Message Format
+
+```
+type: concise description in imperative mood
+
+- Optional: area or component affected
+- Optional: another key change
+```
+
+## Guidelines
+
+- Analyze the actual diff, not the conversation context
+- Message should reflect the current state of the implementation
+- Be specific about functionality, not generic
+- Focus on WHAT is being done, not HOW
+- Use imperative mood: "add", "fix", "implement"
+- Do not mention specific files or technical decisions
+- Do not reference future tasks or architectural reasoning
+- Include a body only when the change spans 3+ functional areas (keep to 3-4 concise list items)
 
 ## Task
 
