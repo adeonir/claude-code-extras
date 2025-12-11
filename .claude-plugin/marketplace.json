@@ -6,6 +6,20 @@
   },
   "plugins": [
     {
+      "name": "spec-driven",
+      "source": "./plugins/spec-driven",
+      "description": "Specification-driven development workflow with persistent artifacts for planning, task management, and implementation",
+      "version": "1.0.0",
+      "keywords": ["spec", "specification", "planning", "tasks", "implementation", "workflow"]
+    },
+    {
+      "name": "debug-tools",
+      "source": "./plugins/debug-tools",
+      "description": "Iterative debugging with hypothesis generation, log injection, and runtime analysis via Console Ninja and Chrome DevTools MCP",
+      "version": "1.0.0",
+      "keywords": ["debug", "debugging", "hypothesis", "logs", "runtime", "console-ninja", "devtools"]
+    },
+    {
       "name": "design-builder",
       "source": "./plugins/design-builder",
       "description": "Extract copy and design from references to build frontend components or generate prompts for AI tools",
@@ -18,13 +32,6 @@
       "description": "Git workflow commands for commits, PR descriptions, and code reviews with auto-generated messages based on actual diffs",
       "version": "1.1.0",
       "keywords": ["git", "workflow", "commit", "pr", "code-review"]
-    },
-    {
-      "name": "spec-driven",
-      "source": "./plugins/spec-driven",
-      "description": "Specification-driven development workflow with persistent artifacts for planning, task management, and implementation",
-      "version": "1.0.0",
-      "keywords": ["spec", "specification", "planning", "tasks", "implementation", "workflow"]
     }
   ]
 }

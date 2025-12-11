@@ -1,0 +1,14 @@
+# Project files
+ROADMAP.md
+
+# OS files
+.DS_Store
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Debug artifacts
+.debug/

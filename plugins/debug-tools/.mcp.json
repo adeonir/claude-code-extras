@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "console-ninja": {
+      "command": "npx",
+      "args": ["-y", "-c", "node ~/.console-ninja/mcp"]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/chrome-devtools-mcp"]
+    }
+  }
+}
