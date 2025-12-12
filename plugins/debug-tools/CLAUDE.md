@@ -17,7 +17,7 @@ Inspired by Cursor Debug Mode, this plugin provides systematic debugging through
 debug-tools/
 ├── .claude-plugin/
 │   └── plugin.json
-├── .mcp.json                  # Console Ninja + Chrome DevTools
+├── .mcp.json                  # Console Ninja + Chrome DevTools + Serena
 ├── agents/
 │   ├── bug-investigator.md    # Hypothesis generation and analysis
 │   └── log-injector.md        # Strategic log placement
@@ -75,6 +75,7 @@ Optional MCP servers for enhanced debugging:
 |-----|---------|
 | Console Ninja | Runtime values, test status, code coverage |
 | Chrome DevTools | Network inspection, browser console, DOM |
+| Serena | Semantic code analysis via LSP |
 
 ### Prerequisites
 
@@ -87,6 +88,22 @@ Optional MCP servers for enhanced debugging:
   ```bash
   claude mcp add chrome-devtools -s project -- npx -y @anthropic/chrome-devtools-mcp
   ```
+
+- **Serena**: Requires `uvx` (uv tool runner):
+  ```bash
+  claude mcp add serena -s project -- uvx --from git+https://github.com/oraios/serena serena start-mcp-server --enable-web-dashboard false
+  ```
+
+### Serena Benefits
+
+When Serena MCP is available, agents gain semantic code analysis:
+
+| Phase | Tool | Benefit |
+|-------|------|---------|
+| Hypothesis | `find_symbol` | Precise function/class location |
+| Hypothesis | `find_referencing_symbols` | Trace callers and dependencies |
+| Log Injection | `insert_after_symbol` | Semantic log placement |
+| Analysis | `get_symbols_overview` | Understand code structure |
 
 ## Log Format
 

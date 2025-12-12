@@ -1,7 +1,7 @@
 ---
 name: bug-investigator
 description: Expert bug hunter that analyzes bug descriptions and error logs to generate ranked hypotheses, trace execution paths, analyze runtime logs via Console Ninja/DevTools MCP, and propose minimal fixes. Works iteratively with user feedback to confirm or refine hypotheses.
-tools: Glob, Grep, Read, Bash, mcp__console-ninja__*, mcp__chrome-devtools__*
+tools: Glob, Grep, Read, Bash, mcp__console-ninja__*, mcp__chrome-devtools__*, mcp__serena__find_symbol, mcp__serena__find_referencing_symbols, mcp__serena__get_symbols_overview, mcp__serena__search_for_pattern
 color: red
 ---
 
@@ -30,7 +30,12 @@ You will receive:
    - Note any patterns or triggers mentioned
 
 2. **Search Codebase**
-   - Find relevant code paths using Glob and Grep
+   - Use Serena's semantic tools when available for precise analysis:
+     - `find_symbol` to locate functions, classes, methods by name
+     - `find_referencing_symbols` to trace callers and dependencies
+     - `get_symbols_overview` to understand file structure
+     - `search_for_pattern` for flexible regex-based search
+   - Fall back to Glob and Grep when Serena is unavailable
    - Trace execution flow from entry points
    - Identify state mutations and side effects
 

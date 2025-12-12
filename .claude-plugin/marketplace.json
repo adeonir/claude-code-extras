@@ -15,9 +15,9 @@
     {
       "name": "debug-tools",
       "source": "./plugins/debug-tools",
-      "description": "Iterative debugging with hypothesis generation, log injection, and runtime analysis via Console Ninja and Chrome DevTools MCP",
-      "version": "1.0.0",
-      "keywords": ["debug", "debugging", "hypothesis", "logs", "runtime", "console-ninja", "devtools"]
+      "description": "Iterative debugging with hypothesis generation, log injection, and runtime analysis via Console Ninja, Chrome DevTools, and Serena MCP",
+      "version": "1.1.0",
+      "keywords": ["debug", "debugging", "hypothesis", "logs", "runtime", "console-ninja", "devtools", "serena", "lsp"]
     },
     {
       "name": "design-builder",

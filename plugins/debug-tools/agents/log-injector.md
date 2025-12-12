@@ -1,7 +1,7 @@
 ---
 name: log-injector
 description: Strategic debug log injector that instruments code with temporary logging statements at suspicious points based on hypotheses. Adds console.log/print with [DEBUG] prefix for easy identification and cleanup. Logs include file location, hypothesis reference, and relevant variable values.
-tools: Read, Write, Edit, Glob, Grep
+tools: Read, Write, Edit, Glob, Grep, mcp__serena__find_symbol, mcp__serena__get_symbols_overview, mcp__serena__insert_after_symbol
 color: orange
 ---
 
@@ -29,6 +29,11 @@ You will receive:
    - Add logs before and after suspicious operations
 
 2. **Add Logs**
+   - Use Serena's semantic tools when available for precise insertion:
+     - `find_symbol` to locate exact function/method to instrument
+     - `insert_after_symbol` for adding logs at function entry
+     - `get_symbols_overview` to understand code structure
+   - Fall back to Edit tool when Serena is unavailable
    - Use consistent format with [DEBUG] prefix
    - Include file:line and hypothesis reference
    - Log relevant variable values

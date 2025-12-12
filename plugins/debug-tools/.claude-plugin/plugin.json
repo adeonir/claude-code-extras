@@ -1,13 +1,13 @@
 {
   "name": "debug-tools",
-  "version": "1.0.0",
-  "description": "Iterative debugging with hypothesis generation, log injection, and runtime analysis via Console Ninja and Chrome DevTools MCP",
+  "version": "1.1.0",
+  "description": "Iterative debugging with hypothesis generation, log injection, and runtime analysis via Console Ninja, Chrome DevTools, and Serena MCP",
   "author": {
     "name": "Adeonir Kohl"
   },
   "repository": "https://github.com/adeonir/claude-code-plugins",
   "license": "MIT",
-  "keywords": ["debug", "debugging", "hypothesis", "logs", "runtime", "console-ninja", "devtools"],
+  "keywords": ["debug", "debugging", "hypothesis", "logs", "runtime", "console-ninja", "devtools", "serena", "lsp"],
   "commands": [
     "./commands/debug.md"
   ],
