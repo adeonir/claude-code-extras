@@ -30,7 +30,7 @@
       "name": "git-helpers",
       "source": "./plugins/git-helpers",
       "description": "Git workflow commands for commits, PR descriptions, and code reviews with auto-generated messages based on actual diffs",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "keywords": ["git", "workflow", "commit", "pr", "code-review"]
     }
   ]

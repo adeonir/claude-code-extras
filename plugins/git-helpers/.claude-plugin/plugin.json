@@ -1,6 +1,6 @@
 {
   "name": "git-helpers",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Git workflow helper commands",
   "commands": ["./commands/code-review.md", "./commands/commit.md", "./commands/details.md", "./commands/create-pr.md"],
   "agents": [

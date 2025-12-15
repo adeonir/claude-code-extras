@@ -40,11 +40,15 @@ CODE_REVIEW.md              commit    PR_DETAILS.md  PR created
 Review code changes using the `code-reviewer` agent.
 
 ```bash
-/code-review          # Auto-detect base branch
-/code-review main     # Use main as base
+/code-review          # Review uncommitted changes, or branch diff if clean
+/code-review main     # Compare against main branch
 ```
 
 **Output:** `CODE_REVIEW.md` with issues, suggestions, and summary.
+
+**Modes:**
+- Uncommitted changes: reviews staged + unstaged files
+- Branch comparison: compares against base branch (when no local changes)
 
 ### /commit
 

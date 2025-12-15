@@ -19,8 +19,8 @@ Review code changes using the `code-reviewer` agent.
 
 **Usage:**
 ```bash
-/code-review          # Auto-detect base branch
-/code-review main     # Use main as base
+/code-review          # Review uncommitted changes, or branch diff if clean
+/code-review main     # Compare against main branch
 ```
 
 **Output:** `CODE_REVIEW.md`
@@ -28,6 +28,8 @@ Review code changes using the `code-reviewer` agent.
 **Key behavior:**
 - Analyzes the actual diff, not conversation context
 - Focus: bugs, security, performance, maintainability
+- Supports uncommitted changes (staged + unstaged) when on main with local modifications
+- Falls back to branch comparison when working directory is clean
 
 ### /commit
 

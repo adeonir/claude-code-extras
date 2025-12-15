@@ -5,22 +5,29 @@ argument-hint: [base-branch]
 
 # Code Review Command
 
-Review code changes in the current branch using the `code-reviewer` agent.
+Review code changes using the `code-reviewer` agent.
 
 ## Arguments
 
-- **No argument**: Auto-detect base branch (main > master > develop)
-- **`base-branch`**: Use specified branch as base for comparison
+- **No argument**: Review uncommitted changes (staged + unstaged), or branch diff if on a feature branch
+- **`base-branch`**: Compare current branch against specified base branch
 
 ## Context
 
 - Current branch: !`git branch --show-current`
-- Base branch: $ARGUMENTS or auto-detect from !`git branch -a | grep -E "(main|master|develop)$" | head -1 | xargs basename`
-- Modified files: !`git diff $(git branch -a | grep -E "(main|master|develop)$" | head -1 | xargs basename)...HEAD --name-only`
 
 ## Task
 
-Use the `code-reviewer` agent to review the modified files listed above.
+1. **Detect review mode**:
+   - Run `git status --porcelain` to check for uncommitted changes
+   - If there are uncommitted changes: review those files (working directory changes)
+   - If no uncommitted changes: compare against base branch (use `$ARGUMENTS` if provided, otherwise auto-detect main/master/develop)
+
+2. **Get modified files**:
+   - For uncommitted changes: `git diff --name-only` (unstaged) and `git diff --cached --name-only` (staged)
+   - For branch comparison: `git diff <base-branch>...HEAD --name-only`
+
+3. **Launch code-reviewer agent**: Pass the list of modified files to review
 
 The agent should:
 1. Read each modified file
