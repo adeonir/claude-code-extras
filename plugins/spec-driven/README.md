@@ -21,10 +21,18 @@ Specification-driven development workflow for Claude Code with persistent artifa
 - [Claude Code](https://claude.ai/code) - Anthropic's official CLI for Claude
 - [uv](https://github.com/astral-sh/uv) - Required by Serena MCP for semantic code operations
 
+### Add Marketplace
+
+First, add the marketplace to Claude Code (only needed once):
+
+```bash
+/plugin marketplace add adeonir/claude-code-plugins
+```
+
 ### Install Plugin
 
 ```bash
-claude /plugin install spec-driven
+/plugin install spec-driven
 ```
 
 This command automatically:

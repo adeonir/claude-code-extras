@@ -19,10 +19,18 @@ Iterative debugging workflow for Claude Code with hypothesis generation and runt
 
 - [Claude Code](https://claude.ai/code) - Anthropic's official CLI for Claude
 
+### Add Marketplace
+
+First, add the marketplace to Claude Code (only needed once):
+
+```bash
+/plugin marketplace add adeonir/claude-code-plugins
+```
+
 ### Install Plugin
 
 ```bash
-claude /plugin install debug-tools
+/plugin install debug-tools
 ```
 
 This command automatically:

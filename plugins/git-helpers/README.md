@@ -19,10 +19,18 @@ Git workflow helper commands for Claude Code.
 - [Claude Code](https://claude.ai/code) - Anthropic's official CLI for Claude
 - [gh](https://cli.github.com/) - GitHub CLI (required for `/create-pr` command)
 
+### Add Marketplace
+
+First, add the marketplace to Claude Code (only needed once):
+
+```bash
+/plugin marketplace add adeonir/claude-code-plugins
+```
+
 ### Install Plugin
 
 ```bash
-claude /plugin install git-helpers
+/plugin install git-helpers
 ```
 
 This command automatically:
