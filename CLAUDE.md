@@ -52,7 +52,7 @@ Each plugin follows this structure:
 Specification-driven development workflow:
 `/init` -> `/clarify` -> `/plan` -> `/tasks` -> `/implement` -> `/validate` -> `/archive`
 
-Features organized by sequential ID (`001-user-auth/`, `002-add-2fa/`) with optional branch association. The `/plan` command checks `docs/research/` for existing research before invoking `web-researcher` agent.
+Features organized by sequential ID (`001-user-auth/`, `002-add-2fa/`) with optional branch association. The `/plan` command discovers project documentation (READMEs, diagrams), checks `docs/research/` for existing research, and includes Documentation Context in the plan. The `/validate` command detects unplanned files and reports planning gaps.
 
 Artifacts persisted in `.specs/{ID}-{feature}/` (spec.md, plan.md, tasks.md). Research shared in `docs/research/`. Documentation generated to `docs/features/` via `/archive`.
 

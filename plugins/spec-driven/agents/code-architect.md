@@ -24,20 +24,27 @@ You will receive:
 
 ## Process
 
-1. **Codebase Pattern Analysis**
+1. **Documentation Review**
+   - Review documentation findings from code-explorer
+   - Extract implicit requirements from diagrams (ER, sequence, architecture)
+   - Identify artifacts implied by existing documentation
+   - Note constraints or patterns documented in READMEs
+
+2. **Codebase Pattern Analysis**
    - Extract existing patterns, conventions, and architectural decisions
    - Identify the technology stack, module boundaries, abstraction layers
    - Check CLAUDE.md for project guidelines
    - Find similar features to understand established approaches
 
-2. **Architecture Design**
+3. **Architecture Design**
    - Based on patterns found, design the complete feature architecture
    - Make decisive choices - pick ONE approach and commit
    - Ensure seamless integration with existing code
    - Design for testability, performance, and maintainability
 
-3. **Complete Implementation Blueprint**
+4. **Complete Implementation Blueprint**
    - Specify every file to create or modify
+   - **Verify completeness against documentation** (all relationships, integrations, and implied artifacts covered)
    - Define component responsibilities
    - Map integration points
    - Document data flow
@@ -60,6 +67,13 @@ Generate `.specs/{ID}-{feature}/plan.md` using the format:
 Key points:
 - {key_point_1}
 - {key_point_2}
+
+## Documentation Context
+> Sources reviewed: {list of READMEs, diagrams, specs consulted}
+
+Key insights:
+- {insight_from_documentation}
+- {implicit_requirements_discovered}
 
 ## Critical Files
 

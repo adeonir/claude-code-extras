@@ -102,6 +102,24 @@ For each AC-xxx:
 
 **Only report issues with confidence >= 80**
 
+### 4. Validate Planning Completeness
+
+**Detect Unplanned Files:**
+```bash
+git diff --name-only --diff-filter=A
+```
+
+For each new file created during implementation:
+- Check if it appears in plan.md "Files to Create" table
+- Flag files not in the plan as potential planning gaps
+
+**Gap Analysis:**
+- Categorize unplanned files (schema, utils, types, tests, etc.)
+- Identify patterns (e.g., "relations files consistently missed")
+- Note for future planning improvements
+
+Report gaps even if implementation is correct - this feedback improves the planning phase.
+
 ## Output
 
 ```markdown
@@ -146,12 +164,21 @@ For each AC-xxx:
 - Issue: TOTP validation has no try/catch
 - Fix: Wrap in try/catch, return false on error
 
+### Planning Gaps
+
+| Unplanned File | Category | Pattern |
+|----------------|----------|---------|
+| src/db/relations.ts | Schema | ORM relation files |
+
+**Feedback**: Consider adding "Check for ORM relation requirements" to planning phase.
+
 ### Summary
 
 - Artifacts: 2 valid, 1 warning
 - Consistency: 3 passed, 1 warning
 - AC: 2/3 satisfied, 1 partial
 - Issues: 1 (confidence >= 80)
+- Planning gaps: 1 unplanned file
 - Status: **Needs fixes**
 ```
 
@@ -168,6 +195,8 @@ For each AC-xxx:
 - Any consistency failures
 - Any AC partial/missing
 - Any code issues >= 80 confidence
+
+**Note:** Planning gaps do NOT block completion. They are feedback for improving future planning iterations.
 
 ## Rules
 

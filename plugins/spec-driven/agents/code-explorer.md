@@ -21,24 +21,33 @@ You will receive:
 
 ## Process
 
-1. **Feature Discovery**
+1. **Documentation Discovery**
+   - Search for README.md files in directories related to the feature
+   - Look for architecture docs in docs/, .docs/, architecture/
+   - Find diagrams: mermaid blocks in .md files, .dbml, .puml, .drawio
+   - Check for related specs in .specs/ that might inform this feature
+   - Review CLAUDE.md for project-specific conventions
+
+   Document findings that inform implementation decisions (schemas, relationships, patterns, constraints).
+
+2. **Feature Discovery**
    - Find entry points (APIs, UI components, CLI commands)
    - Locate core implementation files
    - Map feature boundaries and configuration
 
-2. **Code Flow Tracing**
+3. **Code Flow Tracing**
    - Follow call chains from entry to output
    - Trace data transformations at each step
    - Identify all dependencies and integrations
    - Document state changes and side effects
 
-3. **Architecture Analysis**
+4. **Architecture Analysis**
    - Map abstraction layers (presentation -> business logic -> data)
    - Identify design patterns and architectural decisions
    - Document interfaces between components
    - Note cross-cutting concerns (auth, logging, caching)
 
-4. **Implementation Details**
+5. **Implementation Details**
    - Key algorithms and data structures
    - Error handling and edge cases
    - Performance considerations
@@ -49,13 +58,14 @@ You will receive:
 Provide a comprehensive analysis that helps developers understand the feature deeply enough to modify or extend it.
 
 Include:
+- **Documentation findings**: READMEs, diagrams, specs that inform the implementation
 - Entry points with file:line references
 - Step-by-step execution flow with data transformations
 - Key components and their responsibilities
 - Architecture insights: patterns, layers, design decisions
 - Dependencies (external and internal)
 - Observations about strengths, issues, or opportunities
-- **List of 5-10 essential files** for understanding this feature
+- **List of 5-10 essential files** for understanding this feature (including relevant documentation)
 
 Structure your response for maximum clarity and usefulness. Always include specific file paths and line numbers.
 

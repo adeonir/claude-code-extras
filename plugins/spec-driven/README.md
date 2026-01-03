@@ -9,12 +9,14 @@ Specification-driven development workflow for Claude Code with persistent artifa
 - Structured specification creation from descriptions or PRDs
 - **Feature organization by sequential ID** (001-user-auth, 002-add-2fa)
 - **Optional branch association** for automatic feature detection
+- **Documentation discovery** (READMEs, diagrams, architecture docs)
 - Codebase exploration and pattern analysis
 - Technical planning with decisive architectural choices
 - **Shared research** in docs/research/ for cross-feature reuse
 - Task decomposition with dependency tracking
 - Granular implementation (single task, range, or all)
 - **Three-level validation** (artifacts, consistency, code)
+- **Planning completeness validation** (detects unplanned files)
 - **Archive workflow** with documentation generation
 - Semantic code operations via Serena MCP
 
@@ -185,9 +187,9 @@ flowchart TD
 ```
 
 Each phase reads previous artifacts to maintain context:
-- `/plan` checks docs/research/ for existing research
+- `/plan` discovers project documentation, checks docs/research/ for existing research
 - `/implement` reads spec (AC), plan (critical files), and research
-- `/validate` validates artifacts, consistency, and acceptance criteria
+- `/validate` validates artifacts, consistency, acceptance criteria, and planning completeness
 - `/archive` generates documentation with changelog
 
 ## Serena MCP Integration

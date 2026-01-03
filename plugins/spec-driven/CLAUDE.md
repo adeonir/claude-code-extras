@@ -110,11 +110,11 @@ stateDiagram-v2
 | Agent | Role |
 |-------|------|
 | `web-researcher` | Researches external technologies, outputs to docs/research/ |
-| `code-explorer` | Traces feature implementations, maps architecture |
-| `code-architect` | Creates technical plans with decisive choices |
+| `code-explorer` | Discovers project documentation, traces feature implementations, maps architecture |
+| `code-architect` | Reviews documentation context, creates technical plans with decisive choices |
 | `task-generator` | Decomposes plans into trackable tasks |
 | `implement-agent` | Executes tasks respecting dependencies |
-| `spec-validator` | Validates artifacts, consistency, and code quality |
+| `spec-validator` | Validates artifacts, consistency, code quality, and planning completeness |
 | `spec-archiver` | Generates documentation for completed features |
 
 ## Task Markers
@@ -149,14 +149,15 @@ stateDiagram-v2
 ```
 /init  --> spec.md (with frontmatter)
 /plan  --> Reads: spec.md
+           Discovers: READMEs, diagrams, architecture docs
            Checks: docs/research/ for existing research
-           Outputs: docs/research/{topic}.md, plan.md
+           Outputs: docs/research/{topic}.md, plan.md (with Documentation Context)
 /tasks --> Reads: plan.md
            Outputs: tasks.md
 /implement --> Reads: spec.md (AC), plan.md (Critical Files), tasks.md
                Loads: Reference files, docs/research/
 /validate --> Reads: spec.md, plan.md, tasks.md
-              Validates: Artifacts, consistency, code
+              Validates: Artifacts, consistency, code, planning completeness
 /archive --> Reads: spec.md, plan.md
              Outputs: docs/features/{feature}.md
 ```

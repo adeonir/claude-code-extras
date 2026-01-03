@@ -2,6 +2,26 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## v2.1.0 (2026-01-03)
+
+### Added
+- Documentation Discovery phase in `code-explorer` agent
+  - Scans READMEs in related directories
+  - Finds architecture docs, diagrams (mermaid, dbml, puml, drawio)
+  - Checks related specs and CLAUDE.md for conventions
+- Documentation Review phase in `code-architect` agent
+  - Extracts implicit requirements from diagrams
+  - Verifies plan completeness against documentation
+- Documentation Context section in plan.md template
+- Planning Completeness validation in `spec-validator` agent
+  - Detects unplanned files created during implementation
+  - Reports planning gaps for future improvements
+
+### Changed
+- `code-explorer` now includes documentation findings in output
+- `code-architect` verifies files against discovered documentation
+- `spec-validator` reports planning gaps (non-blocking feedback)
+
 ## v2.0.0 (2026-01-03)
 
 ### Added
