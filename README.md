@@ -9,7 +9,7 @@ A personal collection of plugins for Claude Code, organized as a plugin marketpl
 Add this marketplace to Claude Code:
 
 ```bash
-/plugin marketplace add adeonir/claude-code-plugins
+/plugin marketplace add adeonir/claude-code-extras
 ```
 
 ### Available Plugins
@@ -17,7 +17,7 @@ Add this marketplace to Claude Code:
 | Plugin | Description | Version |
 |--------|-------------|---------|
 | [spec-driven](./plugins/spec-driven) | Specification-driven development with feature IDs, validation, and archive workflow | 2.0.0 |
-| [debug-tools](./plugins/debug-tools) | Debugging with code analysis and targeted log injection | 1.2.1 |
+| [debug-tools](./plugins/debug-tools) | Iterative debugging workflow with confidence scoring and runtime analysis | 1.3.0 |
 | [design-builder](./plugins/design-builder) | Extract copy and design to build frontend components | 3.0.0 |
 | [git-helpers](./plugins/git-helpers) | Git workflow commands (commit, PR, code review) | 1.1.1 |
 
@@ -31,7 +31,7 @@ Add this marketplace to Claude Code:
 
 ```bash
 # Add marketplace
-/plugin marketplace add adeonir/claude-code-plugins
+/plugin marketplace add adeonir/claude-code-extras
 
 # List available plugins
 /plugin marketplace list
@@ -40,7 +40,7 @@ Add this marketplace to Claude Code:
 /plugin install design-builder
 
 # Update marketplace
-/plugin marketplace update adeonir/claude-code-plugins
+/plugin marketplace update adeonir/claude-code-extras
 ```
 
 ## Contributing

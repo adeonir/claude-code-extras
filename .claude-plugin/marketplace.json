@@ -15,9 +15,9 @@
     {
       "name": "debug-tools",
       "source": "./plugins/debug-tools",
-      "description": "Debugging with code analysis, targeted log injection, and runtime inspection via Console Ninja and Chrome DevTools MCP",
-      "version": "1.2.1",
-      "keywords": ["debug", "debugging", "logs", "runtime", "console-ninja", "devtools"]
+      "description": "Iterative debugging workflow with confidence scoring and runtime analysis via Console Ninja and Chrome DevTools MCP",
+      "version": "1.3.0",
+      "keywords": ["debug", "debugging", "logs", "runtime", "console-ninja", "devtools", "workflow"]
     },
     {
       "name": "design-builder",

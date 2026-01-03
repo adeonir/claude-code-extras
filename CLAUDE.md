@@ -58,9 +58,9 @@ Features organized by sequential ID (`001-user-auth/`, `002-add-2fa/`) with opti
 Artifacts persisted in `.specs/{ID}-{feature}/` (spec.md, plan.md, tasks.md). Research shared in `docs/research/`. Documentation generated to `docs/features/` via `/archive`.
 
 ### debug-tools
-Iterative debugging workflow: `/debug "bug description"`
+Iterative debugging workflow: `/debug-tools:debug "bug description"`
 
-Conversational flow: generates hypotheses -> injects `[DEBUG]` logs -> user reproduces -> analyzes runtime logs -> proposes fix -> user verifies -> cleanup.
+5-phase workflow: Investigate (with confidence scoring) -> Inject Logs -> Propose Fix -> Verify -> Cleanup. Findings rated 0-100: >= 70 high confidence, 50-69 medium, < 50 not reported.
 
 Uses Console Ninja MCP for runtime values and Chrome DevTools MCP for browser inspection.
 

@@ -2,17 +2,18 @@
 
 Guide for debugging with targeted log injection and runtime analysis.
 
-## When to Use
+## When to Activate
 
-Activates when users describe bugs:
+Suggest `/debug-tools:debug` when users describe:
 - "X is not working"
 - "Getting error Y when doing Z"
 - "Something broke after [change]"
+- Silent failures or unexpected behavior
 
 ## Log Format
 
-```
-[DEBUG] [file:line] description { values }
+```javascript
+console.log('[DEBUG] [file:line] description', { values });
 ```
 
 - `[DEBUG]` - Prefix for grep and cleanup
@@ -35,7 +36,7 @@ useEffect(() => {
 }, [deps]);
 
 // State
-console.log('[DEBUG] [Component.tsx:25] setState', { prev: state, next: newValue });
+console.log('[DEBUG] [Component.tsx:25] before setState', { current: state });
 ```
 
 ### Node.js/Express
@@ -45,7 +46,7 @@ console.log('[DEBUG] [Component.tsx:25] setState', { prev: state, next: newValue
 console.log('[DEBUG] [route.ts:10] request', { method: req.method, path: req.path });
 
 // Error
-console.log('[DEBUG] [service.ts:30] error', { name: err.name, message: err.message });
+console.log('[DEBUG] [service.ts:30] caught error', { name: err.name, message: err.message });
 ```
 
 ### API Calls
@@ -60,17 +61,27 @@ console.log('[DEBUG] [api.ts:15] fetch done', { status: res.status, ok: res.ok }
 | Pattern | Symptom | Check |
 |---------|---------|-------|
 | Null access | "Cannot read property X of undefined" | Optional chaining, defaults |
-| Race condition | Works sometimes, fails randomly | Async ordering, state during render |
+| Race condition | Works sometimes, fails randomly | Async ordering, state timing |
 | Stale closure | Using old values in callbacks | useCallback deps, event bindings |
 | API mismatch | Data not displaying | Response shape, null handling |
-| Auth issues | Logged out unexpectedly | Token expiry, refresh logic |
+| Silent error | Nothing happens | Empty catch blocks, missing error state |
+
+## Confidence Scoring
+
+| Score | Meaning | Action |
+|-------|---------|--------|
+| >= 70 | High - clear evidence | Report as probable cause |
+| 50-69 | Medium - possible | Suggest logs to confirm |
+| < 50 | Low - speculation | Do not report |
 
 ## Cleanup
 
-After debugging, remove all logs:
+After debugging, all `[DEBUG]` logs are removed automatically.
+
+Manual check:
 
 ```bash
-grep -rn '\[DEBUG\]' . --include='*.ts' --include='*.tsx' --include='*.js'
+grep -rn '\[DEBUG\]' . --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx'
 ```
 
 ## MCP Integration

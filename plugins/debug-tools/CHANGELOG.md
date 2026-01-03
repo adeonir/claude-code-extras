@@ -2,6 +2,23 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## v1.3.0 (2026-01-03)
+
+### Added
+- Structured 5-phase workflow (Investigate, Inject, Propose, Verify, Cleanup)
+- Confidence scoring for findings (High >= 70, Medium 50-69, Low < 50)
+- Structured output format with file:line references
+- Automatic cleanup of debug logs after fix verified
+- Mermaid workflow diagram in documentation
+- "When to Use / When NOT to Use" guidance
+
+### Changed
+- bug-investigator now uses confidence scoring
+- log-injector handles both injection and cleanup phases
+- debug command includes full workflow documentation
+- Updated SKILL.md with confidence scoring patterns
+- Command prefix changed to `/debug-tools:debug`
+
 ## v1.2.1 (2025-12-15)
 
 ### Changed

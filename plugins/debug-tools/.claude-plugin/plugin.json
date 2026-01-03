@@ -1,11 +1,11 @@
 {
   "name": "debug-tools",
-  "version": "1.2.1",
-  "description": "Debugging with code analysis, targeted log injection, and runtime inspection via Console Ninja and Chrome DevTools MCP",
+  "version": "1.3.0",
+  "description": "Iterative debugging workflow with confidence scoring and runtime analysis via Console Ninja and Chrome DevTools MCP",
   "author": {
     "name": "Adeonir Kohl"
   },
-  "repository": "https://github.com/adeonir/claude-code-plugins",
+  "repository": "https://github.com/adeonir/claude-code-extras",
   "license": "MIT",
   "keywords": ["debug", "debugging", "logs", "runtime", "console-ninja", "devtools"],
   "commands": [
