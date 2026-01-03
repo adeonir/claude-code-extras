@@ -1,5 +1,4 @@
 ---
-name: code-review
 description: Review code changes using specialized agents
 argument-hint: "[base-branch] [--comment]"
 ---

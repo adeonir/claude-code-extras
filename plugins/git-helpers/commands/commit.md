@@ -1,5 +1,4 @@
 ---
-name: commit
 description: Create commits with well-formatted messages
 argument-hint: "[-s|--staged]"
 ---

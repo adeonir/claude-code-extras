@@ -1,5 +1,4 @@
 ---
-name: specs
 description: List all features by status
 ---
 

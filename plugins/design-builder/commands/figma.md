@@ -1,5 +1,4 @@
 ---
-name: figma
 description: Generate HTML and export to Figma via YashiTech plugin
 argument-hint: ""
 ---

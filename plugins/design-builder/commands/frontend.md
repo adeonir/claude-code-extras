@@ -1,5 +1,4 @@
 ---
-name: frontend
 description: Build frontend components from design tokens
 argument-hint: [--variants]
 ---

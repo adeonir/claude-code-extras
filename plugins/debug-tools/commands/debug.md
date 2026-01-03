@@ -1,5 +1,4 @@
 ---
-name: debug
 description: Start debugging session with investigation and targeted logging
 argument-hint: "bug description"
 ---

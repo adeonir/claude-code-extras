@@ -1,5 +1,4 @@
 ---
-name: plan
 description: Define product vision, data models, and features from scratch
 argument-hint: [--type=landing|website|webapp|app]
 ---

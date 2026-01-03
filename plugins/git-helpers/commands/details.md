@@ -1,5 +1,4 @@
 ---
-name: details
 description: Generate PR title and description to file
 argument-hint: "[base-branch]"
 ---

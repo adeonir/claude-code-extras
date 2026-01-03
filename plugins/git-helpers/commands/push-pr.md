@@ -1,5 +1,4 @@
 ---
-name: push-pr
 description: Push branch and create PR with generated details
 argument-hint: "[base-branch]"
 ---
