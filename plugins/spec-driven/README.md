@@ -12,8 +12,10 @@ Specification-driven development workflow for Claude Code with persistent artifa
 - **Documentation discovery** (READMEs, diagrams, architecture docs)
 - Codebase exploration and pattern analysis
 - Technical planning with decisive architectural choices
+- **Requirements Traceability** in plan.md (FR-xxx mapped to components)
 - **Shared research** in docs/research/ for cross-feature reuse
 - Task decomposition with dependency tracking
+- **Requirements Coverage** in tasks.md (every FR-xxx has tasks)
 - Granular implementation (single task, range, or all)
 - **Three-level validation** (artifacts, consistency, code)
 - **Planning completeness validation** (detects unplanned files)
@@ -155,13 +157,22 @@ docs/
 
 ## Task Markers
 
-Tasks use markers to indicate parallelization:
+Tasks are organized by category (Foundation, Implementation, Validation, Documentation) with markers for parallelization:
 
 ```markdown
-- [ ] T001 [P] Setup auth provider        # Parallel-safe
-- [ ] T002 [P] Create user schema         # Parallel-safe
+## Foundation
+- [ ] T001 [P] Create user schema         # Parallel-safe
+- [ ] T002 [P] Setup auth provider        # Parallel-safe
+
+## Implementation
 - [ ] T003 [B:T001,T002] Implement login  # Blocked by T001 and T002
 - [ ] T004 [B:T003] Add error handling    # Blocked by T003
+
+## Validation
+- [ ] T005 [B:T004] Run type checks       # Blocked by T004
+
+## Documentation
+- [ ] T006 [P] Update README              # Parallel-safe
 ```
 
 ## Workflow
@@ -187,7 +198,8 @@ flowchart TD
 ```
 
 Each phase reads previous artifacts to maintain context:
-- `/plan` discovers project documentation, checks docs/research/ for existing research
+- `/plan` discovers project documentation, checks docs/research/ for existing research, outputs Requirements Traceability
+- `/tasks` reads spec.md (FR-xxx, AC-xxx) and plan.md, outputs Requirements Coverage
 - `/implement` reads spec (AC), plan (critical files), and research
 - `/validate` validates artifacts, consistency, acceptance criteria, and planning completeness
 - `/archive` generates documentation with changelog

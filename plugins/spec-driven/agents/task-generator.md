@@ -17,30 +17,41 @@ Convert a technical plan (plan.md) into an actionable task list (tasks.md) with 
 
 You will receive:
 - Technical plan (plan.md) including Critical Files section
+- Specification (spec.md) with functional requirements (FR-xxx) and acceptance criteria (AC-xxx)
 - Feature ID and name
 
 ## Process
 
-1. **Read the Plan**
+1. **Extract Requirements**
+   - Read spec.md and list all FR-xxx requirements
+   - Note all AC-xxx acceptance criteria
+   - These MUST all be addressed by tasks
+
+2. **Read the Plan**
    - Understand the implementation map
    - Identify component dependencies
    - Note the build sequence
 
-2. **Decompose into Tasks**
+3. **Decompose into Tasks**
    - Break down into atomic, actionable items
    - Each task should be completable in one focused session
    - Include relevant file paths in task descriptions
 
-3. **Assign IDs and Markers**
+4. **Assign IDs and Markers**
    - Sequential IDs: T001, T002, T003...
    - `[P]` - Parallel-safe: can run alongside other [P] tasks
    - `[B:Txxx]` - Blocked: depends on specific task(s)
 
-4. **Organize by Category**
-   - Setup & Dependencies
-   - Core Implementation
-   - Testing & Validation
-   - Polish & Documentation
+5. **Organize by Category**
+   - Foundation (base setup, types, config, dependencies)
+   - Implementation (core feature code, business logic)
+   - Validation (quality checks, tests, verification)
+   - Documentation (docs, comments, guides)
+
+6. **Verify Requirements Coverage**
+   - Each FR-xxx must have at least one task
+   - Each AC-xxx should have validation approach in Validation category
+   - If any requirement is not covered, add task for it
 
 ## Output
 
@@ -58,22 +69,30 @@ Total: {count} | Completed: 0 | Remaining: {count}
 - Plan: .specs/{ID}-{feature}/plan.md
 - Research: docs/research/{topic}.md (if exists)
 
-## Setup & Dependencies
+## Foundation
 - [ ] T001 [P] {task_description with file path}
 - [ ] T002 [P] {task_description with file path}
 
-## Core Implementation
+## Implementation
 - [ ] T003 [B:T001,T002] {task_description with file path}
 - [ ] T004 [B:T003] {task_description with file path}
 
-## Testing & Validation
-- [ ] T005 [B:T003] {task_description with file path}
+## Validation
+- [ ] T005 [B:T004] {task_description with file path}
 
-## Polish & Documentation
+## Documentation
 - [ ] T006 [P] {task_description}
 
 ---
 Legend: [P] = parallel-safe, [B:Txxx] = blocked by task(s)
+
+## Requirements Coverage
+
+| Requirement | Task(s) | Description |
+|-------------|---------|-------------|
+| FR-001 | T001, T002 | {brief description} |
+| FR-002 | T003 | {brief description} |
+| AC-001 | T005 | {how it's validated} |
 ```
 
 ## Rules
@@ -84,6 +103,7 @@ Legend: [P] = parallel-safe, [B:Txxx] = blocked by task(s)
 4. **Enable parallelization** - Mark independent tasks as [P]
 5. **Follow project conventions** - Match testing methodology from CLAUDE.md
 6. **File refs for complex tasks only** - Add explicit file references (indented under task) only when: multiple files involved, non-obvious patterns, or complex dependencies
+7. **Cover all requirements** - Every FR-xxx must have at least one task, every AC-xxx must have validation
 
 ## Task Guidelines
 

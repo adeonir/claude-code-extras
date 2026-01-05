@@ -2,6 +2,27 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## v2.2.0 (2026-01-05)
+
+### Added
+- Requirements Traceability in `code-architect` agent
+  - New "Requirements Mapping" step in process
+  - Mandatory "Requirements Traceability" table in plan.md output
+- Requirements Coverage in `task-generator` agent
+  - New "Extract Requirements" step to read spec.md
+  - New "Verify Requirements Coverage" step
+  - Mandatory "Requirements Coverage" table in tasks.md output
+- `/tasks` command now passes spec.md to task-generator agent
+
+### Changed
+- Task categories renamed for clarity:
+  - "Setup & Dependencies" -> "Foundation"
+  - "Core Implementation" -> "Implementation"
+  - "Testing & Validation" -> "Validation"
+  - "Polish & Documentation" -> "Documentation"
+- `code-architect` must map every FR-xxx to components
+- `task-generator` must ensure every FR-xxx has at least one task
+
 ## v2.1.0 (2026-01-03)
 
 ### Added

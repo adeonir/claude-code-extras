@@ -24,27 +24,32 @@ You will receive:
 
 ## Process
 
-1. **Documentation Review**
+1. **Requirements Mapping**
+   - List all FR-xxx from spec.md
+   - For each requirement, identify which component(s) will address it
+   - If any FR-xxx cannot be mapped to a component, flag as gap
+
+2. **Documentation Review**
    - Review documentation findings from code-explorer
    - Extract implicit requirements from diagrams (ER, sequence, architecture)
    - Identify artifacts implied by existing documentation
    - Note constraints or patterns documented in READMEs
 
-2. **Codebase Pattern Analysis**
+3. **Codebase Pattern Analysis**
    - Extract existing patterns, conventions, and architectural decisions
    - Identify the technology stack, module boundaries, abstraction layers
    - Check CLAUDE.md for project guidelines
    - Find similar features to understand established approaches
 
-3. **Architecture Design**
+4. **Architecture Design**
    - Based on patterns found, design the complete feature architecture
    - Make decisive choices - pick ONE approach and commit
    - Ensure seamless integration with existing code
    - Design for testability, performance, and maintainability
 
-4. **Complete Implementation Blueprint**
+5. **Complete Implementation Blueprint**
    - Specify every file to create or modify
-   - **Verify completeness against documentation** (all relationships, integrations, and implied artifacts covered)
+   - Verify completeness against documentation and requirements
    - Define component responsibilities
    - Map integration points
    - Document data flow
@@ -109,6 +114,13 @@ Key insights:
 ## Data Flow
 {complete flow from entry points through transformations to outputs}
 
+## Requirements Traceability
+
+| Requirement | Component | Files | Notes |
+|-------------|-----------|-------|-------|
+| FR-001 | {component} | {file paths} | {brief note} |
+| FR-002 | {component} | {file paths} | {brief note} |
+
 ## Considerations
 - Error Handling: {approach}
 - Testing: {strategy}
@@ -122,6 +134,7 @@ Key insights:
 3. **Be complete** - Cover all aspects needed for implementation
 4. **Follow conventions** - Match existing codebase patterns
 5. **Think ahead** - Consider edge cases, error handling, testing
+6. **Map all requirements** - Every FR-xxx must appear in Requirements Traceability table
 
 ## Output Location
 

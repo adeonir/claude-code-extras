@@ -52,7 +52,7 @@ Each plugin follows this structure:
 Specification-driven development workflow:
 `/init` -> `/clarify` -> `/plan` -> `/tasks` -> `/implement` -> `/validate` -> `/archive`
 
-Features organized by sequential ID (`001-user-auth/`, `002-add-2fa/`) with optional branch association. The `/plan` command discovers project documentation (READMEs, diagrams), checks `docs/research/` for existing research, and includes Documentation Context in the plan. The `/validate` command detects unplanned files and reports planning gaps.
+Features organized by sequential ID (`001-user-auth/`, `002-add-2fa/`) with optional branch association. The `/plan` command discovers project documentation, generates Requirements Traceability (FR-xxx mapped to components). The `/tasks` command receives spec.md and generates Requirements Coverage (every FR-xxx has tasks). Task categories: Foundation, Implementation, Validation, Documentation.
 
 Artifacts persisted in `.specs/{ID}-{feature}/` (spec.md, plan.md, tasks.md). Research shared in `docs/research/`. Documentation generated to `docs/features/` via `/archive`.
 
@@ -87,3 +87,15 @@ Confidence-scored code review (>= 80 threshold) with CLAUDE.md compliance checki
 2. Add `.claude-plugin/plugin.json` manifest with arrays for `commands`, `agents`, `skills`
 3. Register in `.claude-plugin/marketplace.json`
 4. Commands/agents/skills are markdown files with prompts
+
+## Version Bumps
+
+When bumping a plugin version, update ALL references:
+
+1. `plugins/<name>/.claude-plugin/plugin.json` - version field
+2. `plugins/<name>/CHANGELOG.md` - new version entry
+3. `plugins/<name>/CLAUDE.md` - relevant sections
+4. `plugins/<name>/README.md` - features, workflow
+5. `.claude-plugin/marketplace.json` - version, description, keywords
+6. `README.md` (root) - version in plugins table
+7. `CLAUDE.md` (root) - plugin description if changed

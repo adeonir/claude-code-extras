@@ -111,11 +111,20 @@ stateDiagram-v2
 |-------|------|
 | `web-researcher` | Researches external technologies, outputs to docs/research/ |
 | `code-explorer` | Discovers project documentation, traces feature implementations, maps architecture |
-| `code-architect` | Reviews documentation context, creates technical plans with decisive choices |
-| `task-generator` | Decomposes plans into trackable tasks |
+| `code-architect` | Reviews documentation context, creates technical plans with Requirements Traceability |
+| `task-generator` | Decomposes plans into trackable tasks with Requirements Coverage |
 | `implement-agent` | Executes tasks respecting dependencies |
 | `spec-validator` | Validates artifacts, consistency, code quality, and planning completeness |
 | `spec-archiver` | Generates documentation for completed features |
+
+## Task Categories
+
+| Category | Content |
+|----------|---------|
+| Foundation | base setup, types, config, dependencies |
+| Implementation | core feature code, business logic |
+| Validation | quality checks, tests, verification |
+| Documentation | docs, comments, guides |
 
 ## Task Markers
 
@@ -151,9 +160,9 @@ stateDiagram-v2
 /plan  --> Reads: spec.md
            Discovers: READMEs, diagrams, architecture docs
            Checks: docs/research/ for existing research
-           Outputs: docs/research/{topic}.md, plan.md (with Documentation Context)
-/tasks --> Reads: plan.md
-           Outputs: tasks.md
+           Outputs: docs/research/{topic}.md, plan.md (with Requirements Traceability)
+/tasks --> Reads: spec.md (FR-xxx, AC-xxx), plan.md
+           Outputs: tasks.md (with Requirements Coverage)
 /implement --> Reads: spec.md (AC), plan.md (Critical Files), tasks.md
                Loads: Reference files, docs/research/
 /validate --> Reads: spec.md, plan.md, tasks.md

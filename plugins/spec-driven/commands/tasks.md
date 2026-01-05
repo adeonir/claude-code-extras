@@ -28,25 +28,33 @@ If no ID:
   - If only one feature exists, use it
   - If multiple, list them and ask user to specify
 
-### Step 2: Load Plan
+### Step 2: Load Specification
+
+Read `.specs/{ID}-{feature}/spec.md` to have access to:
+- Functional requirements (FR-xxx)
+- Acceptance criteria (AC-xxx)
+
+### Step 3: Load Plan
 
 Read `.specs/{ID}-{feature}/plan.md`
 
 If file doesn't exist, inform user to run `/plan` first.
 
-### Step 3: Generate Tasks
+### Step 4: Generate Tasks
 
 Invoke the `task-generator` agent with:
-- The technical plan
+- The specification (spec.md) with requirements
+- The technical plan (plan.md)
 - Feature ID and name
 
 The agent will create `.specs/{ID}-{feature}/tasks.md` with:
 - Sequential IDs (T001, T002...)
 - Dependency markers [P] and [B:Txxx]
-- Categories (Setup, Core, Testing, Polish)
+- Categories (Foundation, Implementation, Validation, Documentation)
 - Checkboxes for tracking
+- Requirements coverage table
 
-### Step 4: Report
+### Step 5: Report
 
 Inform the user:
 - Tasks created at `.specs/{ID}-{feature}/tasks.md`
@@ -58,10 +66,10 @@ Show a summary table:
 
 | Category | Tasks | Complexity |
 |----------|-------|------------|
-| Setup & Dependencies | T001-T002 | Low |
-| Core Implementation | T003-T006 | High |
-| Testing & Validation | T007-T008 | Medium |
-| Polish & Documentation | T009 | Low |
+| Foundation | T001-T002 | Low |
+| Implementation | T003-T006 | High |
+| Validation | T007-T008 | Medium |
+| Documentation | T009 | Low |
 
 Run `/spec-driven:implement` to start, or `/spec-driven:implement T001` for a specific task.
 ```

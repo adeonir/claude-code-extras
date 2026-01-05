@@ -8,9 +8,9 @@
     {
       "name": "spec-driven",
       "source": "./plugins/spec-driven",
-      "description": "Specification-driven development workflow with persistent artifacts for planning, task management, and implementation",
-      "version": "2.1.0",
-      "keywords": ["spec", "specification", "planning", "tasks", "implementation", "workflow"]
+      "description": "Specification-driven development workflow with requirements traceability, task management, and implementation",
+      "version": "2.2.0",
+      "keywords": ["spec", "specification", "planning", "tasks", "implementation", "workflow", "traceability"]
     },
     {
       "name": "debug-tools",
