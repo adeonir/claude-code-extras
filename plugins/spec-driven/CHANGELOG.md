@@ -2,6 +2,11 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## v2.3.2 (2026-01-07)
+
+### Fixed
+- Status update timing in `/plan` command: now sets `ready` only after plan is generated
+
 ## v2.3.1 (2026-01-07)
 
 ### Changed

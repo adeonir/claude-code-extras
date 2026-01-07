@@ -44,12 +44,7 @@ If found:
 - Suggest running `/spec-driven:clarify` first
 - Exit
 
-### Step 4: Update Status
-
-Update spec.md frontmatter:
-- Set `status: ready`
-
-### Step 5: Research External Information
+### Step 4: Research External Information
 
 Determine if web research is needed by checking:
 1. **User provided additional instructions** with the `/plan` command
@@ -68,7 +63,7 @@ Skip research if:
 - No external dependencies mentioned
 - Research already exists for all mentioned technologies
 
-### Step 6: Explore Codebase
+### Step 5: Explore Codebase
 
 Invoke the `code-explorer` agent to analyze the codebase:
 
@@ -80,7 +75,7 @@ Ask it to explore:
 
 You may launch 2-3 explorer agents in parallel with different focuses.
 
-### Step 7: Review Exploration
+### Step 6: Review Exploration
 
 Read the files identified as essential by the explorers.
 
@@ -89,7 +84,7 @@ Read the files identified as essential by the explorers.
 - **Files to Modify**: Existing files that need changes
 - **Files to Create**: New files to be added
 
-### Step 8: Generate Plan
+### Step 7: Generate Plan
 
 Invoke the `code-architect` agent with:
 - The specification (spec.md)
@@ -109,6 +104,11 @@ Include a Research Summary section if external research was used:
 Key points:
 - {relevant findings}
 ```
+
+### Step 8: Update Status
+
+Update spec.md frontmatter:
+- Set `status: ready`
 
 ### Step 9: Report
 

@@ -9,7 +9,7 @@
       "name": "spec-driven",
       "source": "./plugins/spec-driven",
       "description": "Specification-driven development workflow with requirements traceability, task management, and implementation",
-      "version": "2.3.1",
+      "version": "2.3.2",
       "keywords": ["spec", "specification", "planning", "tasks", "implementation", "workflow", "traceability"]
     },
     {
