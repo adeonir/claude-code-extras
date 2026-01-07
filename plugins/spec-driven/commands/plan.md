@@ -47,7 +47,7 @@ If found:
 ### Step 4: Update Status
 
 Update spec.md frontmatter:
-- Set `status: planning`
+- Set `status: ready`
 
 ### Step 5: Research External Information
 

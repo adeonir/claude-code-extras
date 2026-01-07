@@ -48,7 +48,7 @@ If plan.md or tasks.md don't exist, inform user to run `/spec-driven:plan` and `
 
 ### Step 3: Update Status
 
-If status is `planning` or `draft`:
+If status is `ready` or `draft`:
 - Update spec.md frontmatter to `status: in-progress`
 
 ### Step 4: Load Critical Files
@@ -93,7 +93,7 @@ The agent will:
 After execution, check if ALL tasks are completed.
 
 If all tasks done:
-- Update spec.md frontmatter to `status: review`
+- Update spec.md frontmatter to `status: to-review`
 - Inform user that implementation is complete
 
 ### Step 9: Report

@@ -123,11 +123,11 @@ created: 2025-01-03
 ```mermaid
 stateDiagram-v2
     [*] --> draft: /init
-    draft --> planning: /plan
-    planning --> in_progress: /implement
-    in_progress --> review: all tasks done
-    review --> done: /validate passes
-    review --> in_progress: /validate fails
+    draft --> ready: /plan
+    ready --> in_progress: /implement
+    in_progress --> to_review: all tasks done
+    to_review --> done: /validate passes
+    to_review --> in_progress: /validate fails
     done --> archived: /archive
     archived --> [*]
 ```
@@ -185,13 +185,13 @@ flowchart TD
     clarify -->|Yes| clarifyCmd["/clarify"] --> spec
     clarify -->|No| plan["/plan"]
     plan --> research["docs/research/*.md"]
-    plan --> planmd["plan.md<br/>(planning)"]
-    planmd --> tasks["/tasks"]
+    plan --> ready["plan.md<br/>(ready)"]
+    ready --> tasks["/tasks"]
     tasks --> tasksmd["tasks.md"]
     tasksmd --> implement["/implement"]
     implement --> code["Code changes"]
-    implement --> review["(review)"]
-    review --> validate["/validate"]
+    implement --> toreview["(to-review)"]
+    toreview --> validate["/validate"]
     validate -->|Pass| done["(done)"]
     validate -->|Fail| implement
     done --> archive["/archive"]

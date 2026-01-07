@@ -32,7 +32,7 @@ Read `.specs/{ID}-{feature}/spec.md` frontmatter.
 
 Check status:
 - If `done`: proceed
-- If `review`: suggest running `/spec-driven:validate` first
+- If `to-review`: suggest running `/spec-driven:validate` first
 - If other: inform user feature is not ready for archive
 
 ### Step 3: Load Artifacts

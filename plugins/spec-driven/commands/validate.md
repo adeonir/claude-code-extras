@@ -112,7 +112,7 @@ Show validation results:
 - Suggest `/spec-driven:archive` to generate documentation
 
 **If any checks fail:**
-- Keep status as `review`
+- Keep status as `to-review`
 - List issues that need fixing
 - Suggest running `/spec-driven:implement` to fix issues
 

@@ -2,6 +2,14 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## v2.3.1 (2026-01-07)
+
+### Changed
+- Renamed status values for consistency:
+  - `planning` -> `ready`
+  - `review` -> `to-review`
+- Status lifecycle: `draft` -> `ready` -> `in-progress` -> `to-review` -> `done` -> `archived`
+
 ## v2.3.0 (2026-01-05)
 
 ### Changed

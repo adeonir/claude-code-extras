@@ -18,7 +18,7 @@ List all features in `.specs/` organized by status.
 
 3. **Group by status**
    - Group features by their status field
-   - Order: in-progress, review, planning, draft, done, archived
+   - Order: in-progress, to-review, ready, draft, done, archived
 
 4. **Display summary**
 
@@ -57,6 +57,6 @@ Total: 3 features
 
 ```bash
 /specs                    # All features
-/specs --status planning  # Only planning
+/specs --status ready     # Only ready
 /specs --status done      # Only done
 ```
