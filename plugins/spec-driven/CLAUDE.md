@@ -1,6 +1,6 @@
 # Spec-Driven
 
-Claude Code plugin for specification-driven development with persistent artifacts.
+Claude Code plugin for specification-driven development with persistent artifacts. Supports both greenfield (new features) and brownfield (modifications to existing code).
 
 ## Architecture
 
@@ -10,14 +10,13 @@ spec-driven/
 │   └── plugin.json
 ├── .mcp.json
 ├── agents/
-│   ├── web-researcher.md
-│   ├── code-explorer.md
-│   ├── code-architect.md
-│   ├── plan-validator.md
-│   ├── task-generator.md
-│   ├── implement-agent.md
-│   ├── spec-validator.md
-│   └── spec-archiver.md
+│   ├── researcher.md
+│   ├── explorer.md
+│   ├── architect.md
+│   ├── validator.md
+│   ├── tasker.md
+│   ├── implementer.md
+│   └── archiver.md
 ├── commands/
 │   ├── init.md
 │   ├── clarify.md
@@ -37,8 +36,11 @@ spec-driven/
 
 ```mermaid
 flowchart TD
-    init["/init"] --> spec["spec.md<br/>(draft)"]
+    init["/init"] --> detect{Greenfield or Brownfield?}
+    detect -->|Greenfield| spec["spec.md<br/>(draft)"]
+    detect -->|Brownfield| baseline["spec.md with Baseline<br/>(draft)"]
     spec --> clarify{Ambiguities?}
+    baseline --> clarify
     clarify -->|Yes| clarifyCmd["/clarify"] --> spec
     clarify -->|No| plan["/plan"]
     plan --> research["docs/research/*.md"]
@@ -59,15 +61,26 @@ flowchart TD
 
 | Command | Description |
 |---------|-------------|
-| `/spec-driven:init` | Create specification with sequential ID |
+| `/spec-driven:init` | Create specification (auto-detects greenfield/brownfield) |
 | `/spec-driven:init --link ID` | Associate current branch to existing feature |
 | `/spec-driven:clarify [ID]` | Resolve ambiguities marked [NEEDS CLARIFICATION] |
 | `/spec-driven:plan [ID]` | Research (if needed), explore codebase, generate technical plan |
 | `/spec-driven:tasks [ID]` | Generate task list from plan |
 | `/spec-driven:implement [ID] [scope]` | Execute next task, or specify scope (T001, T001-T005, --all) |
-| `/spec-driven:validate [ID]` | Validate artifacts, consistency, and code |
+| `/spec-driven:validate [ID]` | Validate artifacts at any phase (auto-detects mode) |
 | `/spec-driven:archive [ID]` | Generate documentation and mark as archived |
 | `/spec-driven:specs` | List all features by status |
+
+## Greenfield vs Brownfield
+
+| Type | Description | Spec Contains |
+|------|-------------|---------------|
+| `greenfield` | New feature, no existing code | Overview, User Stories, FR, AC |
+| `brownfield` | Modification to existing code | Baseline section + Overview, User Stories, FR, AC |
+
+The `/init` command auto-detects the type based on:
+- Keywords in description (improve, refactor, fix = brownfield)
+- Existing code in codebase matching the feature description
 
 ## Feature Organization
 
@@ -86,11 +99,23 @@ Each spec.md has frontmatter metadata:
 ---
 id: 002
 feature: add-2fa
+type: greenfield | brownfield
 status: draft | ready | in-progress | to-review | done | archived
 branch: feat/add-2fa  # optional
 created: 2025-01-03
 ---
 ```
+
+## Validation Modes
+
+The `/validate` command auto-detects which mode to use:
+
+| Artifacts Present | Mode | Description |
+|-------------------|------|-------------|
+| spec.md only | Spec | Validate spec structure |
+| spec.md + plan.md | Plan | + documentation compliance |
+| spec.md + plan.md + tasks.md | Tasks | + requirements coverage |
+| All + status in-progress/to-review | Full | + code validation |
 
 ## Status Lifecycle
 
@@ -110,14 +135,13 @@ stateDiagram-v2
 
 | Agent | Role |
 |-------|------|
-| `web-researcher` | Researches external technologies, outputs to docs/research/ |
-| `code-explorer` | Discovers project documentation, traces feature implementations, maps architecture |
-| `code-architect` | Reviews documentation context, creates technical plans with Requirements Traceability |
-| `plan-validator` | Validates plan.md against project documentation, detects inconsistencies |
-| `task-generator` | Decomposes plans into trackable tasks with Requirements Coverage |
-| `implement-agent` | Executes tasks respecting dependencies |
-| `spec-validator` | Validates artifacts, consistency, code quality, and planning completeness |
-| `spec-archiver` | Generates documentation for completed features |
+| `researcher` | Researches external technologies, outputs to docs/research/ |
+| `explorer` | Discovers project documentation, traces feature implementations, maps architecture |
+| `architect` | Reviews documentation context, creates technical plans with Requirements Traceability |
+| `validator` | Multi-mode validation: artifacts, documentation compliance, code quality |
+| `tasker` | Decomposes plans into trackable tasks with Requirements Coverage |
+| `implementer` | Executes tasks respecting dependencies |
+| `archiver` | Generates documentation for completed features |
 
 ## Task Categories
 
@@ -159,7 +183,9 @@ stateDiagram-v2
 ## Context Flow
 
 ```
-/init  --> spec.md (with frontmatter)
+/init  --> Detects greenfield/brownfield
+           Analyzes codebase if brownfield
+           Outputs: spec.md (with Baseline if brownfield)
 /plan  --> Reads: spec.md
            Discovers: READMEs, diagrams, architecture docs
            Checks: docs/research/ for existing research
@@ -169,8 +195,11 @@ stateDiagram-v2
            Outputs: tasks.md (with Requirements Coverage)
 /implement --> Reads: spec.md (AC), plan.md (Critical Files), tasks.md
                Loads: Reference files, docs/research/
-/validate --> Reads: spec.md, plan.md, tasks.md
-              Validates: Artifacts, consistency, code, planning completeness
+/validate --> Detects mode based on available artifacts
+              Mode Spec: Validates spec structure
+              Mode Plan: + documentation compliance
+              Mode Tasks: + requirements coverage
+              Mode Full: + code validation
 /archive --> Reads: spec.md, plan.md
              Outputs: docs/features/{feature}.md, docs/CHANGELOG.md
 ```
@@ -195,5 +224,5 @@ Based on:
 - [ccspec](https://github.com/adeonir/ccspec) - Specification-driven development CLI
 - [feature-dev](https://github.com/anthropics/claude-code/tree/main/plugins/feature-dev) - Claude Code's feature development plugin
 - [Serena](https://github.com/oraios/serena) - Semantic code operations via LSP
-- [OpenSpec](https://github.com/Fission-AI/OpenSpec) - Delta-based specs
+- [OpenSpec](https://github.com/Fission-AI/OpenSpec) - Brownfield-first specs
 - [spec-kit](https://github.com/github/spec-kit) - GitHub's SDD toolkit

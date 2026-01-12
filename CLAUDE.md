@@ -16,7 +16,7 @@ plugins/
 ├── spec-driven/              # Specification-driven workflow
 │   ├── .claude-plugin/plugin.json
 │   ├── .mcp.json             # Serena MCP
-│   ├── agents/               # Subagents (web-researcher, code-explorer, code-architect, spec-validator, etc.)
+│   ├── agents/               # Subagents (researcher, explorer, architect, validator, tasker, implementer, archiver)
 │   └── commands/             # Slash commands (/init, /plan, /tasks, /validate, /archive, etc.)
 │
 ├── debug-tools/              # Debugging workflow plugin
@@ -49,10 +49,12 @@ Each plugin follows this structure:
 ## Key Plugins
 
 ### spec-driven
-Specification-driven development workflow:
+Specification-driven development workflow with brownfield support:
 `/init` -> `/clarify` -> `/plan` -> `/tasks` -> `/implement` -> `/validate` -> `/archive`
 
-Features organized by sequential ID (`001-user-auth/`, `002-add-2fa/`) with optional branch association. The `/plan` command discovers project documentation, generates Requirements Traceability (FR-xxx mapped to components). The `/tasks` command receives spec.md and generates Requirements Coverage (every FR-xxx has tasks). Task categories: Foundation, Implementation, Validation, Documentation.
+Supports both greenfield (new features) and brownfield (modifications to existing code). The `/init` command auto-detects type based on keywords and codebase analysis. Brownfield specs include a Baseline section documenting current implementation.
+
+Features organized by sequential ID (`001-user-auth/`, `002-add-2fa/`) with optional branch association. The `/validate` command works at any workflow phase, auto-detecting mode (Spec, Plan, Tasks, Full) based on available artifacts.
 
 Artifacts persisted in `.specs/{ID}-{feature}/` (spec.md, plan.md, tasks.md). Research shared in `docs/research/`. Feature docs generated to `docs/features/`, changelog to `docs/CHANGELOG.md` via `/archive`.
 

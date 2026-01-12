@@ -42,7 +42,7 @@ If file doesn't exist, inform user to run `/plan` first.
 
 ### Step 4: Generate Tasks
 
-Invoke the `task-generator` agent with:
+Invoke the `tasker` agent with:
 - The specification (spec.md) with requirements
 - The technical plan (plan.md)
 - Feature ID and name

@@ -2,6 +2,36 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## v2.5.0 (2026-01-12)
+
+### Added
+- Brownfield support in `/init` command
+  - Auto-detects greenfield vs brownfield based on keywords and codebase analysis
+  - Generates Baseline section for brownfield specs (related files, current behavior, modification points)
+  - New `type: greenfield | brownfield` field in spec.md frontmatter
+- Multi-mode validation in `/validate` command
+  - Mode Spec: validates spec structure (after /init)
+  - Mode Plan: + documentation compliance (after /plan)
+  - Mode Tasks: + requirements coverage (after /tasks)
+  - Mode Full: + code validation (after /implement)
+  - Auto-detects mode based on available artifacts
+
+### Changed
+- Consolidated `plan-validator` and `spec-validator` into unified `validator` agent
+- Renamed agents for consistency:
+  - `web-researcher` -> `researcher`
+  - `code-explorer` -> `explorer`
+  - `code-architect` -> `architect`
+  - `task-generator` -> `tasker`
+  - `implement-agent` -> `implementer`
+  - `spec-archiver` -> `archiver`
+- Reduced agent count from 8 to 7
+- `/validate` can now run at any workflow phase (not just after /implement)
+
+### Removed
+- `plan-validator` agent (merged into `validator`)
+- `spec-validator` agent (merged into `validator`)
+
 ## v2.4.0 (2026-01-12)
 
 ### Added

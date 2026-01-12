@@ -1,13 +1,13 @@
 {
   "name": "spec-driven",
-  "version": "2.4.0",
-  "description": "Specification-driven development workflow with persistent artifacts for planning, task management, and implementation",
+  "version": "2.5.0",
+  "description": "Specification-driven development workflow with brownfield support, persistent artifacts for planning, task management, and implementation",
   "author": {
     "name": "Adeonir Kohl"
   },
   "repository": "https://github.com/adeonir/claude-code-plugins",
   "license": "MIT",
-  "keywords": ["spec", "specification", "planning", "tasks", "implementation", "workflow"],
+  "keywords": ["spec", "specification", "planning", "tasks", "implementation", "workflow", "brownfield", "greenfield"],
   "commands": [
     "./commands/init.md",
     "./commands/clarify.md",
@@ -19,13 +19,12 @@
     "./commands/specs.md"
   ],
   "agents": [
-    "./agents/web-researcher.md",
-    "./agents/code-explorer.md",
-    "./agents/code-architect.md",
-    "./agents/plan-validator.md",
-    "./agents/task-generator.md",
-    "./agents/implement-agent.md",
-    "./agents/spec-validator.md",
-    "./agents/spec-archiver.md"
+    "./agents/researcher.md",
+    "./agents/explorer.md",
+    "./agents/architect.md",
+    "./agents/validator.md",
+    "./agents/tasker.md",
+    "./agents/implementer.md",
+    "./agents/archiver.md"
   ]
 }

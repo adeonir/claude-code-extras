@@ -54,7 +54,7 @@ Determine if web research is needed by checking:
 If research is needed:
 - Check if `docs/research/{topic}.md` already exists for the technology
 - If exists, use existing research
-- If not, invoke the `web-researcher` agent
+- If not, invoke the `researcher` agent
 
 The researcher will create `docs/research/{topic}.md` with findings (shared across features).
 
@@ -65,7 +65,7 @@ Skip research if:
 
 ### Step 5: Explore Codebase
 
-Invoke the `code-explorer` agent to analyze the codebase:
+Invoke the `explorer` agent to analyze the codebase:
 
 Ask it to explore:
 - Similar existing features
@@ -86,7 +86,7 @@ Read the files identified as essential by the explorers.
 
 ### Step 7: Generate Plan
 
-Invoke the `code-architect` agent with:
+Invoke the `architect` agent with:
 - The specification (spec.md)
 - Research summary (from docs/research/ if applicable)
 - Exploration insights
@@ -114,26 +114,27 @@ After plan.md is generated, validate it against project documentation.
 - Include files referenced in spec.md
 - Check for architecture diagrams, ADRs, or specs
 
-**Invoke plan-validator Agent:**
+**Invoke validator Agent (Mode Plan):**
 
 Pass to the agent:
+- Validation mode: `plan`
 - spec.md (requirements context)
 - plan.md (just generated)
 - List of discovered documentation files
 
 **Handle Validation Results:**
 
-If `PASSED`:
+If `Ready`:
 - Continue to Step 9
 
-If `NEEDS_CORRECTIONS`:
+If `Needs fixes`:
 1. Present validation results to user (informational)
-2. Re-invoke `code-architect` with:
+2. Re-invoke `architect` with:
    - Original inputs
-   - List of specific corrections from plan-validator
+   - List of specific corrections from validator
    - Explicit instruction: "Documentation is the source of truth. Address these inconsistencies."
 3. After new plan.md generated, re-validate
-4. Repeat until `PASSED` or max 3 iterations reached
+4. Repeat until `Ready` or max 3 iterations reached
 
 If max iterations reached with issues remaining:
 - Report the remaining inconsistencies

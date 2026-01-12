@@ -72,7 +72,7 @@ For each task to execute:
 
 ### Step 7: Execute Tasks
 
-Invoke the `implement-agent` with:
+Invoke the `implementer` agent with:
 - Task scope
 - Specification (Acceptance Criteria section)
 - Technical plan
