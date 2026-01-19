@@ -40,21 +40,30 @@ Read `.specs/{ID}-{feature}/plan.md`
 
 If file doesn't exist, inform user to run `/plan` first.
 
-### Step 4: Generate Tasks
+### Step 4: Detect Quality Gate Commands
+
+Read `package.json` to find:
+- Package manager (check for lockfiles: pnpm-lock.yaml, yarn.lock, bun.lockb, package-lock.json)
+- Lint script (look for: `lint`, `check`)
+- Typecheck script (look for: `typecheck`, `type-check`, `check:types`)
+
+### Step 5: Generate Tasks
 
 Invoke the `tasker` agent with:
 - The specification (spec.md) with requirements
 - The technical plan (plan.md)
 - Feature ID and name
+- Quality gate commands detected from package.json
 
 The agent will create `.specs/{ID}-{feature}/tasks.md` with:
 - Sequential IDs (T001, T002...)
 - Dependency markers [P] and [B:Txxx]
 - Categories (Foundation, Implementation, Validation, Documentation)
 - Checkboxes for tracking
+- Quality gates instruction
 - Requirements coverage table
 
-### Step 5: Report
+### Step 6: Report
 
 Inform the user:
 - Tasks created at `.specs/{ID}-{feature}/tasks.md`

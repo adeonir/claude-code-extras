@@ -2,6 +2,17 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## v2.5.2 (2026-01-18)
+
+### Added
+- Quality Gates in tasks.md output
+  - Detects lint/typecheck scripts from package.json
+  - Adds instruction to run quality checks after each task
+- Implementer now runs quality gates after each task, tries `--fix` flag first, then fixes remaining manually
+
+### Changed
+- `/tasks` command now reads package.json to detect quality gate commands
+
 ## v2.5.1 (2026-01-18)
 
 ### Added

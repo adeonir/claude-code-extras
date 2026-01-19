@@ -19,6 +19,7 @@ You will receive:
 - Technical plan (plan.md) including Critical Files section
 - Specification (spec.md) with functional requirements (FR-xxx) and acceptance criteria (AC-xxx)
 - Feature ID and name
+- Project package.json (to detect lint/typecheck scripts)
 
 ## Process
 
@@ -48,7 +49,12 @@ You will receive:
    - Validation (quality checks, tests, verification)
    - Documentation (docs, comments, guides)
 
-6. **Verify Requirements Coverage**
+6. **Detect Quality Gate Commands**
+   - Check package.json scripts for lint/typecheck commands
+   - Common patterns: `lint`, `typecheck`, `type-check`, `check`, `check:types`
+   - Note the package manager (npm, pnpm, yarn, bun)
+
+7. **Verify Requirements Coverage**
    - Each FR-xxx must have at least one task
    - Each AC-xxx should have validation approach in Validation category
    - If any requirement is not covered, add task for it
@@ -85,6 +91,8 @@ Total: {count} | Completed: 0 | Remaining: {count}
 
 ---
 Legend: [P] = parallel-safe, [B:Txxx] = blocked by task(s)
+
+**Quality Gates:** Run `{package_manager} {lint_cmd} && {package_manager} {typecheck_cmd}` after each task or range of tasks.
 
 ## Requirements Coverage
 

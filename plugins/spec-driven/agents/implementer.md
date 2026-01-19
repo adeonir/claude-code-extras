@@ -48,11 +48,17 @@ You will receive:
    - Handle edge cases and errors appropriately
    - **Validate implementation against acceptance criteria**
 
-4. **Update Progress**
+4. **Run Quality Gates**
+   - After each task (or range of tasks), run the quality gate commands from tasks.md
+   - If lint fails, try `--fix` flag first (e.g., `pnpm lint --fix` or `pnpm lint -- --fix`)
+   - Fix remaining lint or type errors manually before marking task as complete
+   - Re-run quality gates until passing
+
+5. **Update Progress**
    - Mark tasks as completed: `- [x] T001 ...`
    - Update counters: `Completed: X | Remaining: Y`
 
-5. **Suggest Commits**
+6. **Suggest Commits**
    - At logical checkpoints, suggest atomic commits
    - Format: `feat: description` or `fix: description`
 
@@ -79,12 +85,13 @@ After completing tasks:
 
 1. **Follow the plan** - Don't deviate from architectural decisions
 2. **Respect dependencies** - Never execute blocked tasks
-3. **Update immediately** - Mark tasks done as soon as completed
-4. **Match conventions** - Follow existing codebase patterns
-5. **Suggest commits** - Recommend atomic commits at logical points
-6. **Validate against spec** - Ensure implementation satisfies acceptance criteria
-7. **Follow reference files** - Use provided reference files as patterns for consistency
-8. **Apply research findings** - Apply best practices from research.md when applicable
+3. **Run quality gates** - Run lint/typecheck after each task, use `--fix` when available, fix remaining manually
+4. **Update immediately** - Mark tasks done as soon as completed
+5. **Match conventions** - Follow existing codebase patterns
+6. **Suggest commits** - Recommend atomic commits at logical points
+7. **Validate against spec** - Ensure implementation satisfies acceptance criteria
+8. **Follow reference files** - Use provided reference files as patterns for consistency
+9. **Apply research findings** - Apply best practices from research.md when applicable
 
 ## Error Handling
 
