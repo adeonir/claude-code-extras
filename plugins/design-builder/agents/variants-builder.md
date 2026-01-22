@@ -34,6 +34,7 @@ Generate 4 simple HTML+CSS layout variants from design.json and copy.yaml, allow
 ## Input Files
 
 Locate in `./docs/`:
+
 - `design.json` - design tokens (required)
 - `copy.yaml` - content structure (optional - if not present, ask user for brief project description)
 
@@ -51,6 +52,7 @@ Locate in `./docs/`:
 ## Available Presets
 
 ### minimal
+
 Ultra clean - content focused
 
 - **Hero**: Large centered text, no background image
@@ -66,6 +68,7 @@ Ultra clean - content focused
 ```
 
 ### editorial
+
 Magazine/blog feel - elegant and readable
 
 - **Hero**: Split 50/50, image on left
@@ -81,6 +84,7 @@ Magazine/blog feel - elegant and readable
 ```
 
 ### startup
+
 Modern SaaS - clean and conversion-focused
 
 - **Hero**: Centered, prominent CTA
@@ -96,6 +100,7 @@ Modern SaaS - clean and conversion-focused
 ```
 
 ### bold
+
 High impact - strong visual statement
 
 - **Hero**: Fullscreen, text over image/gradient
@@ -115,6 +120,7 @@ High impact - strong visual statement
 ### 60-30-10 Color Rule
 
 Map colors from design.json according to each preset:
+
 - **60%**: Dominant color (backgrounds, large areas)
 - **30%**: Secondary color (headers, key elements)
 - **10%**: Accent color (CTAs, highlights)
@@ -122,6 +128,7 @@ Map colors from design.json according to each preset:
 ### Visual Hierarchy
 
 Each preset applies hierarchy differently:
+
 - **minimal**: Typography size only
 - **editorial**: Typography contrast (size and weight)
 - **startup**: Color saturation for CTAs
@@ -152,105 +159,114 @@ Generate `./outputs/index.html` with all 4 variants for side-by-side comparison.
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design Variants</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Variants</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    body {
-      background: #0a0a0a;
-      color: #fafafa;
-      font-family: system-ui, -apple-system, sans-serif;
-      padding: 24px;
-      min-height: 100vh;
-    }
+      body {
+        background: #0a0a0a;
+        color: #fafafa;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        padding: 24px;
+        min-height: 100vh;
+      }
 
-    h1 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 24px;
-      color: #a1a1aa;
-    }
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 24px;
+        color: #a1a1aa;
+      }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-      gap: 24px;
-    }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+        gap: 24px;
+      }
 
-    .variant {
-      background: #18181b;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #27272a;
-    }
+      .variant {
+        background: #18181b;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #27272a;
+      }
 
-    .variant-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 16px;
-      border-bottom: 1px solid #27272a;
-    }
+      .variant-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid #27272a;
+      }
 
-    .variant-info {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+      .variant-info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
 
-    .variant-title h2 {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: #fafafa;
-    }
+      .variant-title h2 {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #fafafa;
+      }
 
-    .badges {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
+      .badges {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
 
-    .badge {
-      font-size: 0.625rem;
-      padding: 2px 6px;
-      background: #27272a;
-      border-radius: 4px;
-      color: #a1a1aa;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+      .badge {
+        font-size: 0.625rem;
+        padding: 2px 6px;
+        background: #27272a;
+        border-radius: 4px;
+        color: #a1a1aa;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
 
-    .variant-header a {
-      font-size: 0.75rem;
-      color: #3b82f6;
-      text-decoration: none;
-    }
+      .variant-header a {
+        font-size: 0.75rem;
+        color: #3b82f6;
+        text-decoration: none;
+      }
 
-    .variant-header a:hover {
-      text-decoration: underline;
-    }
+      .variant-header a:hover {
+        text-decoration: underline;
+      }
 
-    .variant iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      background: #fff;
-    }
+      .variant iframe {
+        width: 100%;
+        height: 600px;
+        border: none;
+        background: #fff;
+      }
 
-    @media (max-width: 1024px) {
-      .grid { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
-  <h1>Design Variants</h1>
-  <div class="grid">
-    <!-- Generate card for each variant -->
-  </div>
-</body>
+      @media (max-width: 1024px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Design Variants</h1>
+    <div class="grid">
+      <!-- Generate card for each variant -->
+    </div>
+  </body>
 </html>
 ```
 
@@ -277,12 +293,12 @@ Generate `./outputs/index.html` with all 4 variants for side-by-side comparison.
 
 **Badge values per preset:**
 
-| Preset | Hero Badge | Spacing Badge | Card Badge |
-|--------|------------|---------------|------------|
-| minimal | Text Hero | Extra Generous | No Cards |
-| editorial | Split Hero | Generous | Flat Cards |
-| startup | Centered Hero | Balanced | Shadow Cards |
-| bold | Fullscreen Hero | Compact | Bordered Cards |
+| Preset    | Hero Badge      | Spacing Badge  | Card Badge     |
+| --------- | --------------- | -------------- | -------------- |
+| minimal   | Text Hero       | Extra Generous | No Cards       |
+| editorial | Split Hero      | Generous       | Flat Cards     |
+| startup   | Centered Hero   | Balanced       | Shadow Cards   |
+| bold      | Fullscreen Hero | Compact        | Bordered Cards |
 
 ## Final Step: Start Server
 

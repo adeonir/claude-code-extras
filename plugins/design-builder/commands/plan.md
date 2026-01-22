@@ -18,6 +18,7 @@ Arguments received: $ARGUMENTS
 Invoke the `product-planner` subagent to gather requirements and generate a product plan.
 
 The product-planner will:
+
 1. Ask about the product (name, type, description)
 2. Define target audience and pain points
 3. Establish value proposition and features
@@ -30,5 +31,6 @@ Wait for the agent to complete and inform the user of the result.
 ## Next Steps
 
 After the plan is created, user should:
+
 1. Provide reference images and run `/design-builder:design`
 2. Or run `/design-builder:design` without images (will use plan for context)

@@ -35,12 +35,12 @@ First, add the marketplace to Claude Code (only needed once):
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `/git-helpers:review` | Review changes with confidence scoring |
-| `/git-helpers:commit` | Create commit with auto-generated message |
-| `/git-helpers:summary` | Generate PR description to file |
-| `/git-helpers:push-pr` | Push branch and create PR |
+| Command                | Description                               |
+| ---------------------- | ----------------------------------------- |
+| `/git-helpers:review`  | Review changes with confidence scoring    |
+| `/git-helpers:commit`  | Create commit with auto-generated message |
+| `/git-helpers:summary` | Generate PR description to file           |
+| `/git-helpers:push-pr` | Push branch and create PR                 |
 
 ## Workflow
 
@@ -64,6 +64,7 @@ Review code changes using specialized agents.
 ```
 
 **Agents:**
+
 - `code-reviewer`: Bug detection, security, performance
 - `guidelines-auditor`: CLAUDE.md compliance checking
 
@@ -106,11 +107,11 @@ Push branch and create Pull Request via gh cli.
 
 ## Confidence Scoring
 
-| Score | Meaning | Action |
-|-------|---------|--------|
-| >= 80 | High confidence | Report as issue |
+| Score | Meaning           | Action           |
+| ----- | ----------------- | ---------------- |
+| >= 80 | High confidence   | Report as issue  |
 | 50-79 | Medium confidence | Investigate more |
-| < 50 | Low confidence | Do not report |
+| < 50  | Low confidence    | Do not report    |
 
 Only issues with >= 80 confidence are reported, reducing false positives.
 

@@ -19,6 +19,7 @@ Arguments received: $ARGUMENTS
 Invoke the `copy-extractor` subagent to extract content from the provided URL.
 
 The copy-extractor will:
+
 1. Fetch and analyze the URL
 2. Detect project type or use --type if provided
 3. Generate copy.yaml in ./docs/

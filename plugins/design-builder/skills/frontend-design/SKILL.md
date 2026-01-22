@@ -22,6 +22,7 @@ Before coding, understand the context and commit to a BOLD aesthetic direction:
 **CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work - the key is intentionality, not intensity.
 
 Then implement working code (HTML/CSS/JS, React, Vue, Svelte, etc.) that is:
+
 - Production-grade and functional
 - Visually striking and memorable
 - Cohesive with a clear aesthetic point-of-view
@@ -36,6 +37,7 @@ Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts li
 **Avoid overusing:** Roboto, Arial, default system fonts
 
 **Impact choices by context:**
+
 - Editorial: Playfair Display, Crimson Pro, Fraunces, Newsreader
 - Code/Technical: JetBrains Mono, Fira Code, IBM Plex Mono
 - Startup/Modern: Clash Display, Satoshi, Cabinet Grotesk
@@ -79,6 +81,7 @@ Interpret creatively and make unexpected choices that feel genuinely designed fo
 ## Implementation
 
 Match implementation complexity to the aesthetic vision:
+
 - Maximalist designs need elaborate code with extensive animations and effects
 - Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details
 - Elegance comes from executing the vision well

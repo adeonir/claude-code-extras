@@ -59,26 +59,27 @@ flowchart TD
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `/spec-driven:init` | Create specification (auto-detects greenfield/brownfield) |
-| `/spec-driven:init --link ID` | Associate current branch to existing feature |
-| `/spec-driven:clarify [ID]` | Resolve ambiguities marked [NEEDS CLARIFICATION] |
-| `/spec-driven:plan [ID]` | Research (if needed), explore codebase, generate technical plan |
-| `/spec-driven:tasks [ID]` | Generate task list from plan |
-| `/spec-driven:implement [ID] [scope]` | Execute next task, or specify scope (T001, T001-T005, --all) |
-| `/spec-driven:validate [ID]` | Validate artifacts at any phase (auto-detects mode) |
-| `/spec-driven:archive [ID]` | Generate documentation and mark as archived |
-| `/spec-driven:specs` | List all features by status |
+| Command                               | Description                                                     |
+| ------------------------------------- | --------------------------------------------------------------- |
+| `/spec-driven:init`                   | Create specification (auto-detects greenfield/brownfield)       |
+| `/spec-driven:init --link ID`         | Associate current branch to existing feature                    |
+| `/spec-driven:clarify [ID]`           | Resolve ambiguities marked [NEEDS CLARIFICATION]                |
+| `/spec-driven:plan [ID]`              | Research (if needed), explore codebase, generate technical plan |
+| `/spec-driven:tasks [ID]`             | Generate task list from plan                                    |
+| `/spec-driven:implement [ID] [scope]` | Execute next task, or specify scope (T001, T001-T005, --all)    |
+| `/spec-driven:validate [ID]`          | Validate artifacts at any phase (auto-detects mode)             |
+| `/spec-driven:archive [ID]`           | Generate documentation and mark as archived                     |
+| `/spec-driven:specs`                  | List all features by status                                     |
 
 ## Greenfield vs Brownfield
 
-| Type | Description | Spec Contains |
-|------|-------------|---------------|
-| `greenfield` | New feature, no existing code | Overview, User Stories, FR, AC |
+| Type         | Description                   | Spec Contains                                     |
+| ------------ | ----------------------------- | ------------------------------------------------- |
+| `greenfield` | New feature, no existing code | Overview, User Stories, FR, AC                    |
 | `brownfield` | Modification to existing code | Baseline section + Overview, User Stories, FR, AC |
 
 The `/init` command auto-detects the type based on:
+
 - Keywords in description (improve, refactor, fix = brownfield)
 - Existing code in codebase matching the feature description
 
@@ -101,7 +102,7 @@ id: 002
 feature: add-2fa
 type: greenfield | brownfield
 status: draft | ready | in-progress | to-review | done | archived
-branch: feat/add-2fa  # optional
+branch: feat/add-2fa # optional
 created: 2025-01-03
 ---
 ```
@@ -110,12 +111,12 @@ created: 2025-01-03
 
 The `/validate` command auto-detects which mode to use:
 
-| Artifacts Present | Mode | Description |
-|-------------------|------|-------------|
-| spec.md only | Spec | Validate spec structure |
-| spec.md + plan.md | Plan | + documentation compliance |
-| spec.md + plan.md + tasks.md | Tasks | + requirements coverage |
-| All + status in-progress/to-review | Full | + code validation |
+| Artifacts Present                  | Mode  | Description                |
+| ---------------------------------- | ----- | -------------------------- |
+| spec.md only                       | Spec  | Validate spec structure    |
+| spec.md + plan.md                  | Plan  | + documentation compliance |
+| spec.md + plan.md + tasks.md       | Tasks | + requirements coverage    |
+| All + status in-progress/to-review | Full  | + code validation          |
 
 ## Status Lifecycle
 
@@ -133,52 +134,52 @@ stateDiagram-v2
 
 ## Agents
 
-| Agent | Role |
-|-------|------|
-| `researcher` | Researches external technologies, outputs to docs/research/ |
-| `explorer` | Discovers project documentation, traces feature implementations, maps architecture |
-| `architect` | Reviews documentation context, creates technical plans with Requirements Traceability |
-| `validator` | Multi-mode validation: artifacts, documentation compliance, code quality |
-| `tasker` | Decomposes plans into trackable tasks with Requirements Coverage |
-| `implementer` | Executes tasks respecting dependencies |
-| `archiver` | Generates documentation for completed features |
+| Agent         | Role                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------- |
+| `researcher`  | Researches external technologies, outputs to docs/research/                           |
+| `explorer`    | Discovers project documentation, traces feature implementations, maps architecture    |
+| `architect`   | Reviews documentation context, creates technical plans with Requirements Traceability |
+| `validator`   | Multi-mode validation: artifacts, documentation compliance, code quality              |
+| `tasker`      | Decomposes plans into trackable tasks with Requirements Coverage                      |
+| `implementer` | Executes tasks respecting dependencies                                                |
+| `archiver`    | Generates documentation for completed features                                        |
 
 ## Task Categories
 
-| Category | Content |
-|----------|---------|
-| Foundation | base setup, types, config, dependencies |
-| Implementation | core feature code, business logic |
-| Validation | quality checks, tests, verification |
-| Documentation | docs, comments, guides |
+| Category       | Content                                 |
+| -------------- | --------------------------------------- |
+| Foundation     | base setup, types, config, dependencies |
+| Implementation | core feature code, business logic       |
+| Validation     | quality checks, tests, verification     |
+| Documentation  | docs, comments, guides                  |
 
 ## Task Markers
 
-| Marker | Meaning |
-|--------|---------|
-| `[P]` | Parallel-safe: can run alongside other [P] tasks |
-| `[B:T001]` | Blocked: depends on T001 |
-| `[B:T001,T002]` | Blocked: depends on T001 and T002 |
-| `- [ ]` | Pending |
-| `- [x]` | Completed |
+| Marker          | Meaning                                          |
+| --------------- | ------------------------------------------------ |
+| `[P]`           | Parallel-safe: can run alongside other [P] tasks |
+| `[B:T001]`      | Blocked: depends on T001                         |
+| `[B:T001,T002]` | Blocked: depends on T001 and T002                |
+| `- [ ]`         | Pending                                          |
+| `- [x]`         | Completed                                        |
 
 ## Persistent Artifacts
 
 ### Working Files (.specs/ - gitignored)
 
-| File | Created By | Purpose |
-|------|------------|---------|
-| `spec.md` | /init | Feature requirements and acceptance criteria |
-| `plan.md` | /plan | Technical architecture and implementation map |
-| `tasks.md` | /tasks | Trackable task list with dependencies |
+| File       | Created By | Purpose                                       |
+| ---------- | ---------- | --------------------------------------------- |
+| `spec.md`  | /init      | Feature requirements and acceptance criteria  |
+| `plan.md`  | /plan      | Technical architecture and implementation map |
+| `tasks.md` | /tasks     | Trackable task list with dependencies         |
 
 ### Permanent Files (docs/ - committed)
 
-| File | Created By | Purpose |
-|------|------------|---------|
-| `docs/research/{topic}.md` | /plan | Reusable research findings |
-| `docs/features/{feature}.md` | /archive | Feature overview and architecture decisions |
-| `docs/CHANGELOG.md` | /archive | Centralized project changelog |
+| File                         | Created By | Purpose                                     |
+| ---------------------------- | ---------- | ------------------------------------------- |
+| `docs/research/{topic}.md`   | /plan      | Reusable research findings                  |
+| `docs/features/{feature}.md` | /archive   | Feature overview and architecture decisions |
+| `docs/CHANGELOG.md`          | /archive   | Centralized project changelog               |
 
 ## Context Flow
 
@@ -208,11 +209,11 @@ stateDiagram-v2
 
 This plugin uses Serena MCP for semantic code operations.
 
-| Phase | Tool | Benefit |
-|-------|------|---------|
-| /plan | find_symbol | Precise symbol location |
-| /plan | find_referencing_symbols | Impact analysis |
-| /implement | insert_after_symbol | Semantic edits |
+| Phase      | Tool                     | Benefit                 |
+| ---------- | ------------------------ | ----------------------- |
+| /plan      | find_symbol              | Precise symbol location |
+| /plan      | find_referencing_symbols | Impact analysis         |
+| /implement | insert_after_symbol      | Semantic edits          |
 
 ### Requirements
 
@@ -221,6 +222,7 @@ Serena MCP is configured in `.mcp.json`. Requires `uvx` (uv tool runner) install
 ## References
 
 Based on:
+
 - [ccspec](https://github.com/adeonir/ccspec) - Specification-driven development CLI
 - [feature-dev](https://github.com/anthropics/claude-code/tree/main/plugins/feature-dev) - Claude Code's feature development plugin
 - [Serena](https://github.com/oraios/serena) - Semantic code operations via LSP

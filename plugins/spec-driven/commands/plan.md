@@ -19,9 +19,11 @@ Arguments received: $ARGUMENTS
 ### Step 1: Resolve Feature
 
 If ID provided (numeric or full like `002-add-2fa`):
+
 - Use that feature directly
 
 If no ID:
+
 - Get current git branch
 - Search `.specs/*/spec.md` for matching `branch:` in frontmatter
 - If found, use that feature
@@ -40,6 +42,7 @@ If file doesn't exist, inform user to run `/init` first.
 Search for `[NEEDS CLARIFICATION]` in the spec.
 
 If found:
+
 - List the items needing clarification
 - Suggest running `/spec-driven:clarify` first
 - Exit
@@ -47,11 +50,13 @@ If found:
 ### Step 4: Research External Information
 
 Determine if web research is needed by checking:
+
 1. **User provided additional instructions** with the `/plan` command
 2. **Spec mentions external technologies**: libraries, frameworks, APIs, services
 3. **Spec references standards or protocols** that need verification
 
 If research is needed:
+
 - Check if `docs/research/{topic}.md` already exists for the technology
 - If exists, use existing research
 - If not, invoke the `researcher` agent
@@ -59,6 +64,7 @@ If research is needed:
 The researcher will create `docs/research/{topic}.md` with findings (shared across features).
 
 Skip research if:
+
 - The spec is purely about internal code changes
 - No external dependencies mentioned
 - Research already exists for all mentioned technologies
@@ -68,6 +74,7 @@ Skip research if:
 Invoke the `explorer` agent to analyze the codebase:
 
 Ask it to explore:
+
 - Similar existing features
 - Architecture patterns and conventions
 - Relevant entry points and integration areas
@@ -80,6 +87,7 @@ You may launch 2-3 explorer agents in parallel with different focuses.
 Read the files identified as essential by the explorers.
 
 **Consolidate Critical Files:**
+
 - **Reference Files**: Patterns to follow
 - **Files to Modify**: Existing files that need changes
 - **Files to Create**: New files to be added
@@ -87,6 +95,7 @@ Read the files identified as essential by the explorers.
 ### Step 7: Generate Plan
 
 Invoke the `architect` agent with:
+
 - The specification (spec.md)
 - Research summary (from docs/research/ if applicable)
 - Exploration insights
@@ -96,12 +105,14 @@ Invoke the `architect` agent with:
 The architect will create `.specs/{ID}-{feature}/plan.md`
 
 Include a Research Summary section if external research was used:
+
 ```markdown
 ## Research Summary
 
 > From [docs/research/totp-authentication.md]
 
 Key points:
+
 - {relevant findings}
 ```
 
@@ -110,13 +121,15 @@ Key points:
 After plan.md is generated, validate it against project documentation.
 
 **Discover Project Documentation:**
-- Find docs/*.md, README.md, *.md in project root
+
+- Find docs/_.md, README.md, _.md in project root
 - Include files referenced in spec.md
 - Check for architecture diagrams, ADRs, or specs
 
 **Invoke validator Agent (Mode Plan):**
 
 Pass to the agent:
+
 - Validation mode: `plan`
 - spec.md (requirements context)
 - plan.md (just generated)
@@ -125,9 +138,11 @@ Pass to the agent:
 **Handle Validation Results:**
 
 If `Ready`:
+
 - Continue to Step 9
 
 If `Needs fixes`:
+
 1. Present validation results to user (informational)
 2. Re-invoke `architect` with:
    - Original inputs
@@ -137,6 +152,7 @@ If `Needs fixes`:
 4. Repeat until `Ready` or max 3 iterations reached
 
 If max iterations reached with issues remaining:
+
 - Report the remaining inconsistencies
 - Ask user how to proceed:
   - **Continue anyway**: Proceed to Step 9 (plan may need manual adjustment later)
@@ -146,11 +162,13 @@ If max iterations reached with issues remaining:
 ### Step 9: Update Status
 
 Update spec.md frontmatter:
+
 - Set `status: ready`
 
 ### Step 10: Report
 
 Inform the user:
+
 - Research conducted (if applicable) at `docs/research/{topic}.md`
 - Plan created at `.specs/{ID}-{feature}/plan.md`
 - Plan validated against documentation (X iterations if corrections were needed)

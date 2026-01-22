@@ -18,6 +18,7 @@ Arguments received: $ARGUMENTS
 Invoke the `design-extractor` subagent to extract design tokens from images.
 
 The design-extractor will:
+
 1. Request images from user if not provided
 2. Check for existing copy.yaml for project context (optional)
 3. If no copy.yaml, ask user for brief project description

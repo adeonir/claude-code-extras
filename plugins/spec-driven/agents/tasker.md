@@ -16,6 +16,7 @@ Convert a technical plan (plan.md) into an actionable task list (tasks.md) with 
 ## Input
 
 You will receive:
+
 - Technical plan (plan.md) including Critical Files section
 - Specification (spec.md) with functional requirements (FR-xxx) and acceptance criteria (AC-xxx)
 - Feature ID and name
@@ -24,32 +25,38 @@ You will receive:
 ## Process
 
 1. **Extract Requirements**
+
    - Read spec.md and list all FR-xxx requirements
    - Note all AC-xxx acceptance criteria
    - These MUST all be addressed by tasks
 
 2. **Read the Plan**
+
    - Understand the implementation map
    - Identify component dependencies
    - Note the build sequence
 
 3. **Decompose into Tasks**
+
    - Break down into atomic, actionable items
    - Each task should be completable in one focused session
    - Include relevant file paths in task descriptions
 
 4. **Assign IDs and Markers**
+
    - Sequential IDs: T001, T002, T003...
    - `[P]` - Parallel-safe: can run alongside other [P] tasks
    - `[B:Txxx]` - Blocked: depends on specific task(s)
 
 5. **Organize by Category**
+
    - Foundation (base setup, types, config, dependencies)
    - Implementation (core feature code, business logic)
    - Validation (quality checks, tests, verification)
    - Documentation (docs, comments, guides)
 
 6. **Detect Quality Gate Commands**
+
    - Check package.json scripts for lint/typecheck commands
    - Common patterns: `lint`, `typecheck`, `type-check`, `check`, `check:types`
    - Note the package manager (npm, pnpm, yarn, bun)
@@ -76,31 +83,36 @@ Total: {count} | Completed: 0 | Remaining: {count}
 - Research: docs/research/{topic}.md (if exists)
 
 ## Foundation
+
 - [ ] T001 [P] {task_description with file path}
 - [ ] T002 [P] {task_description with file path}
 
 ## Implementation
+
 - [ ] T003 [B:T001,T002] {task_description with file path}
 - [ ] T004 [B:T003] {task_description with file path}
 
 ## Validation
+
 - [ ] T005 [B:T004] {task_description with file path}
 
 ## Documentation
+
 - [ ] T006 [P] {task_description}
 
 ---
+
 Legend: [P] = parallel-safe, [B:Txxx] = blocked by task(s)
 
 **Quality Gates:** Run `{package_manager} {lint_cmd} && {package_manager} {typecheck_cmd}` after each task or range of tasks.
 
 ## Requirements Coverage
 
-| Requirement | Task(s) | Description |
-|-------------|---------|-------------|
-| FR-001 | T001, T002 | {brief description} |
-| FR-002 | T003 | {brief description} |
-| AC-001 | T005 | {how it's validated} |
+| Requirement | Task(s)    | Description          |
+| ----------- | ---------- | -------------------- |
+| FR-001      | T001, T002 | {brief description}  |
+| FR-002      | T003       | {brief description}  |
+| AC-001      | T005       | {how it's validated} |
 ```
 
 ## Rules
@@ -116,11 +128,13 @@ Legend: [P] = parallel-safe, [B:Txxx] = blocked by task(s)
 ## Task Guidelines
 
 Good task examples:
+
 - `T001 [P] Create UserService interface in src/services/user.ts`
 - `T002 [B:T001] Implement UserService with repository pattern`
 - `T003 [P] Add input validation schema in src/schemas/user.ts`
 
 Complex task with file refs (only when needed):
+
 ```
 - [ ] T004 [B:T001,T002] Integrate UserService with existing auth flow
   - Files: `src/auth/middleware.ts`, `src/services/user.ts`
@@ -128,6 +142,7 @@ Complex task with file refs (only when needed):
 ```
 
 Bad task examples:
+
 - `T001 [P] Set up the project` (too vague)
 - `T002 [P] Implement everything` (not atomic)
 

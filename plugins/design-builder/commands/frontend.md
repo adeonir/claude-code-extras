@@ -20,6 +20,7 @@ Arguments received: $ARGUMENTS
 Invoke the `variants-builder` subagent to generate 4 HTML+CSS preview variants.
 
 The variants-builder will:
+
 1. Load the frontend-design skill first
 2. Locate design.json (required) and copy.yaml (optional)
 3. Generate all 4 presets (minimal, editorial, startup, bold) in ./outputs/
@@ -34,6 +35,7 @@ After comparison, user tells Claude which variant to use (e.g., "use editorial")
 Invoke the `frontend-builder` subagent to build React directly.
 
 The frontend-builder will:
+
 1. Detect existing project stack (React, Vue, Svelte, etc.)
 2. If no project, ask user for preferred stack
 3. Scaffold new project if needed

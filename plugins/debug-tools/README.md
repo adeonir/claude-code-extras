@@ -34,6 +34,7 @@ First, add the marketplace to Claude Code (only needed once):
 ```
 
 This command automatically:
+
 - Downloads the plugin from the marketplace
 - Configures Console Ninja and Chrome DevTools MCPs for runtime inspection
 - Makes the `/debug-tools:debug` command available
@@ -56,8 +57,8 @@ This command automatically:
 
 ## Command
 
-| Command | Description |
-|---------|-------------|
+| Command                            | Description                       |
+| ---------------------------------- | --------------------------------- |
 | `/debug-tools:debug "description"` | Start iterative debugging session |
 
 ## Workflow
@@ -77,28 +78,28 @@ flowchart TD
 
 ### Phases
 
-| Phase | Description | Agent |
-|-------|-------------|-------|
-| 1. Investigate | Analyze code, find root cause | bug-investigator |
-| 2. Inject Logs | Add logs at strategic points | log-injector |
-| 3. Propose Fix | Suggest minimal correction | bug-investigator |
-| 4. Verify | User confirms fix works | - |
-| 5. Cleanup | Remove debug logs automatically | log-injector |
+| Phase          | Description                     | Agent            |
+| -------------- | ------------------------------- | ---------------- |
+| 1. Investigate | Analyze code, find root cause   | bug-investigator |
+| 2. Inject Logs | Add logs at strategic points    | log-injector     |
+| 3. Propose Fix | Suggest minimal correction      | bug-investigator |
+| 4. Verify      | User confirms fix works         | -                |
+| 5. Cleanup     | Remove debug logs automatically | log-injector     |
 
 ## Confidence Scoring
 
-| Score | Meaning | Action |
-|-------|---------|--------|
+| Score | Meaning               | Action                   |
+| ----- | --------------------- | ------------------------ |
 | >= 70 | High - clear evidence | Report as probable cause |
-| 50-69 | Medium - possible | Suggest logs to confirm |
-| < 50 | Low - speculation | Do not report |
+| 50-69 | Medium - possible     | Suggest logs to confirm  |
+| < 50  | Low - speculation     | Do not report            |
 
 ## Log Format
 
 All debug logs use consistent format for easy identification:
 
 ```javascript
-console.log('[DEBUG] [file:line] description', { values });
+console.log("[DEBUG] [file:line] description", { values })
 ```
 
 - `[DEBUG]` - Prefix for grep and cleanup
@@ -121,14 +122,14 @@ console.log('[DEBUG] [file:line] description', { values });
 
 The plugin can leverage these MCP servers if installed:
 
-| MCP | Purpose |
-|-----|---------|
-| Console Ninja | Runtime values, test status, code coverage |
-| Chrome DevTools | Network inspection, browser console, DOM |
+| MCP             | Purpose                                    |
+| --------------- | ------------------------------------------ |
+| Console Ninja   | Runtime values, test status, code coverage |
+| Chrome DevTools | Network inspection, browser console, DOM   |
 
 ## Example Session
 
-```
+````
 User: /debug-tools:debug "Form submission fails silently"
 
 Agent: Investigating form submission flow...
@@ -150,7 +151,7 @@ catch (error) {
 -  // silently ignored
 +  setError(error.message);
 }
-```
+````
 
 Apply this fix?
 
@@ -165,8 +166,10 @@ Agent: Bug resolved.
 ## Cleanup Complete
 
 Removed 0 debug logs (none were needed).
+
 ```
 
 ## License
 
 MIT
+```

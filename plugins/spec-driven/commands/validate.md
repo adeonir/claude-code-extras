@@ -18,9 +18,11 @@ Arguments received: $ARGUMENTS
 ### Step 1: Resolve Feature
 
 If ID provided:
+
 - Use that feature directly
 
 If no ID:
+
 - Get current git branch
 - Search `.specs/*/spec.md` for matching `branch:` in frontmatter
 - If found, use that feature
@@ -32,14 +34,15 @@ If no ID:
 
 Check which artifacts exist in `.specs/{ID}-{feature}/`:
 
-| Artifacts Present | Mode | Description |
-|-------------------|------|-------------|
-| spec.md only | **Spec** | Validate spec structure |
-| spec.md + plan.md | **Plan** | + documentation compliance |
-| spec.md + plan.md + tasks.md | **Tasks** | + requirements coverage |
-| All + status is in-progress/to-review | **Full** | + code validation |
+| Artifacts Present                     | Mode      | Description                |
+| ------------------------------------- | --------- | -------------------------- |
+| spec.md only                          | **Spec**  | Validate spec structure    |
+| spec.md + plan.md                     | **Plan**  | + documentation compliance |
+| spec.md + plan.md + tasks.md          | **Tasks** | + requirements coverage    |
+| All + status is in-progress/to-review | **Full**  | + code validation          |
 
 Inform user which mode will be used:
+
 ```
 Detected mode: {mode} (found: spec.md, plan.md, tasks.md)
 ```
@@ -47,6 +50,7 @@ Detected mode: {mode} (found: spec.md, plan.md, tasks.md)
 ### Step 3: Load Context
 
 Based on detected mode, read:
+
 - **Mode Spec**: `spec.md`
 - **Mode Plan**: `spec.md`, `plan.md`, docs files from plan.md references
 - **Mode Tasks**: `spec.md`, `plan.md`, `tasks.md`
@@ -55,13 +59,15 @@ Based on detected mode, read:
 ### Step 4: Discover Documentation (Mode Plan+)
 
 If mode is Plan or higher:
-- Find docs/*.md, README.md in project root
+
+- Find docs/\*.md, README.md in project root
 - Find files referenced in spec.md
 - Look for architecture docs, ADRs
 
 ### Step 5: Invoke Validator
 
 Invoke the `validator` agent with:
+
 - Validation mode
 - Available artifacts
 - Documentation files list (for Plan+)
@@ -72,6 +78,7 @@ Invoke the `validator` agent with:
 Show validation results based on mode:
 
 **Mode Spec:**
+
 ```markdown
 ## Validation: {ID}-{feature}
 
@@ -79,9 +86,9 @@ Show validation results based on mode:
 
 ### Artifact Structure
 
-| File | Status | Issues |
-|------|--------|--------|
-| spec.md | Valid | - |
+| File    | Status | Issues |
+| ------- | ------ | ------ |
+| spec.md | Valid  | -      |
 
 ### Summary
 
@@ -94,6 +101,7 @@ Show validation results based on mode:
 ```
 
 **Mode Plan:**
+
 ```markdown
 ## Validation: {ID}-{feature}
 
@@ -101,16 +109,16 @@ Show validation results based on mode:
 
 ### Artifact Structure
 
-| File | Status | Issues |
-|------|--------|--------|
-| spec.md | Valid | - |
-| plan.md | Valid | - |
+| File    | Status | Issues |
+| ------- | ------ | ------ |
+| spec.md | Valid  | -      |
+| plan.md | Valid  | -      |
 
 ### Documentation Compliance
 
 | Severity | Issue | Source |
-|----------|-------|--------|
-| ... | ... | ... |
+| -------- | ----- | ------ |
+| ...      | ...   | ...    |
 
 ### Summary
 
@@ -118,6 +126,7 @@ Show validation results based on mode:
 ```
 
 **Mode Tasks:**
+
 ```markdown
 ## Validation: {ID}-{feature}
 
@@ -125,11 +134,11 @@ Show validation results based on mode:
 
 ### Consistency
 
-| Check | Status |
-|-------|--------|
+| Check                 | Status                     |
+| --------------------- | -------------------------- |
 | Requirements coverage | Passed (5/5 FR have tasks) |
-| AC coverage | Passed (4/4 AC addressed) |
-| Task dependencies | Passed |
+| AC coverage           | Passed (4/4 AC addressed)  |
+| Task dependencies     | Passed                     |
 
 ### Summary
 
@@ -142,11 +151,14 @@ Show validation results based on mode:
 ### Step 7: Determine Outcome
 
 **Mode Spec/Plan/Tasks:**
+
 - If valid: Suggest next command in workflow
 - If issues: List what needs fixing
 
 **Mode Full:**
+
 - **If all checks pass:**
+
   - Update spec.md frontmatter to `status: done`
   - Inform user feature is complete
   - Suggest `/spec-driven:archive` to generate documentation
@@ -160,12 +172,12 @@ Show validation results based on mode:
 
 Summary with next steps based on mode:
 
-| Mode | If Valid | If Issues |
-|------|----------|-----------|
-| Spec | Run /plan | Run /clarify |
-| Plan | Run /tasks | Fix plan inconsistencies |
-| Tasks | Run /implement | Fix coverage gaps |
-| Full | Run /archive | Run /implement |
+| Mode  | If Valid       | If Issues                |
+| ----- | -------------- | ------------------------ |
+| Spec  | Run /plan      | Run /clarify             |
+| Plan  | Run /tasks     | Fix plan inconsistencies |
+| Tasks | Run /implement | Fix coverage gaps        |
+| Full  | Run /archive   | Run /implement           |
 
 ## Error Handling
 

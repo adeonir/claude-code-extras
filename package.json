@@ -1,0 +1,14 @@
+{
+  "name": "claude-code-extras",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A personal marketplace of Claude Code plugins",
+  "scripts": {
+    "format": "prettier --write .",
+    "prepare": "lefthook install"
+  },
+  "devDependencies": {
+    "lefthook": "1.10.10",
+    "prettier": "3.4.2"
+  }
+}

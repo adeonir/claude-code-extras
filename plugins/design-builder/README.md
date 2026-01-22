@@ -59,45 +59,45 @@ flowchart TD
 
 ### Entry Points
 
-| Entry | Command | When to Use |
-|-------|---------|-------------|
-| From scratch | `/design-builder:plan` | No reference, just an idea |
-| URL | `/design-builder:copy` | Website as inspiration |
-| Image | `/design-builder:design` | Screenshot/mockup as reference |
+| Entry        | Command                  | When to Use                    |
+| ------------ | ------------------------ | ------------------------------ |
+| From scratch | `/design-builder:plan`   | No reference, just an idea     |
+| URL          | `/design-builder:copy`   | Website as inspiration         |
+| Image        | `/design-builder:design` | Screenshot/mockup as reference |
 
 ### Outputs
 
-| Output | Command | For Who |
-|--------|---------|---------|
-| React | `/design-builder:frontend` | Dev wants code directly |
-| Figma | `/design-builder:figma` | Designer wants to refine first |
+| Output | Command                    | For Who                        |
+| ------ | -------------------------- | ------------------------------ |
+| React  | `/design-builder:frontend` | Dev wants code directly        |
+| Figma  | `/design-builder:figma`    | Designer wants to refine first |
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `/design-builder:plan` | Define product vision, data models, features |
-| `/design-builder:copy` | Extract content from URL to copy.yaml |
-| `/design-builder:design` | Extract design from images to design.json |
-| `/design-builder:frontend` | Build React in ./src/ |
-| `/design-builder:frontend --variants` | Generate 4 HTML previews, then build React |
-| `/design-builder:figma` | Generate HTML for Figma import |
+| Command                               | Description                                  |
+| ------------------------------------- | -------------------------------------------- |
+| `/design-builder:plan`                | Define product vision, data models, features |
+| `/design-builder:copy`                | Extract content from URL to copy.yaml        |
+| `/design-builder:design`              | Extract design from images to design.json    |
+| `/design-builder:frontend`            | Build React in ./src/                        |
+| `/design-builder:frontend --variants` | Generate 4 HTML previews, then build React   |
+| `/design-builder:figma`               | Generate HTML for Figma import               |
 
 ## Agents
 
-| Agent | Role |
-|-------|------|
-| `product-planner` | Product Strategist - defines vision from scratch |
-| `copy-extractor` | Content Strategist - extracts content from URLs |
-| `design-extractor` | Creative Director - extracts design from images |
-| `frontend-builder` | Frontend Engineer - builds React |
-| `variants-builder` | Design Engineer - generates 4 HTML+CSS previews |
-| `figma-builder` | Design Engineer - generates Figma-optimized HTML |
+| Agent              | Role                                             |
+| ------------------ | ------------------------------------------------ |
+| `product-planner`  | Product Strategist - defines vision from scratch |
+| `copy-extractor`   | Content Strategist - extracts content from URLs  |
+| `design-extractor` | Creative Director - extracts design from images  |
+| `frontend-builder` | Frontend Engineer - builds React                 |
+| `variants-builder` | Design Engineer - generates 4 HTML+CSS previews  |
+| `figma-builder`    | Design Engineer - generates Figma-optimized HTML |
 
 ## Skills
 
-| Skill | Description |
-|-------|-------------|
+| Skill             | Description                                        |
+| ----------------- | -------------------------------------------------- |
 | `frontend-design` | Design principles that avoid generic AI aesthetics |
 
 ## Design Variants
@@ -109,6 +109,7 @@ Generate 4 HTML+CSS previews to compare before building:
 ```
 
 Generates:
+
 ```
 ./outputs/
   minimal/index.html    # Text hero, extra whitespace, no cards
@@ -122,12 +123,12 @@ Opens http://localhost:8080 for comparison. Tell Claude which variant you prefer
 
 ### Variant Presets
 
-| Preset | Style | Hero | Spacing | Cards |
-|--------|-------|------|---------|-------|
-| `minimal` | Ultra clean | Text only | Extra generous | None |
-| `editorial` | Magazine feel | Split 50/50 | Generous | Flat |
-| `startup` | SaaS modern | Centered CTA | Balanced | Shadows |
-| `bold` | High impact | Fullscreen | Compact | Bordered |
+| Preset      | Style         | Hero         | Spacing        | Cards    |
+| ----------- | ------------- | ------------ | -------------- | -------- |
+| `minimal`   | Ultra clean   | Text only    | Extra generous | None     |
+| `editorial` | Magazine feel | Split 50/50  | Generous       | Flat     |
+| `startup`   | SaaS modern   | Centered CTA | Balanced       | Shadows  |
+| `bold`      | High impact   | Fullscreen   | Compact        | Bordered |
 
 ## Figma Export
 
@@ -138,6 +139,7 @@ Export designs to Figma using the YashiTech plugin:
 ```
 
 **Requirements:**
+
 - [Chrome Extension](https://chromewebstore.google.com/detail/html-to-figma-by-yashi-te/apgdhlibcimkkffajannbmpnbjaealmo)
 - [Figma Plugin](https://www.figma.com/community/plugin/1459487250118622106)
 
@@ -145,12 +147,12 @@ Export designs to Figma using the YashiTech plugin:
 
 ## Project Types
 
-| Type | Example |
-|------|---------|
-| `landing` | Product page, lead capture |
-| `website` | Corporate, blog, portfolio |
-| `webapp` | Dashboard, SaaS, admin panel |
-| `app` | iOS/Android, PWA |
+| Type      | Example                      |
+| --------- | ---------------------------- |
+| `landing` | Product page, lead capture   |
+| `website` | Corporate, blog, portfolio   |
+| `webapp`  | Dashboard, SaaS, admin panel |
+| `app`     | iOS/Android, PWA             |
 
 ## Usage Examples
 

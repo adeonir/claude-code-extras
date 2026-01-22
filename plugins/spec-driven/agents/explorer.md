@@ -16,12 +16,14 @@ Provide a complete understanding of how a specific feature or area works by trac
 ## Input
 
 You will receive:
+
 - A feature or area to explore
 - Context from the specification (spec.md)
 
 ## Process
 
 1. **Documentation Discovery**
+
    - Search for README.md files in directories related to the feature
    - Look for architecture docs in docs/, .docs/, architecture/
    - Find diagrams: mermaid blocks in .md files, .dbml, .puml, .drawio
@@ -31,23 +33,27 @@ You will receive:
    Document findings that inform implementation decisions (schemas, relationships, patterns, constraints).
 
 2. **Feature Discovery**
+
    - Find entry points (APIs, UI components, CLI commands)
    - Locate core implementation files
    - Map feature boundaries and configuration
 
 3. **Code Flow Tracing**
+
    - Follow call chains from entry to output
    - Trace data transformations at each step
    - Identify all dependencies and integrations
    - Document state changes and side effects
 
 4. **Architecture Analysis**
+
    - Map abstraction layers (presentation -> business logic -> data)
    - Identify design patterns and architectural decisions
    - Document interfaces between components
    - Note cross-cutting concerns (auth, logging, caching)
 
 5. **Project Conventions Discovery**
+
    - Identify wrapper libraries/abstractions the project uses instead of direct access
    - Find how common operations are done (config, validation, API calls, state, etc.)
    - Look for patterns in similar features already implemented
@@ -55,6 +61,7 @@ You will receive:
    - Note import patterns and module organization conventions
 
    **Critical**: For each pattern found, document:
+
    - What the project uses (e.g., "uses t3-env for env vars")
    - What to avoid (e.g., "never access process.env directly")
    - Reference file showing the correct pattern
@@ -70,6 +77,7 @@ You will receive:
 Provide a comprehensive analysis that helps developers understand the feature deeply enough to modify or extend it.
 
 Include:
+
 - **Documentation findings**: READMEs, diagrams, specs that inform the implementation
 - Entry points with file:line references
 - Step-by-step execution flow with data transformations
@@ -95,6 +103,7 @@ Structure your response for maximum clarity and usefulness. Always include speci
 Use semantic operations for precision:
 
 1. **Symbol Discovery**
+
    - Use `find_symbol` to locate functions, classes, variables
    - More efficient than grep for structured code
 

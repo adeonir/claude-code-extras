@@ -50,12 +50,14 @@ When user says "use editorial" (or another variant name):
 Check the current directory for existing projects:
 
 1. **package.json** - Look for framework dependencies:
+
    - `react`, `next` -> React
    - `vue`, `nuxt` -> Vue
    - `svelte`, `@sveltejs/kit` -> Svelte
    - `astro` -> Astro
 
 2. **Config files**:
+
    - `vite.config.*`, `next.config.*`, `nuxt.config.*`, etc.
 
 3. **If no project detected**, ask user:
@@ -71,10 +73,12 @@ Check the current directory for existing projects:
 ## Input Files
 
 Locate in `./docs/`:
+
 - `design.json` - design tokens (required)
 - `copy.yaml` - content structure (optional - if not present, ask user for brief project description)
 
 Optionally from `./outputs/`:
+
 - `{variant}/index.html` - layout reference (when building from variant)
 
 ## Output Structure
@@ -103,6 +107,7 @@ When a variant HTML is provided as reference:
 5. **Use copy.yaml content** - Populate with actual content
 
 Example:
+
 ```
 User: "use editorial"
 
@@ -134,7 +139,7 @@ Map design.json to CSS variables:
 Import fonts from Google Fonts or other providers based on design.json:
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family={heading-font}&family={body-font}&display=swap');
+@import url("https://fonts.googleapis.com/css2?family={heading-font}&family={body-font}&display=swap");
 ```
 
 ### Animations
@@ -177,6 +182,7 @@ Import fonts from Google Fonts or other providers based on design.json:
 ## Image Handling
 
 For images referenced in copy.yaml:
+
 - Use placeholder: `<div class="aspect-video bg-neutral-200"></div>`
 - Add comment: `{/* TODO: Replace with: {visual.description} */}`
 

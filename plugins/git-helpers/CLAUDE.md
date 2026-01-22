@@ -35,6 +35,7 @@ Review code changes using `code-reviewer` and `guidelines-auditor` agents.
 ```
 
 **Output modes:**
+
 - Terminal (default): Shows review, asks to save to CODE_REVIEW.md
 - PR comment (`--comment`): Posts review as PR comment via gh cli
 
@@ -71,18 +72,18 @@ Push branch and create Pull Request via gh cli.
 
 ## Agents
 
-| Agent | Role |
-|-------|------|
-| `code-reviewer` | Bug detection, security, performance (>= 80 confidence) |
-| `guidelines-auditor` | CLAUDE.md compliance checking (>= 80 confidence) |
+| Agent                | Role                                                    |
+| -------------------- | ------------------------------------------------------- |
+| `code-reviewer`      | Bug detection, security, performance (>= 80 confidence) |
+| `guidelines-auditor` | CLAUDE.md compliance checking (>= 80 confidence)        |
 
 ## Confidence Scoring
 
-| Score | Meaning | Action |
-|-------|---------|--------|
-| >= 80 | High confidence | Report as issue |
+| Score | Meaning           | Action           |
+| ----- | ----------------- | ---------------- |
+| >= 80 | High confidence   | Report as issue  |
 | 50-79 | Medium confidence | Investigate more |
-| < 50 | Low confidence | Do not report |
+| < 50  | Low confidence    | Do not report    |
 
 ## Output Format
 

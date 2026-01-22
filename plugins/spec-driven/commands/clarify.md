@@ -18,9 +18,11 @@ Arguments received: $ARGUMENTS
 ### Step 1: Resolve Feature
 
 If ID provided:
+
 - Use that feature directly
 
 If no ID:
+
 - Get current git branch
 - Search `.specs/*/spec.md` for matching `branch:` in frontmatter
 - If found, use that feature
@@ -39,6 +41,7 @@ If file doesn't exist, inform user to run `/init` first.
 Search for all `[NEEDS CLARIFICATION: ...]` markers in the spec.
 
 If none found:
+
 - Inform user the spec is complete
 - Suggest running `/spec-driven:plan` next
 - Exit
@@ -46,6 +49,7 @@ If none found:
 ### Step 4: Present Questions
 
 For each clarification needed:
+
 - Present the question clearly
 - Provide context from the surrounding spec content
 - Suggest options if applicable
@@ -55,12 +59,14 @@ Use AskUserQuestion for structured choices when appropriate.
 ### Step 5: Update Specification
 
 For each answered question:
+
 - Replace the `[NEEDS CLARIFICATION: ...]` marker with the clarified content
 - Keep the spec well-formatted
 
 ### Step 6: Report
 
 After all clarifications:
+
 - Show summary of what was clarified
 - Check if any new clarifications emerged
 - Suggest `/spec-driven:plan` as next step if spec is complete

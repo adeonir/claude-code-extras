@@ -25,6 +25,7 @@ Free tier: 40 imports/week
 Invoke the `figma-builder` subagent to generate HTML for Figma import.
 
 The figma-builder will:
+
 1. Locate design.json (required) and copy.yaml (optional)
 2. Generate clean HTML with inline CSS
 3. Save to ./outputs/figma-export/index.html

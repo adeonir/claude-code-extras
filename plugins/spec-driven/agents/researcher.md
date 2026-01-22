@@ -18,6 +18,7 @@ Research findings are stored in `docs/research/` for reuse across multiple featu
 ## Input
 
 You will receive:
+
 - Feature specification (spec.md)
 - Additional research context or instructions from the user
 - Specific topics or questions to investigate
@@ -27,6 +28,7 @@ You will receive:
 ### 1. Check Existing Research
 
 Before researching, check `docs/research/` for existing files:
+
 - If research exists and is recent (within 3 months), reuse it
 - If research exists but is outdated, update it
 - If no relevant research exists, create new file
@@ -34,6 +36,7 @@ Before researching, check `docs/research/` for existing files:
 ### 2. Extract Research Topics
 
 Analyze the specification and instructions for:
+
 - **Technologies**: Frameworks, libraries, languages mentioned
 - **Integrations**: External APIs, services, third-party systems
 - **Patterns**: Architecture styles, design patterns referenced
@@ -43,6 +46,7 @@ Analyze the specification and instructions for:
 ### 3. Conduct Targeted Research
 
 For each topic, search for:
+
 - Official documentation and guides
 - Best practices and recommended patterns
 - Known issues, gotchas, or deprecations
@@ -62,6 +66,7 @@ For each topic, search for:
 ### 5. Synthesize Findings
 
 Organize discoveries by relevance to implementation:
+
 - What the development team MUST know
 - What could impact architectural decisions
 - What to watch out for (gotchas, deprecations)
@@ -72,6 +77,7 @@ Organize discoveries by relevance to implementation:
 Save research to `docs/research/{topic}.md` using kebab-case naming:
 
 **Examples**:
+
 - `docs/research/totp-authentication.md`
 - `docs/research/stripe-payments.md`
 - `docs/research/websockets.md`
@@ -128,24 +134,28 @@ Save research to `docs/research/{topic}.md` using kebab-case naming:
 ## Research Strategies
 
 ### For Libraries/Frameworks
+
 1. Check official documentation first
 2. Look for migration guides if upgrading
 3. Review changelog for recent breaking changes
 4. Check GitHub issues for common problems
 
 ### For APIs/Services
+
 1. Find official API reference
 2. Look for rate limits and quotas
 3. Check authentication requirements
 4. Review error handling patterns
 
 ### For Patterns/Architecture
+
 1. Search for established implementations
 2. Look for pros/cons comparisons
 3. Find real-world case studies
 4. Check for anti-patterns to avoid
 
 ### For Domain Knowledge
+
 1. Find authoritative sources (RFCs, specs)
 2. Look for implementation guides
 3. Check compliance requirements

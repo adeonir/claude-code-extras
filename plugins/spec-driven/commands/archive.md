@@ -18,9 +18,11 @@ Arguments received: $ARGUMENTS
 ### Step 1: Resolve Feature
 
 If ID provided:
+
 - Use that feature directly
 
 If no ID:
+
 - Get current git branch
 - Search `.specs/*/spec.md` for matching `branch:` in frontmatter
 - If found, use that feature
@@ -31,6 +33,7 @@ If no ID:
 Read `.specs/{ID}-{feature}/spec.md` frontmatter.
 
 Check status:
+
 - If `done`: proceed
 - If `to-review`: suggest running `/spec-driven:validate` first
 - If other: inform user feature is not ready for archive
@@ -38,6 +41,7 @@ Check status:
 ### Step 3: Load Artifacts
 
 Read from `.specs/{ID}-{feature}/`:
+
 - `spec.md` - Overview and feature description
 - `plan.md` - Architecture decisions
 - `tasks.md` - Count completed tasks
@@ -47,9 +51,11 @@ Read from `.specs/{ID}-{feature}/`:
 Determine target path from feature name (e.g., `add-2fa` -> `docs/features/auth.md` or new file).
 
 If `docs/features/{relevant}.md` exists:
+
 - Will update that file with new content
 
 If not:
+
 - Will create new file
 
 ### Step 5: Generate Feature Documentation
@@ -78,19 +84,24 @@ Update `docs/CHANGELOG.md` (create if not exists):
 ## {YYYY-MM-DD}
 
 ### Added
+
 - {New capabilities from this feature}
 
 ### Changed
+
 - {Modified behaviors}
 
 ### Removed
+
 - {Deprecated/removed items}
 
 ## {previous date}
+
 ...
 ```
 
 Rules for changelog:
+
 - Add new date section at TOP of file (after # Changelog header)
 - Use Keep a Changelog format (Added/Changed/Removed/Fixed/Deprecated/Security)
 - Only include sections that have entries
@@ -99,11 +110,13 @@ Rules for changelog:
 ### Step 7: Update Status
 
 Update `.specs/{ID}-{feature}/spec.md` frontmatter:
+
 - Set `status: archived`
 
 ### Step 8: Report
 
 Inform user:
+
 - Documentation generated/updated at `docs/features/{file}.md`
 - Changelog entry added to `docs/CHANGELOG.md`
 - Feature marked as archived

@@ -16,6 +16,7 @@ Execute tasks from tasks.md while following the technical plan, respecting depen
 ## Input
 
 You will receive:
+
 - Task scope: empty (next pending), `T001`, `T001-T005`, or `--all`
 - **Specification** (spec.md - Acceptance Criteria section) - Requirements to satisfy
 - Technical plan (plan.md) - Architectural decisions and Critical Files
@@ -27,6 +28,7 @@ You will receive:
 ## Process
 
 1. **Load Context**
+
    - Review spec.md acceptance criteria to understand requirements
    - Read plan.md for technical decisions and patterns
    - Check research.md for external best practices (if provided)
@@ -35,11 +37,13 @@ You will receive:
    - Identify which tasks to execute based on scope
 
 2. **Validate Dependencies**
+
    - Check if blocked tasks [B:Txxx] have their dependencies completed
    - Skip blocked tasks, inform user
    - Process parallel-safe [P] tasks in any order
 
 3. **Execute Tasks**
+
    - Follow the technical plan precisely
    - **Follow patterns from reference files** for consistency
    - **Apply best practices from research.md** when applicable
@@ -49,12 +53,14 @@ You will receive:
    - **Validate implementation against acceptance criteria**
 
 4. **Run Quality Gates**
+
    - After each task (or range of tasks), run the quality gate commands from tasks.md
    - If lint fails, try `--fix` flag first (e.g., `pnpm lint --fix` or `pnpm lint -- --fix`)
    - Fix remaining lint or type errors manually before marking task as complete
    - Re-run quality gates until passing
 
 5. **Update Progress**
+
    - Mark tasks as completed: `- [x] T001 ...`
    - Update counters: `Completed: X | Remaining: Y`
 
@@ -64,12 +70,12 @@ You will receive:
 
 ## Scope Handling
 
-| Input | Action |
-|-------|--------|
-| (empty) | Execute next pending task |
-| `T001` | Execute only task T001 |
+| Input       | Action                          |
+| ----------- | ------------------------------- |
+| (empty)     | Execute next pending task       |
+| `T001`      | Execute only task T001          |
 | `T001-T005` | Execute tasks T001 through T005 |
-| `--all` | Execute all pending tasks |
+| `--all`     | Execute all pending tasks       |
 
 ## Output
 
@@ -96,6 +102,7 @@ After completing tasks:
 ## Error Handling
 
 If a task cannot be completed:
+
 - Don't mark it as done
 - Report the blocker clearly
 - Suggest what's needed to unblock
@@ -125,10 +132,12 @@ feat: add UserService with repository pattern
 Use semantic edits for precision:
 
 1. **Precise Insertion**
+
    - Use `insert_after_symbol` to add code after specific functions/classes
    - Reduces token usage
 
 2. **When to Use**
+
    - Adding new methods to existing classes
    - Inserting new functions after related code
    - Extending interfaces/types

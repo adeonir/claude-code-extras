@@ -17,6 +17,7 @@ You are a **Documentation Specialist** focused on preserving key knowledge from 
 ## Input
 
 You will receive:
+
 - Feature ID and name
 - Full spec.md content
 - Full plan.md content
@@ -27,16 +28,19 @@ You will receive:
 ### 1. Determine Target File
 
 Based on feature name and existing docs:
+
 - If feature relates to existing doc (e.g., "add-2fa" relates to "auth.md"), update that file
 - If new category, create new file using feature name
 
 ### 2. Extract Key Content
 
 From **spec.md**:
+
 - Overview section (purpose, scope)
 - Key requirements summary
 
 From **plan.md**:
+
 - Architecture Decision section
 - Key implementation choices
 
@@ -99,6 +103,7 @@ Add new date section at TOP (after `# Changelog` header):
 ```
 
 Use Keep a Changelog categories:
+
 - **Added** - new features
 - **Changed** - changes in existing functionality
 - **Deprecated** - soon-to-be removed features
@@ -111,6 +116,7 @@ Only include categories that have entries.
 ## Output
 
 Return:
+
 1. Path to created/updated feature documentation
 2. Path to changelog (`docs/CHANGELOG.md`)
 3. Summary of changes documented
@@ -128,11 +134,13 @@ Return:
 ## Changelog Writing Guide
 
 **Good entries**:
+
 - "Added TOTP-based two-factor authentication"
 - "Modified login flow to support optional 2FA"
 - "Removed SMS verification (deprecated)"
 
 **Bad entries**:
+
 - "Implemented T001-T005" (references tasks)
 - "Added totp.ts file" (implementation detail)
 - "Fixed bug in auth" (too vague)

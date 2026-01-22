@@ -16,6 +16,7 @@ Transform design.json and copy.yaml into a clean HTML file that can be imported 
 ## Prerequisites
 
 User needs to have installed:
+
 - [Chrome Extension](https://chromewebstore.google.com/detail/html-to-figma-by-yashi-te/apgdhlibcimkkffajannbmpnbjaealmo)
 - [Figma Plugin](https://www.figma.com/community/plugin/1459487250118622106)
 
@@ -24,10 +25,12 @@ Free tier: 40 imports/week
 ## Process
 
 1. **Locate input files** in `./docs/`:
+
    - `design.json` (required)
    - `copy.yaml` (optional - ask for description if not present)
 
 2. **Generate HTML** optimized for Figma import:
+
    - Clean semantic HTML structure
    - Inline CSS using design tokens
    - All sections from copy.yaml
@@ -42,6 +45,7 @@ Free tier: 40 imports/week
 ## Output Format
 
 Generate a single HTML file with:
+
 - Embedded CSS (no external files)
 - Clear section structure
 - Design tokens applied
@@ -50,53 +54,53 @@ Generate a single HTML file with:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{Project Name} - Figma Export</title>
-  <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{Project Name} - Figma Export</title>
+    <style>
+      /* Reset */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* Design Tokens from design.json */
-    :root {
-      --color-primary: {colors.primary.main};
-      --color-accent: {colors.accent.main};
-      --color-neutral-white: {colors.neutral.white};
-      --color-neutral-cream: {colors.neutral.cream};
-      --font-heading: '{typography.fonts.heading}', serif;
-      --font-body: '{typography.fonts.body}', sans-serif;
-      /* ... more tokens */
-    }
+      /* Design Tokens from design.json */
+      :root {
+        --color-primary: {colors.primary.main};
+        --color-accent: {colors.accent.main};
+        --color-neutral-white: {colors.neutral.white};
+        --color-neutral-cream: {colors.neutral.cream};
+        --font-heading: '{typography.fonts.heading}', serif;
+        --font-body: '{typography.fonts.body}', sans-serif;
+        /* ... more tokens */
+      }
 
-    body {
-      font-family: var(--font-body);
-      background: var(--color-neutral-white);
-      color: var(--color-neutral-charcoal);
-    }
+      body {
+        font-family: var(--font-body);
+        background: var(--color-neutral-white);
+        color: var(--color-neutral-charcoal);
+      }
 
-    /* Sections */
-    .section { /* ... */ }
-    .hero { /* ... */ }
-    .features { /* ... */ }
-    /* ... */
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <nav>...</nav>
+      /* Sections */
+      .section { /* ... */ }
+      .hero { /* ... */ }
+      .features { /* ... */ }
+      /* ... */
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>...</nav>
 
-  <!-- Hero Section -->
-  <section class="hero">...</section>
+    <!-- Hero Section -->
+    <section class="hero">...</section>
 
-  <!-- Features Section -->
-  <section class="features">...</section>
+    <!-- Features Section -->
+    <section class="features">...</section>
 
-  <!-- ... more sections from copy.yaml -->
+    <!-- ... more sections from copy.yaml -->
 
-  <!-- Footer -->
-  <footer>...</footer>
-</body>
+    <!-- Footer -->
+    <footer>...</footer>
+  </body>
 </html>
 ```
 
@@ -121,6 +125,7 @@ Save to: `./outputs/figma-export/index.html`
 After generating the HTML:
 
 1. **Start server**:
+
 ```bash
 npx http-server ./outputs/figma-export -o -p 8081
 ```

@@ -41,6 +41,7 @@ plugins/
 ## Plugin Structure
 
 Each plugin follows this structure:
+
 - `.claude-plugin/plugin.json` - Plugin manifest defining commands, agents, and skills
 - `agents/*.md` - Subagent definitions (invoked via Task tool)
 - `commands/*.md` - Slash command prompts
@@ -49,6 +50,7 @@ Each plugin follows this structure:
 ## Key Plugins
 
 ### spec-driven
+
 Specification-driven development workflow with brownfield support:
 `/init` -> `/clarify` -> `/plan` -> `/tasks` -> `/implement` -> `/validate` -> `/archive`
 
@@ -59,6 +61,7 @@ Features organized by sequential ID (`001-user-auth/`, `002-add-2fa/`) with opti
 Artifacts persisted in `.specs/{ID}-{feature}/` (spec.md, plan.md, tasks.md). Research shared in `docs/research/`. Feature docs generated to `docs/features/`, changelog to `docs/CHANGELOG.md` via `/archive`.
 
 ### debug-tools
+
 Iterative debugging workflow: `/debug-tools:debug "bug description"`
 
 5-phase workflow: Investigate (with confidence scoring) -> Inject Logs -> Propose Fix -> Verify -> Cleanup. Findings rated 0-100: >= 70 high confidence, 50-69 medium, < 50 not reported.
@@ -66,12 +69,15 @@ Iterative debugging workflow: `/debug-tools:debug "bug description"`
 Uses Console Ninja MCP for runtime values and Chrome DevTools MCP for browser inspection.
 
 ### design-builder
+
 Multiple entry points:
+
 - **From scratch**: `/design-builder:plan` -> `product-plan.yaml` -> `/design-builder:design` -> `design.json`
 - **URL reference**: `/design-builder:copy` -> `copy.yaml` -> `/design-builder:design` -> `design.json`
 - **Image reference**: `/design-builder:design` -> `design.json` (with brief description)
 
 Multiple outputs:
+
 - `/design-builder:frontend` - React directly
 - `/design-builder:frontend --variants` - 4 HTML previews -> choose -> React
 - `/design-builder:figma` - HTML for Figma import via YashiTech plugin (40/week free)

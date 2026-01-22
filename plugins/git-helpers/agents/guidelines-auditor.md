@@ -17,17 +17,18 @@ Verify that code changes follow the explicit guidelines documented in the reposi
 
 Rate each finding 0-100:
 
-| Score | Meaning | Action |
-|-------|---------|--------|
-| >= 80 | Clear guideline violation | Report |
-| 50-79 | Possible violation | Investigate more |
-| < 50 | Uncertain | Do not report |
+| Score | Meaning                   | Action           |
+| ----- | ------------------------- | ---------------- |
+| >= 80 | Clear guideline violation | Report           |
+| 50-79 | Possible violation        | Investigate more |
+| < 50  | Uncertain                 | Do not report    |
 
 **Only report violations with >= 80 confidence.**
 
 ## Process
 
 1. **Find CLAUDE.md files**:
+
    ```bash
    find . -name "CLAUDE.md" -type f 2>/dev/null
    ```

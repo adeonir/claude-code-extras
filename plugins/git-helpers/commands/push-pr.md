@@ -15,17 +15,21 @@ Push current branch and create Pull Request via `gh` cli.
 ## Process
 
 1. **Check gh cli availability**:
+
    ```bash
    which gh
    ```
+
    If not available, stop and inform user to install `gh` cli or use `/git-helpers:details` instead.
 
 2. **Detect base branch** (if not specified):
+
    ```bash
    git branch -a | grep -E "(main|master|develop)$" | head -1
    ```
 
 3. **Gather context** (run in parallel):
+
    ```bash
    git branch --show-current
    git log {base}..HEAD --oneline
@@ -34,6 +38,7 @@ Push current branch and create Pull Request via `gh` cli.
    ```
 
 4. **Analyze changes**:
+
    - Review commits and diff to understand what changed
    - Base analysis solely on file contents, not conversation context
    - Determine the appropriate PR type
@@ -45,24 +50,26 @@ Push current branch and create Pull Request via `gh` cli.
 
 ## PR Types
 
-| Type | Use when |
-|------|----------|
-| `feat` | Adding new functionality |
-| `fix` | Fixing a bug |
+| Type       | Use when                                     |
+| ---------- | -------------------------------------------- |
+| `feat`     | Adding new functionality                     |
+| `fix`      | Fixing a bug                                 |
 | `refactor` | Restructuring code without changing behavior |
-| `chore` | Maintenance tasks, dependencies, configs |
-| `docs` | Documentation changes |
-| `test` | Adding or updating tests |
+| `chore`    | Maintenance tasks, dependencies, configs     |
+| `docs`     | Documentation changes                        |
+| `test`     | Adding or updating tests                     |
 
 ## Format
 
 **Title:** `type: concise description` or `type(scope): concise description`
 
 **Body:**
+
 ```markdown
 Brief summary of what this PR does (2-3 sentences max).
 
 ## Changes
+
 - Key change 1
 - Key change 2
 - Key change 3

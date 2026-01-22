@@ -23,7 +23,5 @@
     "./agents/variants-builder.md",
     "./agents/figma-builder.md"
   ],
-  "skills": [
-    "./skills/frontend-design/SKILL.md"
-  ]
+  "skills": ["./skills/frontend-design/SKILL.md"]
 }

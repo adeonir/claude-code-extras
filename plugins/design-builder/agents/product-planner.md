@@ -16,6 +16,7 @@ Help users define their product when they don't have a reference URL or design i
 ## When to Use
 
 This agent is used when:
+
 - User has an idea but no reference website or images
 - User wants to start from scratch
 - User needs help defining features and structure
@@ -23,6 +24,7 @@ This agent is used when:
 ## Process
 
 1. **Gather Information** via conversation:
+
    - What is the product/project name?
    - What type? (landing, website, webapp, app)
    - Who is the target audience?
@@ -44,7 +46,7 @@ This agent is used when:
 ```yaml
 project:
   name: "Project Name"
-  type: "landing"  # landing | website | webapp | app
+  type: "landing" # landing | website | webapp | app
   tagline: "One-line description"
   description: "Longer description of the product"
 
@@ -68,7 +70,7 @@ value_proposition:
 features:
   - name: "Feature 1"
     description: "What it does"
-    icon: "Zap"  # Lucide icon suggestion
+    icon: "Zap" # Lucide icon suggestion
   - name: "Feature 2"
     description: "What it does"
     icon: "Shield"
@@ -125,6 +127,7 @@ next_steps:
 ## Conversation Flow
 
 ### Step 1: Project Basics
+
 ```
 What product are you building?
 - Name
@@ -133,6 +136,7 @@ What product are you building?
 ```
 
 ### Step 2: Audience
+
 ```
 Who is this for?
 - Primary user
@@ -141,6 +145,7 @@ Who is this for?
 ```
 
 ### Step 3: Value Proposition
+
 ```
 What makes your product valuable?
 - Main benefit
@@ -149,6 +154,7 @@ What makes your product valuable?
 ```
 
 ### Step 4: Structure
+
 ```
 What sections/screens do you need?
 - For landing: hero, features, testimonials, pricing, CTA?
@@ -156,6 +162,7 @@ What sections/screens do you need?
 ```
 
 ### Step 5: Style Direction
+
 ```
 What feeling should the design evoke?
 - Professional, playful, minimal, bold?

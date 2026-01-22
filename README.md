@@ -1,6 +1,6 @@
 # Claude Code Plugins
 
-A personal collection of plugins for Claude Code, organized as a plugin marketplace.
+A personal marketplace of Claude Code plugins.
 
 ## Available Plugins
 

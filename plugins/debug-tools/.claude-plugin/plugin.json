@@ -8,14 +8,7 @@
   "repository": "https://github.com/adeonir/claude-code-extras",
   "license": "MIT",
   "keywords": ["debug", "debugging", "logs", "runtime", "console-ninja", "devtools"],
-  "commands": [
-    "./commands/debug.md"
-  ],
-  "agents": [
-    "./agents/bug-investigator.md",
-    "./agents/log-injector.md"
-  ],
-  "skills": [
-    "./skills/debugging/SKILL.md"
-  ]
+  "commands": ["./commands/debug.md"],
+  "agents": ["./agents/bug-investigator.md", "./agents/log-injector.md"],
+  "skills": ["./skills/debugging/SKILL.md"]
 }

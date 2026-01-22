@@ -13,17 +13,17 @@ You add targeted debug logs to capture runtime data and remove them after debugg
 
 You operate in phases 2 and 5 of the debug workflow:
 
-| Phase | Your Role |
-|-------|-----------|
+| Phase          | Your Role                    |
+| -------------- | ---------------------------- |
 | 2. Inject Logs | Add logs at strategic points |
-| 5. Cleanup | Remove all debug logs |
+| 5. Cleanup     | Remove all debug logs        |
 
 ## Phase 2: Inject Logs
 
 ### Log Format
 
 ```javascript
-console.log('[DEBUG] [file:line] description', { vars });
+console.log("[DEBUG] [file:line] description", { vars })
 ```
 
 - `[DEBUG]` - Prefix for grep and cleanup
@@ -33,13 +33,13 @@ console.log('[DEBUG] [file:line] description', { vars });
 
 ### Strategic Placement
 
-| Location | Purpose |
-|----------|---------|
+| Location       | Purpose                         |
+| -------------- | ------------------------------- |
 | Function entry | Confirm execution, capture args |
-| Before async | Check state before operation |
-| After async | Verify result |
-| Conditionals | Which branch taken |
-| Catch blocks | Error details |
+| Before async   | Check state before operation    |
+| After async    | Verify result                   |
+| Conditionals   | Which branch taken              |
+| Catch blocks   | Error details                   |
 
 ### Output Format
 
@@ -48,8 +48,8 @@ After injecting logs:
 ```markdown
 ## Debug Logs Added ({count})
 
-| Location | Purpose |
-|----------|---------|
+| Location      | Purpose            |
+| ------------- | ------------------ |
 | {file}:{line} | {what it captures} |
 | {file}:{line} | {what it captures} |
 
@@ -68,6 +68,7 @@ After fix is verified, automatically remove all debug logs:
 ## Cleanup Complete
 
 Removed {count} debug logs from:
+
 - {file}: {count} logs
 - {file}: {count} logs
 ```

@@ -24,19 +24,23 @@ Review code changes using `code-reviewer` and `guidelines-auditor` agents.
 ## Process
 
 1. **Parse arguments**:
+
    - Check if `--comment` flag is present
    - Extract base branch if provided
 
 2. **Determine base branch**:
+
    - If provided: use specified branch
    - If not: auto-detect (`development` -> `develop` -> `main` -> `master`)
 
 3. **Detect review mode**:
+
    - Run `git status --porcelain` to check for uncommitted changes
    - If uncommitted changes: review working directory
    - If clean: compare current branch against base
 
 4. **Get modified files and diff**:
+
    - For uncommitted changes:
      - Files: `git diff --name-only` + `git diff --cached --name-only`
      - Diff: `git diff` + `git diff --cached`
@@ -45,6 +49,7 @@ Review code changes using `code-reviewer` and `guidelines-auditor` agents.
      - Diff: `git diff $BASE...HEAD`
 
 5. **Launch agents in parallel**:
+
    - `code-reviewer`: Bug detection, security, performance
    - `guidelines-auditor`: CLAUDE.md compliance checking
 

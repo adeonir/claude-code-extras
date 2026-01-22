@@ -15,6 +15,7 @@ Create a commit with a well-formatted message based on the actual file changes.
 ## Process
 
 1. **Gather context** (run in parallel):
+
    ```bash
    git status
    git diff HEAD
@@ -22,16 +23,19 @@ Create a commit with a well-formatted message based on the actual file changes.
    ```
 
 2. **Analyze changes**:
+
    - Review the diff output to understand what changed
    - Base your analysis solely on the file contents, not conversation context
    - Determine the appropriate commit type
 
 3. **Stage files** (if not using `-s/--staged`):
+
    ```bash
    git add .
    ```
 
 4. **Create commit** using HEREDOC format:
+
    ```bash
    git commit -m "$(cat <<'EOF'
    type: concise description
@@ -43,6 +47,7 @@ Create a commit with a well-formatted message based on the actual file changes.
    ```
 
 5. **Verify commit**:
+
    ```bash
    git log -1 --format="%B"
    git status
@@ -54,14 +59,14 @@ Create a commit with a well-formatted message based on the actual file changes.
 
 ## Commit Types
 
-| Type | Use when |
-|------|----------|
-| `feat` | Adding new functionality |
-| `fix` | Fixing a bug |
+| Type       | Use when                                     |
+| ---------- | -------------------------------------------- |
+| `feat`     | Adding new functionality                     |
+| `fix`      | Fixing a bug                                 |
 | `refactor` | Restructuring code without changing behavior |
-| `chore` | Maintenance tasks, dependencies, configs |
-| `docs` | Documentation changes |
-| `test` | Adding or updating tests |
+| `chore`    | Maintenance tasks, dependencies, configs     |
+| `docs`     | Documentation changes                        |
+| `test`     | Adding or updating tests                     |
 
 ## Message Format
 

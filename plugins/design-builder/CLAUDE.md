@@ -53,40 +53,40 @@ flowchart TD
 
 ### Entry Points
 
-| Entry | Command | When to Use |
-|-------|---------|-------------|
-| From scratch | `/design-builder:plan` | No reference, just an idea |
-| URL | `/design-builder:copy` | Website as inspiration |
-| Image | `/design-builder:design` | Screenshot/mockup as reference |
+| Entry        | Command                  | When to Use                    |
+| ------------ | ------------------------ | ------------------------------ |
+| From scratch | `/design-builder:plan`   | No reference, just an idea     |
+| URL          | `/design-builder:copy`   | Website as inspiration         |
+| Image        | `/design-builder:design` | Screenshot/mockup as reference |
 
 ### Outputs
 
-| Output | Command | For Who |
-|--------|---------|---------|
-| React | `/design-builder:frontend` | Dev wants code directly |
-| Figma | `/design-builder:figma` | Designer wants to refine first |
+| Output | Command                    | For Who                        |
+| ------ | -------------------------- | ------------------------------ |
+| React  | `/design-builder:frontend` | Dev wants code directly        |
+| Figma  | `/design-builder:figma`    | Designer wants to refine first |
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `/design-builder:plan` | Define product vision, data models, features |
-| `/design-builder:copy` | Extract content from URL to copy.yaml |
-| `/design-builder:design` | Extract design from images to design.json |
-| `/design-builder:frontend` | Build React directly |
-| `/design-builder:frontend --variants` | Generate 4 HTML previews, then build React |
-| `/design-builder:figma` | Generate HTML for Figma import |
+| Command                               | Description                                  |
+| ------------------------------------- | -------------------------------------------- |
+| `/design-builder:plan`                | Define product vision, data models, features |
+| `/design-builder:copy`                | Extract content from URL to copy.yaml        |
+| `/design-builder:design`              | Extract design from images to design.json    |
+| `/design-builder:frontend`            | Build React directly                         |
+| `/design-builder:frontend --variants` | Generate 4 HTML previews, then build React   |
+| `/design-builder:figma`               | Generate HTML for Figma import               |
 
 ## Agents
 
-| Agent | Role |
-|-------|------|
-| `product-planner` | Product Strategist - defines vision from scratch |
-| `copy-extractor` | Content Strategist - extracts content from URLs |
-| `design-extractor` | Creative Director - extracts design from images |
-| `frontend-builder` | Frontend Engineer - builds React |
-| `variants-builder` | Design Engineer - generates 4 HTML+CSS previews |
-| `figma-builder` | Design Engineer - generates Figma-optimized HTML |
+| Agent              | Role                                             |
+| ------------------ | ------------------------------------------------ |
+| `product-planner`  | Product Strategist - defines vision from scratch |
+| `copy-extractor`   | Content Strategist - extracts content from URLs  |
+| `design-extractor` | Creative Director - extracts design from images  |
+| `frontend-builder` | Frontend Engineer - builds React                 |
+| `variants-builder` | Design Engineer - generates 4 HTML+CSS previews  |
+| `figma-builder`    | Design Engineer - generates Figma-optimized HTML |
 
 Agents can be invoked directly: "Use the design-extractor agent to analyze this image"
 
@@ -94,12 +94,12 @@ Agents can be invoked directly: "Use the design-extractor agent to analyze this 
 
 Each preset applies design guidelines (60-30-10, visual hierarchy, rhythm):
 
-| Preset | Style | Hero | Spacing | Cards |
-|--------|-------|------|---------|-------|
-| `minimal` | Ultra clean | Text only | Extra generous | None |
-| `editorial` | Magazine feel | Split 50/50 | Generous | Flat |
-| `startup` | SaaS modern | Centered CTA | Balanced | Shadows |
-| `bold` | High impact | Fullscreen | Compact | Bordered |
+| Preset      | Style         | Hero         | Spacing        | Cards    |
+| ----------- | ------------- | ------------ | -------------- | -------- |
+| `minimal`   | Ultra clean   | Text only    | Extra generous | None     |
+| `editorial` | Magazine feel | Split 50/50  | Generous       | Flat     |
+| `startup`   | SaaS modern   | Centered CTA | Balanced       | Shadows  |
+| `bold`      | High impact   | Fullscreen   | Compact        | Bordered |
 
 ## Figma Export
 
@@ -110,29 +110,31 @@ Export to Figma using YashiTech plugin (40 imports/week free):
 3. Import in Figma via plugin
 
 **Requirements:**
+
 - [Chrome Extension](https://chromewebstore.google.com/detail/html-to-figma-by-yashi-te/apgdhlibcimkkffajannbmpnbjaealmo)
 - [Figma Plugin](https://www.figma.com/community/plugin/1459487250118622106)
 
 ## Skills
 
-| Skill | Description |
-|-------|-------------|
+| Skill             | Description                                      |
+| ----------------- | ------------------------------------------------ |
 | `frontend-design` | Design principles auto-loaded for frontend tasks |
 
 The frontend-builder and variants-builder agents MUST apply the frontend-design skill.
 
 ## Project Types
 
-| Type | Description | Example |
-|------|-------------|---------|
-| `landing` | Single-page landing | Product page, lead capture |
-| `website` | Multi-page site | Corporate, blog, portfolio |
-| `webapp` | Interactive application | Dashboard, SaaS, admin panel |
-| `app` | Mobile application | iOS/Android, PWA |
+| Type      | Description             | Example                      |
+| --------- | ----------------------- | ---------------------------- |
+| `landing` | Single-page landing     | Product page, lead capture   |
+| `website` | Multi-page site         | Corporate, blog, portfolio   |
+| `webapp`  | Interactive application | Dashboard, SaaS, admin panel |
+| `app`     | Mobile application      | iOS/Android, PWA             |
 
 ## Output Formats
 
 ### product-plan.yaml
+
 - Project metadata and description
 - Target audience and pain points
 - Value proposition and features
@@ -140,11 +142,13 @@ The frontend-builder and variants-builder agents MUST apply the frontend-design 
 - Style direction and references
 
 ### copy.yaml
+
 - `landing/website`: sections with hero, features, cta, footer
 - `webapp`: screens with widgets, auth, sidebar navigation
 - `app`: screens, onboarding, bottom-tabs, gestures, native features
 
 ### design.json
+
 ```json
 {
   "meta": { "name", "version", "project_type" },

@@ -10,7 +10,17 @@
       "source": "./plugins/spec-driven",
       "description": "Specification-driven development workflow with brownfield support, requirements traceability, task management, and implementation",
       "version": "2.5.2",
-      "keywords": ["spec", "specification", "planning", "tasks", "implementation", "workflow", "traceability", "brownfield", "greenfield"]
+      "keywords": [
+        "spec",
+        "specification",
+        "planning",
+        "tasks",
+        "implementation",
+        "workflow",
+        "traceability",
+        "brownfield",
+        "greenfield"
+      ]
     },
     {
       "name": "debug-tools",

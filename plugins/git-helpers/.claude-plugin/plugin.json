@@ -8,14 +8,6 @@
   "repository": "https://github.com/adeonir/claude-code-extras",
   "license": "MIT",
   "keywords": ["git", "workflow", "commit", "pr", "code-review", "guidelines"],
-  "commands": [
-    "./commands/review.md",
-    "./commands/commit.md",
-    "./commands/summary.md",
-    "./commands/push-pr.md"
-  ],
-  "agents": [
-    "./agents/code-reviewer.md",
-    "./agents/guidelines-auditor.md"
-  ]
+  "commands": ["./commands/review.md", "./commands/commit.md", "./commands/summary.md", "./commands/push-pr.md"],
+  "agents": ["./agents/code-reviewer.md", "./agents/guidelines-auditor.md"]
 }

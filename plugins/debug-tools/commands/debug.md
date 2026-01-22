@@ -33,6 +33,7 @@ flowchart TD
 ### Phase 1: Investigate
 
 Invoke the `bug-investigator` agent to:
+
 - Analyze code related to the bug
 - Find root cause with confidence scoring
 - Report findings >= 70 confidence as probable cause
@@ -41,6 +42,7 @@ Invoke the `bug-investigator` agent to:
 ### Phase 2: Inject Logs (if needed)
 
 If runtime data is needed, invoke the `log-injector` agent to:
+
 - Add targeted `[DEBUG]` logs at strategic points
 - Report locations and what each log captures
 - Ask user to reproduce the bug
@@ -48,6 +50,7 @@ If runtime data is needed, invoke the `log-injector` agent to:
 ### Phase 3: Propose Fix
 
 When root cause is confirmed:
+
 - Present minimal fix in diff format
 - Include confidence score
 - Ask user to approve
@@ -55,6 +58,7 @@ When root cause is confirmed:
 ### Phase 4: Verify
 
 After fix is applied:
+
 - Ask user to verify the bug is fixed
 - If not fixed, return to Phase 1
 - If fixed, proceed to cleanup
@@ -62,6 +66,7 @@ After fix is applied:
 ### Phase 5: Cleanup
 
 Automatically remove all debug logs:
+
 - Find all `[DEBUG]` statements
 - Remove them from code
 - Report cleanup summary

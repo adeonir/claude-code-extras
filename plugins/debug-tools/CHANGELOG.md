@@ -5,12 +5,14 @@ All notable changes to this plugin will be documented in this file.
 ## v1.3.1 (2026-01-11)
 
 ### Added
+
 - YAML frontmatter to debugging skill with name and description
 - `context: fork` to debugging skill for conversation context access
 
 ## v1.3.0 (2026-01-03)
 
 ### Added
+
 - Structured 5-phase workflow (Investigate, Inject, Propose, Verify, Cleanup)
 - Confidence scoring for findings (High >= 70, Medium 50-69, Low < 50)
 - Structured output format with file:line references
@@ -19,6 +21,7 @@ All notable changes to this plugin will be documented in this file.
 - "When to Use / When NOT to Use" guidance
 
 ### Changed
+
 - bug-investigator now uses confidence scoring
 - log-injector handles both injection and cleanup phases
 - debug command includes full workflow documentation
@@ -28,12 +31,14 @@ All notable changes to this plugin will be documented in this file.
 ## v1.2.1 (2025-12-15)
 
 ### Changed
+
 - Remove Serena MCP to avoid duplication with spec-driven plugin
 - Update documentation to reference spec-driven for LSP features
 
 ## v1.2.0 (2025-12-12)
 
 ### Changed
+
 - Simplify agents to role-based style
 - Remove hypothesis generation approach in favor of direct investigation
 - Reduce total lines from 736 to 320 (56% reduction)
@@ -41,11 +46,13 @@ All notable changes to this plugin will be documented in this file.
 ## v1.1.0 (2025-12-11)
 
 ### Added
+
 - Serena MCP integration for semantic code analysis
 
 ## v1.0.0 (2025-12-11)
 
 ### Added
+
 - Initial release
 - `/debug` command for starting debugging sessions
 - `bug-investigator` agent for code analysis and root cause detection

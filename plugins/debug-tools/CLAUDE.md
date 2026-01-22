@@ -5,6 +5,7 @@ Claude Code plugin for debugging with code analysis and runtime inspection.
 ## Overview
 
 Iterative debugging through:
+
 - Code investigation to find root cause
 - Confidence scoring for findings
 - Targeted log injection with `[DEBUG]` prefix
@@ -45,34 +46,34 @@ flowchart TD
 
 ### Phases
 
-| Phase | Description | Agent |
-|-------|-------------|-------|
-| 1. Investigate | Analyze code, find root cause | bug-investigator |
-| 2. Inject Logs | Add logs at strategic points | log-injector |
-| 3. Propose Fix | Suggest minimal correction | bug-investigator |
-| 4. Verify | User confirms fix works | - |
-| 5. Cleanup | Remove debug logs automatically | log-injector |
+| Phase          | Description                     | Agent            |
+| -------------- | ------------------------------- | ---------------- |
+| 1. Investigate | Analyze code, find root cause   | bug-investigator |
+| 2. Inject Logs | Add logs at strategic points    | log-injector     |
+| 3. Propose Fix | Suggest minimal correction      | bug-investigator |
+| 4. Verify      | User confirms fix works         | -                |
+| 5. Cleanup     | Remove debug logs automatically | log-injector     |
 
 ## Command
 
-| Command | Description |
-|---------|-------------|
+| Command                            | Description             |
+| ---------------------------------- | ----------------------- |
 | `/debug-tools:debug "description"` | Start debugging session |
 
 ## Agents
 
-| Agent | Role |
-|-------|------|
+| Agent              | Role                                                        |
+| ------------------ | ----------------------------------------------------------- |
 | `bug-investigator` | Investigates code, finds root cause with confidence scoring |
-| `log-injector` | Adds targeted debug logs, removes them after fix |
+| `log-injector`     | Adds targeted debug logs, removes them after fix            |
 
 ## Confidence Scoring
 
-| Score | Meaning | Action |
-|-------|---------|--------|
+| Score | Meaning               | Action                   |
+| ----- | --------------------- | ------------------------ |
 | >= 70 | High - clear evidence | Report as probable cause |
-| 50-69 | Medium - possible | Suggest logs to confirm |
-| < 50 | Low - speculation | Do not report |
+| 50-69 | Medium - possible     | Suggest logs to confirm  |
+| < 50  | Low - speculation     | Do not report            |
 
 ## When to Use
 
@@ -90,15 +91,15 @@ flowchart TD
 
 Optional MCP servers for enhanced debugging:
 
-| MCP | Purpose |
-|-----|---------|
-| Console Ninja | Runtime values, test status, code coverage |
-| Chrome DevTools | Network inspection, browser console, DOM |
+| MCP             | Purpose                                    |
+| --------------- | ------------------------------------------ |
+| Console Ninja   | Runtime values, test status, code coverage |
+| Chrome DevTools | Network inspection, browser console, DOM   |
 
 ## Log Format
 
 ```javascript
-console.log('[DEBUG] [file:line] description', { values });
+console.log("[DEBUG] [file:line] description", { values })
 ```
 
 ## Cleanup

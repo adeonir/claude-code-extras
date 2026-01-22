@@ -44,6 +44,7 @@ First, add the marketplace to Claude Code (only needed once):
 ```
 
 This command automatically:
+
 - Downloads the plugin from the marketplace
 - Configures Serena MCP for semantic code operations
 - Makes all commands available in your Claude Code session
@@ -78,17 +79,17 @@ This command automatically:
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `/spec-driven:init <description>` | Create feature specification with sequential ID |
-| `/spec-driven:init --link ID` | Associate current branch to existing feature |
-| `/spec-driven:clarify [ID]` | Resolve [NEEDS CLARIFICATION] items |
-| `/spec-driven:plan [ID]` | Explore codebase and create technical plan |
-| `/spec-driven:tasks [ID]` | Generate task list from plan |
-| `/spec-driven:implement [ID] [scope]` | Execute implementation tasks |
-| `/spec-driven:validate [ID]` | Validate artifacts, consistency, and code |
-| `/spec-driven:archive [ID]` | Generate documentation and mark as archived |
-| `/spec-driven:specs` | List all features by status |
+| Command                               | Description                                     |
+| ------------------------------------- | ----------------------------------------------- |
+| `/spec-driven:init <description>`     | Create feature specification with sequential ID |
+| `/spec-driven:init --link ID`         | Associate current branch to existing feature    |
+| `/spec-driven:clarify [ID]`           | Resolve [NEEDS CLARIFICATION] items             |
+| `/spec-driven:plan [ID]`              | Explore codebase and create technical plan      |
+| `/spec-driven:tasks [ID]`             | Generate task list from plan                    |
+| `/spec-driven:implement [ID] [scope]` | Execute implementation tasks                    |
+| `/spec-driven:validate [ID]`          | Validate artifacts, consistency, and code       |
+| `/spec-driven:archive [ID]`           | Generate documentation and mark as archived     |
+| `/spec-driven:specs`                  | List all features by status                     |
 
 ## Feature Organization
 
@@ -113,7 +114,7 @@ Each spec.md has frontmatter metadata:
 id: 002
 feature: add-2fa
 status: in-progress
-branch: feat/add-2fa  # optional
+branch: feat/add-2fa # optional
 created: 2025-01-03
 ---
 ```
@@ -162,18 +163,22 @@ Tasks are organized by category (Foundation, Implementation, Validation, Documen
 
 ```markdown
 ## Foundation
-- [ ] T001 [P] Create user schema         # Parallel-safe
-- [ ] T002 [P] Setup auth provider        # Parallel-safe
+
+- [ ] T001 [P] Create user schema # Parallel-safe
+- [ ] T002 [P] Setup auth provider # Parallel-safe
 
 ## Implementation
-- [ ] T003 [B:T001,T002] Implement login  # Blocked by T001 and T002
-- [ ] T004 [B:T003] Add error handling    # Blocked by T003
+
+- [ ] T003 [B:T001,T002] Implement login # Blocked by T001 and T002
+- [ ] T004 [B:T003] Add error handling # Blocked by T003
 
 ## Validation
-- [ ] T005 [B:T004] Run type checks       # Blocked by T004
+
+- [ ] T005 [B:T004] Run type checks # Blocked by T004
 
 ## Documentation
-- [ ] T006 [P] Update README              # Parallel-safe
+
+- [ ] T006 [P] Update README # Parallel-safe
 ```
 
 ## Workflow
@@ -200,6 +205,7 @@ flowchart TD
 ```
 
 Each phase reads previous artifacts to maintain context:
+
 - `/plan` discovers project documentation, checks docs/research/ for existing research, outputs Requirements Traceability
 - `/tasks` reads spec.md (FR-xxx, AC-xxx) and plan.md, outputs Requirements Coverage
 - `/implement` reads spec (AC), plan (critical files), and research
@@ -210,11 +216,11 @@ Each phase reads previous artifacts to maintain context:
 
 This plugin uses [Serena](https://github.com/oraios/serena) for semantic code operations:
 
-| Phase | Tool | Benefit |
-|-------|------|---------|
-| `/plan` | `find_symbol` | Precise symbol location |
-| `/plan` | `find_referencing_symbols` | Impact analysis |
-| `/implement` | `insert_after_symbol` | Semantic edits |
+| Phase        | Tool                       | Benefit                 |
+| ------------ | -------------------------- | ----------------------- |
+| `/plan`      | `find_symbol`              | Precise symbol location |
+| `/plan`      | `find_referencing_symbols` | Impact analysis         |
+| `/implement` | `insert_after_symbol`      | Semantic edits          |
 
 Serena MCP is auto-configured via `.mcp.json` when you install the plugin.
 
