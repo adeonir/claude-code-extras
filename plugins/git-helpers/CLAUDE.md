@@ -6,32 +6,32 @@ Git workflow helper commands for Claude Code.
 
 ```mermaid
 flowchart LR
-    review["/code-review"] --> commit["/commit"]
-    commit --> details["/details"]
-    details --> push["/push-pr"]
+    review["/review"] --> commit["/commit"]
+    commit --> summary["/summary"]
+    summary --> push["/push-pr"]
 
     review -->|optional| save["CODE_REVIEW.md"]
-    details --> file["PR_DETAILS.md"]
+    summary --> file["PR_DETAILS.md"]
     push --> pr["PR created"]
 ```
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `/git-helpers:code-review` | Review changes with confidence scoring |
-| `/git-helpers:commit` | Create commit with auto-generated message |
-| `/git-helpers:details` | Generate PR description to file |
-| `/git-helpers:push-pr` | Push branch and create PR |
+| Command                | Description                               |
+| ---------------------- | ----------------------------------------- |
+| `/git-helpers:review`  | Review changes with confidence scoring    |
+| `/git-helpers:commit`  | Create commit with auto-generated message |
+| `/git-helpers:summary` | Generate PR description to file           |
+| `/git-helpers:push-pr` | Push branch and create PR                 |
 
-### /code-review
+### /review
 
 Review code changes using `code-reviewer` and `guidelines-auditor` agents.
 
 ```bash
-/git-helpers:code-review              # Terminal, ask to save
-/git-helpers:code-review main         # Compare against main
-/git-helpers:code-review --comment    # Post to PR via gh
+/git-helpers:review              # Terminal, ask to save
+/git-helpers:review main         # Compare against main
+/git-helpers:review --comment    # Post to PR via gh
 ```
 
 **Output modes:**
@@ -49,13 +49,13 @@ Create commits with well-formatted messages based on actual file changes.
 
 **Message format:** `type: concise description`
 
-### /details
+### /summary
 
 Generate PR title and description to `PR_DETAILS.md`.
 
 ```bash
-/git-helpers:details          # Auto-detect base branch
-/git-helpers:details main     # Use main as base
+/git-helpers:summary          # Auto-detect base branch
+/git-helpers:summary main     # Use main as base
 ```
 
 ### /push-pr

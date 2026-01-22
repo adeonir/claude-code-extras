@@ -35,7 +35,7 @@ plugins/
 └── git-helpers/              # Git workflow plugin
     ├── .claude-plugin/plugin.json
     ├── agents/               # Subagents (code-reviewer, guidelines-auditor)
-    └── commands/             # Slash commands (/code-review, /commit, /details, /push-pr)
+    └── commands/             # Slash commands (/review, /commit, /summary, /push-pr)
 ```
 
 ## Plugin Structure
@@ -79,7 +79,8 @@ Multiple outputs:
 **Design Variants**: Generate 4 layout presets (minimal, editorial, startup, bold) as HTML+CSS previews. Compare at http://localhost:8080, then tell Claude which to use (e.g., "use editorial").
 
 ### git-helpers
-Workflow: `/git-helpers:code-review` -> `/git-helpers:commit` -> `/git-helpers:details` -> `/git-helpers:push-pr`
+
+Workflow: `/git-helpers:review` -> `/git-helpers:commit` -> `/git-helpers:summary` -> `/git-helpers:push-pr`
 
 Confidence-scored code review (>= 80 threshold) with CLAUDE.md compliance checking. Commands analyze actual git diffs, not conversation context. Commit message format: `type: concise description`.
 

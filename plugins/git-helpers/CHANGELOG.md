@@ -2,6 +2,13 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## v1.2.2 (2026-01-22)
+
+### Changed
+
+- Rename `/details` command to `/summary` for clarity
+- Rename `/code-review` command to `/review` for simplicity
+
 ## v1.2.1 (2026-01-07)
 
 ### Changed

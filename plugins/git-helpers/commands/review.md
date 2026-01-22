@@ -3,7 +3,7 @@ description: Review code changes using specialized agents
 argument-hint: "[base-branch] [--comment]"
 ---
 
-# Code Review Command
+# Review Command
 
 Review code changes using `code-reviewer` and `guidelines-auditor` agents.
 
@@ -16,9 +16,9 @@ Review code changes using `code-reviewer` and `guidelines-auditor` agents.
 ## Usage
 
 ```bash
-/git-helpers:code-review              # Terminal output, ask to save
-/git-helpers:code-review main         # Compare against main
-/git-helpers:code-review --comment    # Post to PR via gh
+/git-helpers:review              # Terminal output, ask to save
+/git-helpers:review main         # Compare against main
+/git-helpers:review --comment    # Post to PR via gh
 ```
 
 ## Process

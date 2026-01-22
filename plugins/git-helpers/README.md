@@ -37,30 +37,30 @@ First, add the marketplace to Claude Code (only needed once):
 
 | Command | Description |
 |---------|-------------|
-| `/git-helpers:code-review` | Review changes with confidence scoring |
+| `/git-helpers:review` | Review changes with confidence scoring |
 | `/git-helpers:commit` | Create commit with auto-generated message |
-| `/git-helpers:details` | Generate PR description to file |
+| `/git-helpers:summary` | Generate PR description to file |
 | `/git-helpers:push-pr` | Push branch and create PR |
 
 ## Workflow
 
 ```mermaid
 flowchart LR
-    review["/code-review"] --> commit["/commit"]
-    commit --> details["/details"]
-    details --> push["/push-pr"]
+    review["/review"] --> commit["/commit"]
+    commit --> summary["/summary"]
+    summary --> push["/push-pr"]
 ```
 
 ## Usage
 
-### /code-review
+### /review
 
 Review code changes using specialized agents.
 
 ```bash
-/git-helpers:code-review              # Terminal, ask to save
-/git-helpers:code-review main         # Compare against main
-/git-helpers:code-review --comment    # Post to PR via gh
+/git-helpers:review              # Terminal, ask to save
+/git-helpers:review main         # Compare against main
+/git-helpers:review --comment    # Post to PR via gh
 ```
 
 **Agents:**
@@ -80,13 +80,13 @@ Create a commit with an auto-generated message based on the actual diff.
 
 **Types:** `feat`, `fix`, `refactor`, `chore`, `docs`, `test`
 
-### /details
+### /summary
 
 Generate PR title and description and save to file.
 
 ```bash
-/git-helpers:details          # Auto-detect base branch
-/git-helpers:details main     # Use main as base
+/git-helpers:summary          # Auto-detect base branch
+/git-helpers:summary main     # Use main as base
 ```
 
 **Output:** `PR_DETAILS.md`

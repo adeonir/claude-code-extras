@@ -1,6 +1,6 @@
 {
   "name": "git-helpers",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Git workflow commands with confidence-scored code review",
   "author": {
     "name": "Adeonir Kohl"
@@ -9,9 +9,9 @@
   "license": "MIT",
   "keywords": ["git", "workflow", "commit", "pr", "code-review", "guidelines"],
   "commands": [
-    "./commands/code-review.md",
+    "./commands/review.md",
     "./commands/commit.md",
-    "./commands/details.md",
+    "./commands/summary.md",
     "./commands/push-pr.md"
   ],
   "agents": [

@@ -3,7 +3,7 @@ description: Generate PR title and description to file
 argument-hint: "[base-branch]"
 ---
 
-# PR Details Command
+# PR Summary Command
 
 Generate a comprehensive PR description comparing current branch with base branch, save to `PR_DETAILS.md`.
 
