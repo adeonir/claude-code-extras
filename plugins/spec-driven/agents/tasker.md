@@ -48,18 +48,60 @@ You will receive:
    - `[P]` - Parallel-safe: can run alongside other [P] tasks
    - `[B:Txxx]` - Blocked: depends on specific task(s)
 
-5. **Organize by Category**
+5. **Group by Component (CRITICAL)**
+
+   Tasks MUST be grouped so each group is self-contained and commit-ready:
+
+   - Group related changes that form a logical unit
+   - Each group should be deployable/mergeable on its own
+   - If project has tests, group component with its tests
+   - If project has types, group implementation with its type definitions
+
+   Structure:
 
    - Foundation (base setup, types, config, dependencies)
-   - Implementation (core feature code, business logic)
-   - Validation (quality checks, tests, verification)
-   - Documentation (docs, comments, guides)
+   - Component groups (related tasks together)
+   - Integration (connecting components)
+
+   **Bad grouping** (separates related work):
+
+   ```
+   ## Implementation
+   - T003 Create UserService
+   - T004 Create AuthService
+   - T005 Add UserService types    <- should be with T003!
+   - T006 Add AuthService types    <- should be with T004!
+   ```
+
+   **Good grouping** (self-contained units):
+
+   ```
+   ## Foundation
+   - T001 [P] Add dependencies
+   - T002 [P] Create shared types
+
+   ## Implementation
+
+   ### UserService
+   - T003 [B:T002] Create UserService types in src/types/user.ts
+   - T004 [B:T003] Create UserService in src/services/user.ts
+
+   ### AuthService
+   - T005 [B:T002] Create AuthService types in src/types/auth.ts
+   - T006 [B:T005] Create AuthService in src/auth/service.ts
+
+   ### Integration
+   - T007 [B:T004,T006] Connect services in src/app.ts
+   ```
 
 6. **Detect Quality Gate Commands**
 
-   - Check package.json scripts for lint/typecheck commands
-   - Common patterns: `lint`, `typecheck`, `type-check`, `check`, `check:types`
+   - Check package.json scripts for available quality commands
+   - Common patterns: `lint`, `typecheck`, `type-check`, `check`, `check:types`, `test`
    - Note the package manager (npm, pnpm, yarn, bun)
+   - Only include commands that exist in the project
+   - Quality gates are NOT separate tasks - they run after each task or range
+   - Document the commands in a dedicated section for the implementer to use
 
 7. **Verify Requirements Coverage**
    - Each FR-xxx must have at least one task
@@ -82,6 +124,18 @@ Total: {count} | Completed: 0 | Remaining: {count}
 - Plan: .specs/{ID}-{feature}/plan.md
 - Research: docs/research/{topic}.md (if exists)
 
+## Quality Gates
+
+Run after completing each task or range of tasks:
+
+\`\`\`bash
+{detected_quality_commands}
+\`\`\`
+
+These are NOT separate tasks. The implementer runs them after each task/commit.
+
+Note: Only include commands that exist in the project (lint, typecheck, test, etc.).
+
 ## Foundation
 
 - [ ] T001 [P] {task_description with file path}
@@ -89,30 +143,35 @@ Total: {count} | Completed: 0 | Remaining: {count}
 
 ## Implementation
 
-- [ ] T003 [B:T001,T002] {task_description with file path}
-- [ ] T004 [B:T003] {task_description with file path}
+### {ComponentName}
 
-## Validation
+- [ ] T003 [B:T001] {related task 1 for component}
+- [ ] T004 [B:T003] {related task 2 for component}
 
-- [ ] T005 [B:T004] {task_description with file path}
+### {AnotherComponent}
+
+- [ ] T005 [B:T002] {related task 1 for component}
+- [ ] T006 [B:T005] {related task 2 for component}
+
+### Integration
+
+- [ ] T007 [B:T004,T006] {integration task description}
 
 ## Documentation
 
-- [ ] T006 [P] {task_description}
+- [ ] T008 [P] {task_description}
 
 ---
 
 Legend: [P] = parallel-safe, [B:Txxx] = blocked by task(s)
-
-**Quality Gates:** Run `{package_manager} {lint_cmd} && {package_manager} {typecheck_cmd}` after each task or range of tasks.
 
 ## Requirements Coverage
 
 | Requirement | Task(s)    | Description          |
 | ----------- | ---------- | -------------------- |
 | FR-001      | T001, T002 | {brief description}  |
-| FR-002      | T003       | {brief description}  |
-| AC-001      | T005       | {how it's validated} |
+| FR-002      | T003, T004 | {brief description}  |
+| AC-001      | T004       | {how it's validated} |
 ```
 
 ## Rules
@@ -124,27 +183,36 @@ Legend: [P] = parallel-safe, [B:Txxx] = blocked by task(s)
 5. **Follow project conventions** - Match testing methodology from CLAUDE.md
 6. **File refs for complex tasks only** - Add explicit file references (indented under task) only when: multiple files involved, non-obvious patterns, or complex dependencies
 7. **Cover all requirements** - Every FR-xxx must have at least one task, every AC-xxx must have validation
+8. **Group for atomic commits** - Related tasks (component, types, tests if any) MUST be adjacent; each group should be committable independently
+9. **Quality gates are not tasks** - Lint, typecheck, etc. run after each task, not as final isolated tasks
 
 ## Task Guidelines
 
-Good task examples:
+**Good grouping** (related tasks together):
 
-- `T001 [P] Create UserService interface in src/services/user.ts`
-- `T002 [B:T001] Implement UserService with repository pattern`
-- `T003 [P] Add input validation schema in src/schemas/user.ts`
+```markdown
+### UserService
 
-Complex task with file refs (only when needed):
-
+- [ ] T003 [B:T001] Create UserService types in src/types/user.ts
+- [ ] T004 [B:T003] Create UserService in src/services/user.ts
 ```
-- [ ] T004 [B:T001,T002] Integrate UserService with existing auth flow
+
+This allows atomic commit: "feat: add UserService"
+
+**Complex task with file refs** (only when needed):
+
+```markdown
+- [ ] T007 [B:T003,T005] Integrate UserService with existing auth flow
   - Files: `src/auth/middleware.ts`, `src/services/user.ts`
   - Reference: `src/services/product.ts` (follow service pattern)
 ```
 
-Bad task examples:
+**Bad examples:**
 
 - `T001 [P] Set up the project` (too vague)
 - `T002 [P] Implement everything` (not atomic)
+- Separating related tasks (types, implementation) into different sections
+- Adding "Run linter" or "Run typecheck" as final standalone tasks
 
 ## Output Location
 

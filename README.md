@@ -18,7 +18,7 @@ Add this marketplace to Claude Code:
 
 | Plugin                                     | Description                                                                                               | Version |
 | ------------------------------------------ | --------------------------------------------------------------------------------------------------------- | ------- |
-| [spec-driven](./plugins/spec-driven)       | Specification-driven development with brownfield support, requirements traceability, and archive workflow | 2.5.2   |
+| [spec-driven](./plugins/spec-driven)       | Specification-driven development with brownfield support, requirements traceability, and archive workflow | 2.5.3   |
 | [debug-tools](./plugins/debug-tools)       | Iterative debugging workflow with confidence scoring and runtime analysis                                 | 1.3.1   |
 | [design-builder](./plugins/design-builder) | Extract copy and design from references to build React frontend or Figma designs                          | 4.0.1   |
 | [git-helpers](./plugins/git-helpers)       | Git workflow commands with confidence-scored code review                                                  | 1.2.2   |

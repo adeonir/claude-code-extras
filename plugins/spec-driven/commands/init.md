@@ -7,6 +7,35 @@ argument-hint: <description> | @<file.md>
 
 Initialize a new feature with a structured specification file.
 
+## Content Separation (CRITICAL)
+
+Each artifact has a distinct purpose. Never mix these concerns.
+
+| File     | Purpose                                            |
+| -------- | -------------------------------------------------- |
+| spec.md  | WHAT to build (requirements, acceptance criteria)  |
+| plan.md  | HOW to build (architecture, files, implementation) |
+| tasks.md | WHEN to build (ordered tasks with dependencies)    |
+
+### spec.md MUST contain ONLY:
+
+- User stories (As a... I want... so that...)
+- Functional requirements (what the system must do)
+- Acceptance criteria (verifiable conditions)
+- Business rules and constraints
+- For brownfield: current behavior description (high-level, no code)
+
+### spec.md MUST NOT contain:
+
+- Code snippets or examples
+- File paths or directory structures
+- Technology choices (React, Node, etc.)
+- Implementation approaches
+- Database schemas or API designs
+- Architecture decisions
+
+These belong in plan.md, created by `/spec-driven:plan`.
+
 ## Arguments
 
 - `<description>` - Text describing the feature
@@ -127,34 +156,32 @@ Output before generating spec:
 
 ### Step 4b: Baseline Discovery (if brownfield)
 
-If type is `brownfield`, gather information about the current implementation.
+If type is `brownfield`, understand the current user-facing behavior.
 
-**1. Find related files:**
+**1. Analyze current behavior:**
 
-Use the technical terms and file paths found in Step 2b.
+Use the technical terms found in Step 2b to understand what the system currently does from a user perspective.
 
-**2. Read main files:**
+**2. Document baseline (high-level only):**
 
-For each related file (up to 5 most relevant):
+Prepare baseline information for spec.md focusing on:
 
-- Read the file content
-- Identify key behaviors, functions, classes
-- Note current implementation approach
+- What users can currently do
+- Current limitations or gaps
+- What needs to change (in terms of behavior, not code)
 
-**3. Document baseline:**
+IMPORTANT: Do NOT include in the baseline:
 
-Prepare baseline information for spec.md:
+- File paths or directory structures
+- Function or class names
+- Code snippets
+- Technical implementation details
 
-- List of related files with brief descriptions
-- Current behavior summary
-- Points that will be modified
-
-Example baseline data:
+Example baseline:
 
 ```
-Files: src/cache/redis.ts, src/cache/memory.ts
-Current: Fixed TTL of 3600s, manual invalidation only
-Modification points: TTL configuration, tag-based invalidation
+Current Behavior: Cache expires after fixed time, requires manual refresh
+Gaps: No way to configure expiration, no automatic invalidation when data changes
 ```
 
 ### Step 5: Generate Feature Name
@@ -227,6 +254,8 @@ created: { YYYY-MM-DD }
 
 **Content for brownfield (includes Baseline section):**
 
+NOTE: Baseline describes current BEHAVIOR, not implementation details. No file paths, no code, no technical specifics.
+
 ```markdown
 # Feature: {Feature Title}
 
@@ -236,22 +265,17 @@ created: { YYYY-MM-DD }
 
 ## Baseline
 
-Estado atual baseado em analise de: {list of files analyzed}
+Current state based on codebase analysis.
 
-### Arquivos Relacionados
+### Current Behavior
 
-- `{file_path}`: {brief description of current behavior}
-- `{file_path}`: {brief description of current behavior}
+- {what the system currently does - user-facing behavior}
+- {what the system currently does - user-facing behavior}
 
-### Comportamento Atual
+### Gaps / Limitations
 
-- {description of current implementation}
-- {description of current implementation}
-
-### Pontos de Modificacao
-
-- {component/file} sera modificado para {action}
-- {component/file} sera modificado para {action}
+- {what is missing or not working well}
+- {what is missing or not working well}
 
 ## User Stories
 

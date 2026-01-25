@@ -2,6 +2,24 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## v2.5.3 (2026-01-25)
+
+### Changed
+
+- `/init` now enforces strict content separation between spec.md and plan.md
+  - spec.md: WHAT to build (requirements, acceptance criteria)
+  - plan.md: HOW to build (architecture, files, implementation)
+  - tasks.md: WHEN to build (ordered tasks with dependencies)
+- Brownfield baseline now describes behavior only, no file paths or code
+- Task grouping by component: related tasks (types, implementation, tests if any) are grouped together for atomic commits
+- Quality gates run after each task, not as separate final tasks
+- Removed assumption that all projects have tests
+
+### Fixed
+
+- spec.md was including implementation details (file paths, code, technology choices)
+- Tasks were being separated from related work (e.g., component far from its tests)
+
 ## v2.5.2 (2026-01-18)
 
 ### Added

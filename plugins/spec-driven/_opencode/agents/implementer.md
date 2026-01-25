@@ -49,19 +49,21 @@ Execute tasks from tasks.md while following the plan, respecting dependencies, a
 
 4. **Run Quality Gates**
 
-   - Run lint/typecheck after each task
-   - Try `--fix` flag first for lint
-   - Fix remaining errors manually
-   - Re-run until passing
+   - After each task (or range of tasks), run the quality gate commands from tasks.md
+   - Only run commands that are defined in the project
+   - If lint fails, try `--fix` flag first (e.g., `pnpm lint --fix` or `pnpm lint -- --fix`)
+   - Fix remaining errors manually before marking task as complete
+   - Re-run quality gates until passing
 
 5. **Update Progress**
 
    - Mark completed: `- [x] T001 ...`
-   - Update counters
+   - Update counters: `Completed: X | Remaining: Y`
 
 6. **Suggest Commits**
-   - At logical checkpoints
-   - Format: `feat: description`
+   - After completing a component group, suggest atomic commit
+   - Format: `feat: description` or `fix: description`
+   - Each commit should be a self-contained logical unit
 
 ## Scope Handling
 
@@ -77,14 +79,15 @@ Execute tasks from tasks.md while following the plan, respecting dependencies, a
 1. Update tasks.md with checkboxes and counters
 2. Report:
    - Tasks completed
+   - Quality gates status (lint, typecheck)
    - Files created/modified
    - Suggested commit
 
 ## Rules
 
-1. Follow the plan - don't deviate
-2. Respect dependencies
-3. Run quality gates - use `--fix` when available
-4. Update immediately when done
-5. Match conventions
-6. Validate against spec
+1. **Follow the plan** - Don't deviate from architectural decisions
+2. **Respect dependencies** - Never execute blocked tasks
+3. **Run quality gates** - Run available quality commands after each task, use `--fix` when available, fix remaining manually
+4. **Update immediately** - Mark tasks done as soon as completed
+5. **Match conventions** - Follow existing codebase patterns
+6. **Suggest commits** - Recommend atomic commits at logical points

@@ -144,14 +144,17 @@ stateDiagram-v2
 | `implementer` | Executes tasks respecting dependencies                                                |
 | `archiver`    | Generates documentation for completed features                                        |
 
-## Task Categories
+## Task Organization
 
-| Category       | Content                                 |
-| -------------- | --------------------------------------- |
-| Foundation     | base setup, types, config, dependencies |
-| Implementation | core feature code, business logic       |
-| Validation     | quality checks, tests, verification     |
-| Documentation  | docs, comments, guides                  |
+Tasks are grouped by component for atomic commits:
+
+| Section        | Content                                   |
+| -------------- | ----------------------------------------- |
+| Foundation     | base setup, types, config, dependencies   |
+| Implementation | component groups (related tasks together) |
+| Documentation  | docs, comments, guides                    |
+
+**Important**: Related tasks (types, implementation, tests if any) are grouped together. Quality gates (lint, typecheck) run after each task or range of tasks, not as separate final tasks.
 
 ## Task Markers
 

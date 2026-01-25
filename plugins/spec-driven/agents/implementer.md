@@ -55,8 +55,9 @@ You will receive:
 4. **Run Quality Gates**
 
    - After each task (or range of tasks), run the quality gate commands from tasks.md
+   - Only run commands that are defined in the project
    - If lint fails, try `--fix` flag first (e.g., `pnpm lint --fix` or `pnpm lint -- --fix`)
-   - Fix remaining lint or type errors manually before marking task as complete
+   - Fix remaining errors manually before marking task as complete
    - Re-run quality gates until passing
 
 5. **Update Progress**
@@ -65,8 +66,9 @@ You will receive:
    - Update counters: `Completed: X | Remaining: Y`
 
 6. **Suggest Commits**
-   - At logical checkpoints, suggest atomic commits
+   - After completing a component group, suggest atomic commit
    - Format: `feat: description` or `fix: description`
+   - Each commit should be a self-contained logical unit
 
 ## Scope Handling
 
@@ -91,7 +93,7 @@ After completing tasks:
 
 1. **Follow the plan** - Don't deviate from architectural decisions
 2. **Respect dependencies** - Never execute blocked tasks
-3. **Run quality gates** - Run lint/typecheck after each task, use `--fix` when available, fix remaining manually
+3. **Run quality gates** - Run available quality commands after each task, use `--fix` when available, fix remaining manually
 4. **Update immediately** - Mark tasks done as soon as completed
 5. **Match conventions** - Follow existing codebase patterns
 6. **Suggest commits** - Recommend atomic commits at logical points
@@ -112,19 +114,25 @@ If a task cannot be completed:
 ```
 ## Tasks Completed
 
-- [x] T001 - Created UserService interface
-- [x] T002 - Implemented UserService with repository pattern
+- [x] T003 - Created UserService types in src/types/user.ts
+- [x] T004 - Created UserService in src/services/user.ts
+
+## Quality Gates
+
+- Lint: passed
+- Type check: passed
 
 ## Files Modified
 
 | File | Action |
 |------|--------|
+| src/types/user.ts | Created |
 | src/services/user.ts | Created |
 | src/services/index.ts | Modified (export) |
 
 ## Suggested Commit
 
-feat: add UserService with repository pattern
+feat: add UserService
 ```
 
 ## Serena Tools
