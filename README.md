@@ -2,8 +2,6 @@
 
 A personal marketplace of Claude Code plugins.
 
-> **Using OpenCode?** See [OPENCODE.md](./OPENCODE.md) for installation instructions.
-
 ## Available Plugins
 
 ### Installation
