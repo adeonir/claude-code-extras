@@ -146,15 +146,9 @@ stateDiagram-v2
 
 ## Task Organization
 
-Tasks are grouped by component for atomic commits:
+Related tasks are adjacent in a flat list, separated by blank lines between logical groups. Each group follows natural build order (setup -> types -> implementation -> tests) and is commit-ready as an atomic unit.
 
-| Section        | Content                                   |
-| -------------- | ----------------------------------------- |
-| Foundation     | base setup, types, config, dependencies   |
-| Implementation | component groups (related tasks together) |
-| Documentation  | docs, comments, guides                    |
-
-**Important**: Related tasks (types, implementation, tests if any) are grouped together. Quality gates (lint, typecheck) run after each task or range of tasks, not as separate final tasks.
+**Important**: Component-specific dependencies belong next to the code that uses them. Quality gates (lint, typecheck) run after each task or range of tasks, not as separate final tasks.
 
 ## Task Markers
 
@@ -193,8 +187,8 @@ Tasks are grouped by component for atomic commits:
 /plan  --> Reads: spec.md
            Discovers: READMEs, diagrams, architecture docs
            Checks: docs/research/ for existing research
-           Outputs: docs/research/{topic}.md, plan.md (with Requirements Traceability)
-           Validates: plan.md against project documentation (auto-corrects if inconsistencies found)
+           Explores: test infrastructure (framework, patterns, utilities)
+           Outputs: docs/research/{topic}.md, plan.md (with Requirements Traceability and Test Strategy)
 /tasks --> Reads: spec.md (FR-xxx, AC-xxx), plan.md
            Outputs: tasks.md (with Requirements Coverage)
 /implement --> Reads: spec.md (AC), plan.md (Critical Files), tasks.md

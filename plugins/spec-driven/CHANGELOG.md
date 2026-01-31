@@ -2,6 +2,35 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## v2.6.0 (2026-01-31)
+
+### Added
+
+- Test Infrastructure Discovery step in `explorer` agent
+  - Discovers test framework via config files (jest, vitest, pytest, etc.)
+  - Locates test directories, shared utilities, fixtures, helpers, and mocks
+  - Documents how to run tests and finds reference tests for similar features
+- Test Strategy section in `architect` plan output
+  - Existing Infrastructure table (framework, directory, utilities, run command)
+  - Reference Tests table (patterns to follow from similar features)
+  - New Tests table (components, files, scenarios)
+
+### Changed
+
+- Task grouping is now a flat list with adjacency-based grouping (blank lines between groups)
+  - No more section headers (Foundation, Implementation, etc.)
+  - Related tasks (types, implementation, tests) are always adjacent
+  - Component-specific deps belong next to the code that uses them
+- `/plan` command no longer runs inline validation (removed Step 8)
+  - Suggests `/spec-driven:validate` as optional step in the report
+- `architect` process now analyzes test patterns from explorer output
+
+### Removed
+
+- Inline plan validation step from `/plan` command (use `/spec-driven:validate` instead)
+- Category-based task sections (Foundation, Implementation, Documentation)
+- Generic "Testing: {strategy}" field from architect Considerations
+
 ## v2.5.3 (2026-01-25)
 
 ### Changed

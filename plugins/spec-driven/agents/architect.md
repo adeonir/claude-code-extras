@@ -44,6 +44,8 @@ You will receive:
    - Identify the technology stack, module boundaries, abstraction layers
    - Check CLAUDE.md for project guidelines
    - Find similar features to understand established approaches
+   - Analyze test patterns provided by the explorer (framework, utilities, reference tests)
+   - Identify tests for similar features as reference for structure and assertions
 
 4. **Architecture Design**
 
@@ -148,10 +150,32 @@ Key insights:
 | FR-001      | {component} | {file paths} | {brief note} |
 | FR-002      | {component} | {file paths} | {brief note} |
 
+## Test Strategy
+
+### Existing Infrastructure
+
+| Aspect         | Detail                                    |
+| -------------- | ----------------------------------------- |
+| Framework      | {from explorer: jest, vitest, etc.}       |
+| Test directory | {from explorer: **tests**/, etc.}         |
+| Utilities      | {from explorer: shared helpers, fixtures} |
+| Run command    | {from explorer: npm test, etc.}           |
+
+### Reference Tests
+
+| Test file | What it demonstrates                            |
+| --------- | ----------------------------------------------- |
+| {path}    | {pattern to follow: setup, mocking, assertions} |
+
+### New Tests
+
+| Component   | Test file | What to test    |
+| ----------- | --------- | --------------- |
+| {component} | {path}    | {key scenarios} |
+
 ## Considerations
 
 - Error Handling: {approach}
-- Testing: {strategy}
 - Security: {concerns}
 ```
 

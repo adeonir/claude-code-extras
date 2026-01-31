@@ -79,6 +79,7 @@ Ask it to explore:
 - Architecture patterns and conventions
 - Relevant entry points and integration areas
 - Testing patterns
+- Test infrastructure (framework, patterns, utilities, reference tests)
 
 You may launch 2-3 explorer agents in parallel with different focuses.
 
@@ -116,63 +117,20 @@ Key points:
 - {relevant findings}
 ```
 
-### Step 8: Validate Plan Against Documentation
-
-After plan.md is generated, validate it against project documentation.
-
-**Discover Project Documentation:**
-
-- Find docs/_.md, README.md, _.md in project root
-- Include files referenced in spec.md
-- Check for architecture diagrams, ADRs, or specs
-
-**Invoke validator Agent (Mode Plan):**
-
-Pass to the agent:
-
-- Validation mode: `plan`
-- spec.md (requirements context)
-- plan.md (just generated)
-- List of discovered documentation files
-
-**Handle Validation Results:**
-
-If `Ready`:
-
-- Continue to Step 9
-
-If `Needs fixes`:
-
-1. Present validation results to user (informational)
-2. Re-invoke `architect` with:
-   - Original inputs
-   - List of specific corrections from validator
-   - Explicit instruction: "Documentation is the source of truth. Address these inconsistencies."
-3. After new plan.md generated, re-validate
-4. Repeat until `Ready` or max 3 iterations reached
-
-If max iterations reached with issues remaining:
-
-- Report the remaining inconsistencies
-- Ask user how to proceed:
-  - **Continue anyway**: Proceed to Step 9 (plan may need manual adjustment later)
-  - **Review documentation**: User will check if documentation is accurate/outdated
-  - **Manually adjust plan**: User will edit plan.md directly to resolve issues
-
-### Step 9: Update Status
+### Step 8: Update Status
 
 Update spec.md frontmatter:
 
 - Set `status: ready`
 
-### Step 10: Report
+### Step 9: Report
 
 Inform the user:
 
 - Research conducted (if applicable) at `docs/research/{topic}.md`
 - Plan created at `.specs/{ID}-{feature}/plan.md`
-- Plan validated against documentation (X iterations if corrections were needed)
 - Key architectural decisions made
+- Suggest running `/spec-driven:validate` to validate the plan against documentation (optional)
 - Next step: `/spec-driven:tasks` to generate task list
 
 ## Error Handling

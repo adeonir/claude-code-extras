@@ -64,7 +64,7 @@ The agent will create `.specs/{ID}-{feature}/tasks.md` with:
 
 - Sequential IDs (T001, T002...)
 - Dependency markers [P] and [B:Txxx]
-- Categories (Foundation, Implementation, Validation, Documentation)
+- Component groups (each with setup, types, implementation, tests in natural order)
 - Checkboxes for tracking
 - Quality gates instruction
 - Requirements coverage table
@@ -76,18 +76,12 @@ Inform the user:
 - Tasks created at `.specs/{ID}-{feature}/tasks.md`
 - Next step: `/spec-driven:implement` to start implementation
 
-Show a summary table:
+Show a summary:
 
 ```
 ## Task Summary
 
-| Category | Tasks | Complexity |
-|----------|-------|------------|
-| Foundation | T001-T002 | Low |
-| Implementation | T003-T006 | High |
-| Validation | T007-T008 | Medium |
-| Documentation | T009 | Low |
-
+Total: 9 tasks
 Run `/spec-driven:implement` to start, or `/spec-driven:implement T001` for a specific task.
 ```
 

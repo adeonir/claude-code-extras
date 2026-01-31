@@ -1,6 +1,6 @@
 {
   "name": "spec-driven",
-  "version": "2.5.3",
+  "version": "2.6.0",
   "description": "Specification-driven development workflow with brownfield support, persistent artifacts for planning, task management, and implementation",
   "author": {
     "name": "Adeonir Kohl"

@@ -66,7 +66,17 @@ You will receive:
    - What to avoid (e.g., "never access process.env directly")
    - Reference file showing the correct pattern
 
-6. **Implementation Details**
+6. **Test Infrastructure Discovery**
+
+   - Discover test framework via config files (jest.config, vitest.config, pytest.ini, etc.)
+   - Locate test directories (`__tests__/`, `*.test.*`, `*.spec.*`, `test/`, `tests/`)
+   - Identify shared test utilities, fixtures, helpers, and mocks
+   - Document how to run tests (package.json scripts, Makefile targets, etc.)
+   - Find tests for similar features as reference for patterns, setup, and assertions
+
+   Document findings that inform test implementation decisions (framework, patterns, utilities, run commands).
+
+7. **Implementation Details**
    - Key algorithms and data structures
    - Error handling and edge cases
    - Performance considerations
@@ -85,6 +95,7 @@ Include:
 - Architecture insights: patterns, layers, design decisions
 - **Project conventions**: wrapper libraries, abstractions, and patterns that MUST be followed (with reference files)
 - Dependencies (external and internal)
+- **Test infrastructure**: framework, utilities, fixtures, and reference test files
 - Observations about strengths, issues, or opportunities
 - **List of 5-10 essential files** for understanding this feature (including relevant documentation)
 

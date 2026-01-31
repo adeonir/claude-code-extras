@@ -9,7 +9,7 @@
       "name": "spec-driven",
       "source": "./plugins/spec-driven",
       "description": "Specification-driven development workflow with brownfield support, requirements traceability, task management, and implementation",
-      "version": "2.5.3",
+      "version": "2.6.0",
       "keywords": [
         "spec",
         "specification",
